@@ -30,5 +30,8 @@ function initializeBoard() {
 function applySetting() {
     width = parseInt($("#width_input").val());
     height = parseInt($("#height_input").val());
+    Array.from(board.children).forEach(function(div) {
+        board.removeChild(div);
+    });
     initialize();
 }

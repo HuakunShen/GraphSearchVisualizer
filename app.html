@@ -38,13 +38,15 @@
 <body>
 <div class="container">
     <div style="display: block">
-        <div class="ui input">
-            <input id="width_input" class="dimension-input" type="text" placeholder="Width">
-            <input id="height_input" class="dimension-input" type="text" placeholder="Height">
-        </div>
-        <button onclick="applySetting()" class="ui primary button">
-            Apply
-        </button>
+        <form action="#" onsubmit="applySetting();return false">
+            <div class="ui input">
+                <input id="width_input" class="dimension-input" type="text" placeholder="Width">
+                <input id="height_input" class="dimension-input" type="text" placeholder="Height">
+            </div>
+            <button type="submit" class="ui primary button">
+                Apply
+            </button>
+        </form>
     </div>
     <br>
     <br>
