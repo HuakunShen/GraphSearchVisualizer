@@ -4,6 +4,7 @@ let board = document.getElementById("board");
 let width = 10;
 let height = 10;
 initialize();
+
 function initialize() {
     initializeBoard();
 }
@@ -24,4 +25,10 @@ function initializeBoard() {
         }
         board.appendChild(row_div);
     }
+}
+
+function applySetting() {
+    width = parseInt($("#width_input").val());
+    height = parseInt($("#height_input").val());
+    initialize();
 }

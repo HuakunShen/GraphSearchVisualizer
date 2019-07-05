@@ -4,30 +4,54 @@
     <meta charset="UTF-8">
     <title>Graph Search Algorithm Visualizer</title>
     <link rel="stylesheet" type="text/css" href="app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+          integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous"/>
     <style>
         body {
             text-align: center;
         }
 
-        #test_cell {
-            width: 20px;
-            height: 20px;
-            background-color: red;
+        .container {
+            margin: 10%;
         }
 
         #board_container {
-            margin-top: 100px;
+            /*margin-top: 100px;*/
             display: inline-block;
         }
 
         #board {
             /*display: flex;*/
         }
+
+        .container .ui .dimension-input {
+            margin: 10px;
+        }
+
+        /*#i1, #i2 {*/
+        /*    margin-left: 30px;*/
+        /*}*/
+
+
     </style>
 </head>
 <body>
-<div id="board_container">
-    <div id="board"></div>
+<div class="container">
+    <div style="display: block">
+        <div class="ui input">
+            <input id="width_input" class="dimension-input" type="text" placeholder="Width">
+            <input id="height_input" class="dimension-input" type="text" placeholder="Height">
+        </div>
+        <button onclick="applySetting()" class="ui primary button">
+            Apply
+        </button>
+    </div>
+    <br>
+    <br>
+    <div id="board_container">
+        <div id="board"></div>
+    </div>
+
 </div>
 <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -35,5 +59,7 @@
         crossorigin="anonymous"></script>
 <!--<script src="p5.js" type="text/javascript"></script>-->
 <script src="app.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+        integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
 </body>
 </html>
