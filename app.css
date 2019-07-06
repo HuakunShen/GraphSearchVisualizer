@@ -31,7 +31,7 @@ html body {
     border: 1px solid black;
 }
 
-#mode_radio_btn_group {
+.radio_btn_group {
     width: 50%;
     display: flex;
     text-align: left;

@@ -4,17 +4,26 @@ let board = document.getElementById("board");
 let width = 20;
 let height = 20;
 let mouse_is_down = false;
+let button_clicked = 0;
 initialize();
 
 function initialize() {
     initializeBoard();
-    board.onmousedown = function (event) {
+    document.onmousedown = board.onmousedown = function (event) {
         mouse_is_down = true;
+        button_clicked = event.button;
+        if (button_clicked === 2) {
+            $("#clear")[0].checked = true;
+        } else if (button_clicked === 0) {
+            $("#wall")[0].checked = true;
+        }
         return false;
     };
-    board.onmouseup = function (event) {
+    document.onmouseup = board.onmouseup = function (event) {
         mouse_is_down = false;
     };
+
+
 }
 
 function initializeBoard() {
@@ -44,27 +53,51 @@ function initializeBoard() {
 function setCellEventListener(cell_div) {
     cell_div.onclick = cellClicked;
     cell_div.onmouseover = cellHovered;
+    cell_div.addEventListener('contextmenu', function (event) {
+        event.preventDefault();
+        cellClicked(event);
+        $("input[name='mode']").value = "clear";
+
+        return false;
+    }, false);
+    // cell_div.onmousedown = function (event) {
+    //     if (event.button === 0) {
+    //
+    //     }
+    // }
 }
 
+
 function cellClicked(event) {
+    // console.log(button_clicked);
     setCellColor(event);
 }
 
 function cellHovered(event) {
     if (mouse_is_down) {
         setCellColor(event);
+        // if (button_clicked === 0) {
+        //     event.target.style.backgroundColor = "#70a1ff";
+        // } else if (button_clicked === 2) {
+        //     event.target.style.backgroundColor = "white";
+        // }
     }
 
 }
 
 function setCellColor(event) {
-    const radioValue = $("input[name='mode']:checked").val();
-    if (radioValue) {
-        if (radioValue === "wall") {
-            event.target.style.backgroundColor = "blue";
-        } else if (radioValue === "clear") {
-            event.target.style.backgroundColor = "white";
-        }
+    // const radioValue = $("input[name='mode']:checked").val();
+    // if (radioValue) {
+    //     if (radioValue === "wall") {
+    //         event.target.style.backgroundColor = "#70a1ff";
+    //     } else if (radioValue === "clear") {
+    //         event.target.style.backgroundColor = "white";
+    //     }
+    // }
+    if (button_clicked === 0) {
+        event.target.style.backgroundColor = "#70a1ff";
+    } else if (button_clicked === 2) {
+        event.target.style.backgroundColor = "white";
     }
 }
 

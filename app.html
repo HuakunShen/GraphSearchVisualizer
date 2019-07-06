@@ -25,17 +25,33 @@
             <button id="clear-board-btn" onclick="clearBoard()" class="ui primary button">Clear Board</button>
         </div>
         <div class="center">
-            <div id="mode_radio_btn_group">
+            <p style="float: left; margin-right: 20px;">Selecting Mode</p>
+            <div class="radio_btn_group">
                 <label class="radio-container" style="margin-left: 0;">Wall
-                    <input type="radio" checked="checked" name="mode" value="wall">
+                    <input id="wall" type="radio" checked="checked" name="mode" value="wall">
                     <span class="checkmark"></span>
                 </label>
                 <label class="radio-container" >Clear
-                    <input type="radio" name="mode" value="clear">
+                    <input id="clear" type="radio" name="mode" value="clear">
                     <span class="checkmark"></span>
                 </label>
             </div>
         </div>
+        <br>
+        <div class="center">
+            <p style="float: left; margin-right: 20px;">Search Algorithm</p>
+            <div class="radio_btn_group">
+                <label class="radio-container" style="margin-left: 0;">BFS
+                    <input type="radio" checked="checked" name="search_mode" value="BFS">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="radio-container" >DFS
+                    <input type="radio" name="search_mode" value="DFS">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        </div>
+
     </div>
     <br>
     <div id="board_container">
