@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
           integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="radio_btn.css" type="text/css">
 </head>
 <body>
 <div class="container">
@@ -16,21 +17,32 @@
                 <input type="number" id="width_input" class="dimension-input" type="text" placeholder="Width">
                 <input type="number" id="height_input" class="dimension-input" type="text" placeholder="Height">
             </div>
-            <button type="submit" class="ui primary button">
+            <button type="submit" class="ui primary button" style="margin-left: 10px">
                 Apply
             </button>
         </form>
-        <button onclick="clearBoard()" class="ui primary button">Clear Board</button>
+        <button id="clear-board-btn" onclick="clearBoard()" class="ui primary button">Clear Board</button>
     </div>
-    <div id="mode_radio_btn_group">
-        <input type="radio" checked="" name="mode" value="wall"> Wall<br>
-        <input type="radio" name="mode" value="clear"> Clear<br>
+    <div class="container">
+        <div id="mode_radio_btn_group">
+            <label class="radio-container">Wall
+                <input type="radio" checked="checked" name="mode" value="wall">
+                <span class="checkmark"></span>
+            </label>
+            <label class="radio-container">Clear
+                <input type="radio" name="mode" value="clear">
+                <span class="checkmark"></span>
+            </label>
+
+        </div>
     </div>
+
     <br>
     <br>
     <div id="board_container">
         <div id="board"></div>
     </div>
+
 
 </div>
 <script

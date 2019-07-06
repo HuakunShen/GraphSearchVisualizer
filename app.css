@@ -1,21 +1,30 @@
-body {
+html body {
     text-align: center;
+    background-color: #2d3436;
+    color: white;
 }
 
 .container {
+    margin-top: 2%;
+    text-align: center;
+    display: inline-block;
+}
+
+.radio-container {
     margin: 5%;
 }
 
 #board_container {
     /*margin-top: 100px;*/
     display: inline-block;
+    border: 2px solid black;
 }
 
 #board {
     /*display: flex;*/
 }
 
-.container .ui .dimension-input {
+.radio-container .ui .dimension-input {
     margin: 10px;
 }
 
@@ -26,6 +35,15 @@ body {
 
 #mode_radio_btn_group {
     width: 50%;
-    display: inline-block;
+    display: flex;
+    text-align: left;
+    /*margin-left: 30%;*/
+}
 
+#clear-board-btn {
+    margin: 10px;
+}
+
+.container .ui .dimension-input {
+    margin-left: 10px;
 }

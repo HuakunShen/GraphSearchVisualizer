@@ -80,8 +80,14 @@ function clearBoard() {
 function applySetting() {
     width = parseInt($("#width_input").val());
     height = parseInt($("#height_input").val());
-    Array.from(board.children).forEach(function (div) {
-        board.removeChild(div);
-    });
-    initialize();
+    if (width < 1 || height < 1 || isNaN(width) || isNaN(height)) {
+        alert("Dimension Input Must Be Positive Integer And Cannot Be Empty! \nPlease Enter Again.");
+        $("#width_input")[0].value = "";
+        $("#height_input")[0].value = "";
+    } else {
+        Array.from(board.children).forEach(function (div) {
+            div.remove();
+        });
+        initialize();
+    }
 }
