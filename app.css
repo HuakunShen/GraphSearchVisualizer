@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-    margin: 10%;
+    margin: 5%;
 }
 
 #board_container {
@@ -22,4 +22,10 @@ body {
 .cell {
     background-color: white;
     border: 1px solid black;
+}
+
+#mode_radio_btn_group {
+    width: 50%;
+    display: inline-block;
+
 }

@@ -9,6 +9,7 @@
 </head>
 <body>
 <div class="container">
+    <h1>Graph Searching Algorithm Visualizer</h1>
     <div style="display: block">
         <form action="#" onsubmit="applySetting();return false">
             <div class="ui input">
@@ -19,6 +20,11 @@
                 Apply
             </button>
         </form>
+        <button onclick="clearBoard()" class="ui primary button">Clear Board</button>
+    </div>
+    <div id="mode_radio_btn_group">
+        <input type="radio" checked="" name="mode" value="wall"> Wall<br>
+        <input type="radio" name="mode" value="clear"> Clear<br>
     </div>
     <br>
     <br>
@@ -32,6 +38,7 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
 <!--<script src="p5.js" type="text/javascript"></script>-->
+<script src="cell.js" type="text/javascript"></script>
 <script src="app.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
         integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
