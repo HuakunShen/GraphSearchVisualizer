@@ -17,10 +17,11 @@ function initializeBoard() {
             let cell = document.createElement("div");
             cell.style.width = cell_dimension + "px";
             cell.style.height = cell_dimension + "px";
-            cell.style.background = "red";
-            cell.style.border = "0.5px solid black";
+            // cell.style.background = "red";
+            // cell.style.border = "0.5px solid black";
             cell.setAttribute("data-row", row);
             cell.setAttribute("data-col", col);
+            cell.classList.add("cell");
             row_div.appendChild(cell);
         }
         board.appendChild(row_div);

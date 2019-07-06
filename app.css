@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+}
+
+.container {
+    margin: 10%;
+}
+
+#board_container {
+    /*margin-top: 100px;*/
+    display: inline-block;
+}
+
+#board {
+    /*display: flex;*/
+}
+
+.container .ui .dimension-input {
+    margin: 10px;
+}
+
+.cell {
+    background-color: white;
+    border: 1px solid black;
+}
