@@ -11,33 +11,32 @@
 <body>
 <div class="container">
     <h1>Graph Searching Algorithm Visualizer</h1>
-    <div style="display: block">
-        <form action="#" onsubmit="applySetting();return false">
-            <div class="ui input">
-                <input type="number" id="width_input" class="dimension-input" type="text" placeholder="Width">
-                <input type="number" id="height_input" class="dimension-input" type="text" placeholder="Height">
+    <div id="setting_div">
+        <div style="display: block; margin-top: 50px">
+            <form action="#" onsubmit="applySetting();return false">
+                <div class="ui input">
+                    <input type="number" id="width_input" class="dimension-input" type="text" placeholder="Width">
+                    <input type="number" id="height_input" class="dimension-input" type="text" placeholder="Height">
+                </div>
+                <button type="submit" class="ui primary button" style="margin-left: 10px">
+                    Apply
+                </button>
+            </form>
+            <button id="clear-board-btn" onclick="clearBoard()" class="ui primary button">Clear Board</button>
+        </div>
+        <div class="center">
+            <div id="mode_radio_btn_group">
+                <label class="radio-container" style="margin-left: 0;">Wall
+                    <input type="radio" checked="checked" name="mode" value="wall">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="radio-container" >Clear
+                    <input type="radio" name="mode" value="clear">
+                    <span class="checkmark"></span>
+                </label>
             </div>
-            <button type="submit" class="ui primary button" style="margin-left: 10px">
-                Apply
-            </button>
-        </form>
-        <button id="clear-board-btn" onclick="clearBoard()" class="ui primary button">Clear Board</button>
-    </div>
-    <div class="container">
-        <div id="mode_radio_btn_group">
-            <label class="radio-container">Wall
-                <input type="radio" checked="checked" name="mode" value="wall">
-                <span class="checkmark"></span>
-            </label>
-            <label class="radio-container">Clear
-                <input type="radio" name="mode" value="clear">
-                <span class="checkmark"></span>
-            </label>
-
         </div>
     </div>
-
-    <br>
     <br>
     <div id="board_container">
         <div id="board"></div>
