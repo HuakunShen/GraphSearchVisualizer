@@ -39,6 +39,11 @@ function updateCellAttrubutes(element) {
     let cell = graph[element.getAttribute("data-row")][element.getAttribute("data-col")];
     cell.color = element.style.backgroundColor;
     cell.type = color_to_type_dict[cell.color];
+    if (cell.type === SOURCE_CELL) {
+        source = cell;
+    } else if (cell.type === TARGET_CELL) {
+        target = cell;
+    }
 }
 
 function syncAllCellsProperties() {
@@ -82,4 +87,16 @@ function getCellByColor(color) {
         })
     });
     return null;
+}
+
+function sourceTargetIsSet() {
+    if (source === undefined || source === null) {
+        alert("Source node not set!");
+        return false;
+    } else if (target === undefined || target === null) {
+        alert("Target node not set!");
+        return false;
+    } else {
+        return true;
+    }
 }

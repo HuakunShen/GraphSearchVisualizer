@@ -137,4 +137,14 @@ function startSearchClicked() {
     const radioValue = $("input[name='search_mode']:checked").val();
     syncAllCellsProperties();
     search_active = true;
+    switch(radioValue) {
+        case "BFS":
+            if (!sourceTargetIsSet()) {
+                break;
+            }
+            startBFSsearch();
+            break;
+        default:
+            console.log("no search selected");
+    }
 }

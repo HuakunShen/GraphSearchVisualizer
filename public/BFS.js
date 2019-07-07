@@ -1,26 +1,24 @@
 let queue = new Queue();
+let distance = 0;
 function successorCells(cell) {
     let successors = getLegalPos(cell.row, cell.col);
     return successors;
 }
 
 function startBFSsearch() {
-    // find the source element
-    source = getCellByColor(SOURCE_COLOR);
-    if (source === null) {
-        alert("Source Node Is Not Selected!");
-        return false;
-    }
-    // find the target element
-    target = getCellByColor(TARGET_COLOR);
-    if (target === null) {
-        alert("Source Node Is Not Selected!");
-        return false;
-    }
+    queue.enqueue(source);
+    distance = 0;
+    BFS_search();
 
 
-
-
+    // search ends
     search_active = false;
     return true;
+}
+
+function BFS_search() {
+    let interval = window.setInterval(function() {
+        console.log("test");
+    }, 1000);
+
 }
