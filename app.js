@@ -10,18 +10,18 @@ let source;
 let target;
 const WALL_COLOR = "rgb(0, 168, 255)";
 const CLEAR_COLOR = "white";
-const UNDISCOVERED = "white";
-const DISCOVERED = "rgb(113, 128, 147)";
-const EXPLORED = "black";
+const UNDISCOVERED_COLOR = "white";
+const DISCOVERED_COLOR = "rgb(113, 128, 147)";
+const EXPLORED_COLOR = "black";
 const SOURCE_COLOR = "red";
 const TARGET_COLOR = "rgb(68, 189, 50)";
-
+let color_to_type_dict = [];
+let type_to_color_dict = [];
 
 initialize();
 
 function initialize() {
     initializeBoard();
-    // document.onmousedown = board.onmousedown = function (event) {
     board.onmousedown = function (event) {
     mouse_is_down = true;
     button_clicked = event.button;
@@ -35,6 +35,19 @@ function initialize() {
     document.onmouseup = board.onmouseup = function (event) {
         mouse_is_down = false;
     };
+
+    type_to_color_dict[WALL_CELL] = WALL_COLOR;
+    type_to_color_dict[CLEAR_CELL] = CLEAR_COLOR;
+    type_to_color_dict[UNDISCOVERED_CELL] = UNDISCOVERED_COLOR;
+    type_to_color_dict[DISCOVERED_CELL] = DISCOVERED_COLOR;
+    type_to_color_dict[EXPLORED_CELL] = EXPLORED_COLOR;
+    type_to_color_dict[SOURCE_CELL] = SOURCE_COLOR;
+    type_to_color_dict[TARGET_CELL] = TARGET_COLOR;
+    
+    for (let key in type_to_color_dict) {
+        color_to_type_dict[type_to_color_dict[key]] = key;
+    }
+
 
 
 }

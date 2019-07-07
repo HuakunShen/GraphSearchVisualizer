@@ -18,7 +18,7 @@ function getLegalPos(row, col) {
     coordinates.forEach(function(coordinate) {
         if (cellExists(coordinate[0], coordinate[1])) {
             console.log(coordinate);
-            if (getCellFromBoard(coordinate[0], coordinate[1]).style.backgroundColor === UNDISCOVERED) {
+            if (getCellFromBoard(coordinate[0], coordinate[1]).style.backgroundColor === UNDISCOVERED_COLOR) {
                 legal_pos.push(coordinate);
             }
         }
@@ -43,8 +43,9 @@ function updateCellAttrubutes(element) {
             cell.type = WALL_CELL;
             break;
         case CLEAR_COLOR:
-            cell.type = 
-        case UNDISCOVERED:
+            cell.type = CLEAR_CELL;
+            break;
+        case UNDISCOVERED_COLOR:
             cell.type = DISCOVERED_CELL;
             break;
         case SOURCE_COLOR:
@@ -57,7 +58,7 @@ function updateCellAttrubutes(element) {
         // code block
     }
 
-    if (element.style.backgroundColor === UNDISCOVERED) {
+    if (element.style.backgroundColor === UNDISCOVERED_COLOR) {
         cell.type = DISCOVERED_CELL;
     }
 }

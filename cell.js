@@ -2,6 +2,7 @@ const CLEAR_CELL = "clear_cell";
 const WALL_CELL = "wall_cell";
 const SOURCE_CELL = "source_cell";
 const TARGET_CELL = "target_cell";
+const UNDISCOVERED_CELL = "undiscovered_cell";
 const DISCOVERED_CELL = "discovered_cell";
 const EXPLORED_CELL = "explore_cell";
 
