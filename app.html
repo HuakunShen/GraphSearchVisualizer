@@ -32,7 +32,15 @@
                     <span class="checkmark"></span>
                 </label>
                 <label class="radio-container" >Clear
-                    <input id="clear" type="radio" name="mode" value="clear">
+                    <input id="radio_btn_clear" type="radio" name="mode" value="clear">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="radio-container" >Source
+                    <input id="source" type="radio" name="mode" value="source">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="radio-container" >Target
+                    <input id="target" type="radio" name="mode" value="target">
                     <span class="checkmark"></span>
                 </label>
             </div>
@@ -51,6 +59,8 @@
                 </label>
             </div>
         </div>
+        <br>
+        <button class="ui primary button" style="margin-left: 10px" onclick="startSearchClicked()">Start Search</button>
 
     </div>
     <br>
@@ -67,6 +77,9 @@
 <!--<script src="p5.js" type="text/javascript"></script>-->
 <script src="cell.js" type="text/javascript"></script>
 <script src="app.js" type="text/javascript"></script>
+<script src="BFS.js" type="text/javascript"></script>
+<script src="DFS.js" type="text/javascript"></script>
+<script src="util.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
         integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
 </body>
