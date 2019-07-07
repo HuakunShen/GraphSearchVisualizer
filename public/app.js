@@ -23,14 +23,9 @@ initialize();
 function initialize() {
     initializeBoard();
     board.onmousedown = function (event) {
-    mouse_is_down = true;
-    button_clicked = event.button;
-        // if (button_clicked === 2) {
-        //     $("#clear")[0].checked = true;
-        // } else if (button_clicked === 0) {
-        //     $("#wall")[0].checked = true;
-        // }
-    return false;
+        mouse_is_down = true;
+        button_clicked = event.button;
+        return false;
     };
     document.onmouseup = board.onmouseup = function (event) {
         mouse_is_down = false;
@@ -43,11 +38,10 @@ function initialize() {
     type_to_color_dict[EXPLORED_CELL] = EXPLORED_COLOR;
     type_to_color_dict[SOURCE_CELL] = SOURCE_COLOR;
     type_to_color_dict[TARGET_CELL] = TARGET_COLOR;
-    
+
     for (let key in type_to_color_dict) {
         color_to_type_dict[type_to_color_dict[key]] = key;
     }
-
 
 
 }
@@ -94,36 +88,20 @@ function setCellEventListener(cell_div) {
 function cellClicked(event) {
     setCellColor(event);
     const radioValue = $("input[name='mode']:checked").val();
-    // alert(radioValue);
-    // if (radioValue === "source") {
-    //     replaceColorOnBoard(SOURCE_COLOR, CLEAR_COLOR);
-    //     event.target.style.backgroundColor = SOURCE_COLOR;
-    //     // alert("");
-    // } else if (radioValue === "target") {
-    //     replaceColorOnBoard(TARGET_COLOR, CLEAR_COLOR);        
-    //     event.target.style.backgroundColor = TARGET_COLOR;
-    // }
 
     if (radioValue === "target") {
-        replaceColorOnBoard(TARGET_COLOR, CLEAR_COLOR);        
+        replaceColorOnBoard(TARGET_COLOR, CLEAR_COLOR);
         event.target.style.backgroundColor = TARGET_COLOR;
     } else if (radioValue === "source") {
         replaceColorOnBoard(SOURCE_COLOR, CLEAR_COLOR);
         event.target.style.backgroundColor = SOURCE_COLOR;
     }
-    updateCellColor(event.target);
 }
 
 function cellHovered(event) {
     if (mouse_is_down) {
         setCellColor(event);
-        // if (button_clicked === 0) {
-        //     event.target.style.backgroundColor = "#70a1ff";
-        // } else if (button_clicked === 2) {
-        //     event.target.style.backgroundColor = "white";
-        // }
     }
-
 }
 
 function setCellColor(event) {
@@ -135,15 +113,8 @@ function setCellColor(event) {
             graph[div_pos[0]][div_pos[1]].color = WALL_COLOR;
         } else if (radioValue === "clear") {
             event.target.style.backgroundColor = CLEAR_COLOR;
-        } 
-        updateCellColor(event.target);
-
+        }
     }
-    // if (button_clicked === 0) {
-    //     event.target.style.backgroundColor = "#70a1ff";
-    // } else if (button_clicked === 2) {
-    //     event.target.style.backgroundColor = "white";
-    // }
 }
 
 
@@ -164,6 +135,6 @@ function applySetting() {
 
 function startSearchClicked() {
     const radioValue = $("input[name='search_mode']:checked").val();
-    // alert(radioValue);
+    syncAllCellsProperties();
     search_active = true;
 }

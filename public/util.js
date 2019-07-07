@@ -38,35 +38,13 @@ function updateCellColor(element) {
 function updateCellAttrubutes(element) {
     let cell = graph[element.getAttribute("data-row")][element.getAttribute("data-col")];
     cell.color = element.style.backgroundColor;
-    switch(element.style.backgroundColor) {
-        case WALL_COLOR:
-            cell.type = WALL_CELL;
-            break;
-        case CLEAR_COLOR:
-            cell.type = CLEAR_CELL;
-            break;
-        case UNDISCOVERED_COLOR:
-            cell.type = DISCOVERED_CELL;
-            break;
-        case SOURCE_COLOR:
-            cell.type = SOURCE_CELL;
-            break;
-        case TARGET_COLOR:
-            cell.type = TARGET_CELL;
-            break;
-        default:
-        // code block
-    }
-
-    if (element.style.backgroundColor === UNDISCOVERED_COLOR) {
-        cell.type = DISCOVERED_CELL;
-    }
+    cell.type = color_to_type_dict[cell.color];
 }
 
-function syncAllCellColor() {
+function syncAllCellsProperties() {
     Array.from(board.children).forEach(function (row) {
-        Array.from(row.children).forEach(function (cell) {
-            updateCellColor(cell);
+        Array.from(row.children).forEach(function (cell_div) {
+            updateCellAttrubutes(cell_div);
         })
     })
 }
