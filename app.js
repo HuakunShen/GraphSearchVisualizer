@@ -6,6 +6,8 @@ let height = 20;
 let mouse_is_down = false;
 let button_clicked = 0;
 let search_active = false;
+let source;
+let target;
 const WALL_COLOR = "rgb(0, 168, 255)";
 const CLEAR_COLOR = "white";
 const UNDISCOVERED = "white";
