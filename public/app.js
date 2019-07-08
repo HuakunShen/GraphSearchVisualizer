@@ -5,7 +5,7 @@ let width = 20;
 let height = 20;
 let mouse_is_down = false;
 let button_clicked = 0;
-let search_active = false;
+let search_active;
 let source;
 let target;
 const WALL_COLOR = "rgb(0, 168, 255)";
@@ -21,6 +21,7 @@ let type_to_color_dict = [];
 initialize();
 
 function initialize() {
+    graph = [];
     initializeBoard();
     board.onmousedown = function (event) {
         mouse_is_down = true;

@@ -64,13 +64,32 @@ function syncAllCellDivsColor() {
 }
 
 function clearBoard() {
+    if (source)
+        source.type = UNDISCOVERED_CELL;
+    if (target)
+        target.type = UNDISCOVERED_CELL;
+    source = null;
+    target = null;
+    search_active = false;
+    clearInterval(playback_interval);
     Array.from(board.children).forEach(function (row) {
         Array.from(row.children).forEach(function (cell) {
             cell.style.backgroundColor = "white";
-            updateCellColor(cell);
+            updateCellAttrubutes(cell);
             cell.innerHTML = "";
         })
-    })
+    });
+
+    syncAllCellsProperties();
+}
+
+function cleanBoard() {
+    Array.from(board.children).forEach(function (row) {
+        Array.from(row.children).forEach(function (cell) {
+            cell.innerHTML = "";
+        });
+    });
+    // syncAllCellDivsColor();
 }
 
 function replaceColorOnBoard(original_color, destination_color) {
@@ -80,8 +99,9 @@ function replaceColorOnBoard(original_color, destination_color) {
                 cell.style.backgroundColor = destination_color;
                 updateCellColor(cell);
             }
-        })
-    })
+        });
+    });
+    syncAllCellsProperties();
 }
 
 function getCellFromBoard(row, col) {
@@ -110,6 +130,11 @@ function sourceTargetIsSet() {
         return true;
     }
 }
+
+// function updateSliderSpeed() {
+//     slider_speed = $("#simulator_speed").val();
+//     console.log(slider_speed);
+// }
 
 
 function timer(func, num, stop) {

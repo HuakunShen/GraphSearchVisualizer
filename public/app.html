@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
           integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous"/>
     <link rel="stylesheet" href="radio_btn.css" type="text/css">
+    <link rel="stylesheet" href="slider.css" type="text/css">
 </head>
 <body>
 <div class="container">
@@ -22,6 +23,18 @@
                     Apply
                 </button>
             </form>
+
+
+
+            <h3>Simulator Speed</h3>
+
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider" id="simulator_speed">
+                <p>Value: <span id="demo"></span></p>
+            </div>
+            <br>
+
+
             <button id="clear-board-btn" onclick="clearBoard()" class="ui primary button">Clear Board</button>
         </div>
         <div class="center">
@@ -75,8 +88,10 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
 <!--<script src="p5.js" type="text/javascript"></script>-->
+<script src="slider.js" type="text/javascript"></script>
 <script src="queue.js" type="text/javascript"></script>
 <script src="cell.js" type="text/javascript"></script>
+<script src="record.js" type="text/javascript"></script>
 <script src="app.js" type="text/javascript"></script>
 <script src="BFS.js" type="text/javascript"></script>
 <script src="DFS.js" type="text/javascript"></script>

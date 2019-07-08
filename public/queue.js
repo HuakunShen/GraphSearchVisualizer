@@ -15,7 +15,7 @@ class Queue {
         }
     }
 
-    dequeue(element) {
+    dequeue() {
         if (this.head !== null) {
             let first_element = this.head;
             this.head = this.head.next;
@@ -27,6 +27,11 @@ class Queue {
 
     isEmpty() {
         return this.head === null;
+    }
+
+    clear() {
+        this.head = null;
+        this.tail = null;
     }
 }
 
