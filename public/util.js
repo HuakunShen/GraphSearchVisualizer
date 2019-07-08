@@ -68,6 +68,7 @@ function clearBoard() {
         Array.from(row.children).forEach(function (cell) {
             cell.style.backgroundColor = "white";
             updateCellColor(cell);
+            cell.innerHTML = "";
         })
     })
 }

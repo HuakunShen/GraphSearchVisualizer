@@ -15,7 +15,10 @@ function startBFSsearch() {
     // queue.enqueue(source);
     // distance = 0;
     BFS_search();
+    if (target.isFound === undefined) {
+        setTimeout(()=>{alert("Target Can Not Be Reached!");}, 100);
 
+    }
 
     // search ends
     // window.clearInterval(time_intercal);
@@ -62,6 +65,7 @@ function updateBFS() {
         if (curr_cell.type === TARGET_CELL) {
             target_found = true;
             console.log("found");
+            target.isFound = true;
         } else {
             curr_cell.type = DISCOVERED_CELL;
             curr_cell.color = DISCOVERED_COLOR;
