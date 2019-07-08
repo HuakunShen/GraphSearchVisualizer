@@ -11,19 +11,20 @@ function generateCoordinatesAround(row, col) {
     return coordinates;
 }
 
-function getLegalPos(row, col) {
-    let legal_pos = [];
+function getLegalCells(row, col) {
+    let legal_cells = [];
     let coordinates = generateCoordinatesAround(row, col);
     // console.log(coordinates);
-    coordinates.forEach(function(coordinate) {
+    coordinates.forEach(function (coordinate) {
         if (cellExists(coordinate[0], coordinate[1])) {
-            console.log(coordinate);
-            if (getCellFromBoard(coordinate[0], coordinate[1]).style.backgroundColor === UNDISCOVERED_COLOR) {
-                legal_pos.push(coordinate);
+            let curr_cell = graph[coordinate[0]][coordinate[1]];
+            if (curr_cell.type !== EXPLORED_CELL && curr_cell.type !== DISCOVERED_CELL && curr_cell.type !== SOURCE_CELL) {
+            // if (!(curr_cell.type in [EXPLORED_CELL, DISCOVERED_CELL, SOURCE_CELL, TARGET_CELL])) {
+                legal_cells.push(graph[coordinate[0]][coordinate[1]]);
             }
         }
     });
-    return legal_pos;
+    return legal_cells;
 
 }
 
@@ -54,6 +55,14 @@ function syncAllCellsProperties() {
     })
 }
 
+function syncAllCellDivsColor() {
+    graph.forEach(function (row) {
+        row.forEach(function (cell) {
+            getCellFromBoard(cell.row, cell.col).backgroundColor = cell.color;
+        });
+    })
+}
+
 function clearBoard() {
     Array.from(board.children).forEach(function (row) {
         Array.from(row.children).forEach(function (cell) {
@@ -79,8 +88,8 @@ function getCellFromBoard(row, col) {
 }
 
 function getCellByColor(color) {
-    graph.forEach(function(row) {
-        row.forEach(function(cell) {
+    graph.forEach(function (row) {
+        row.forEach(function (cell) {
             if (cell.color === color) {
                 return cell;
             }
@@ -98,5 +107,41 @@ function sourceTargetIsSet() {
         return false;
     } else {
         return true;
+    }
+}
+
+
+function timer(func, num, stop) {
+    num /= 2;
+    if (num < 1) {
+        num = 1;
+    }
+    let prev = 0;
+    let curr = new Date().getMilliseconds();
+    let count = 0;
+    let display_count = 0;
+    while (1) {
+        prev = curr;
+        curr = new Date().getMilliseconds();
+        if (curr % 2 === 0) {
+            if (prev != curr) {
+                // func(count);
+                // console.log(count);
+                count++;
+            }
+        }
+        if (count === num) {
+            func();
+            // console.log(display_count);
+            display_count++;
+            count = 0;
+        }
+        if (display_count > 1000) {
+            display_count = 0;
+        }
+        if (display_count === stop) {
+            return;
+        }
+
     }
 }

@@ -1,4 +1,4 @@
-const cell_dimension = 20;
+let cell_dimension = 40;
 let graph = [];
 let board = document.getElementById("board");
 let width = 20;
@@ -43,7 +43,6 @@ function initialize() {
         color_to_type_dict[type_to_color_dict[key]] = key;
     }
 
-
 }
 
 function initializeBoard() {
@@ -55,8 +54,8 @@ function initializeBoard() {
             let cell_div = document.createElement("div");
             cell_div.style.width = cell_dimension + "px";
             cell_div.style.height = cell_dimension + "px";
-            cell_div.setAttribute("data-row", row);
-            cell_div.setAttribute("data-col", col);
+            cell_div.setAttribute("data-row", row.toString());
+            cell_div.setAttribute("data-col", col.toString());
             cell_div.style.backgroundColor = CLEAR_COLOR;
             cell_div.classList.add("cell");
             setCellEventListener(cell_div);
