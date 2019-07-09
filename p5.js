@@ -2152,7 +2152,7 @@
                   }
                 ],
                 example: [
-                  '\n<div>\n<code>\nlet v1 = createVector(40, 50);\nlet v2 = createVector(40, 50);\n\nellipse(v1.x, v1.y, 50, 50);\nellipse(v2.x, v2.y, 50, 50);\nv1.add(v2);\nellipse(v1.x, v1.y, 50, 50);\n</code>\n</div>'
+                  '\n<div>\n<code>\nlet graph_search_v1 = createVector(40, 50);\nlet v2 = createVector(40, 50);\n\nellipse(graph_search_v1.x, graph_search_v1.y, 50, 50);\nellipse(v2.x, v2.y, 50, 50);\ngraph_search_v1.add(v2);\nellipse(graph_search_v1.x, graph_search_v1.y, 50, 50);\n</code>\n</div>'
                 ],
                 alt:
                   '2 white ellipses. One center-left the other bottom right and off canvas'
@@ -3527,7 +3527,7 @@
                     line: 293,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description:
                           '<p>red or hue value relative to\n                                the current color range</p>\n',
                         type: 'Number'
@@ -4005,7 +4005,7 @@
                     line: 148,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description:
                           '<p>red or hue value (depending on the current color\n                       mode)</p>\n',
                         type: 'Number'
@@ -4173,7 +4173,7 @@
                     line: 341,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description:
                           '<p>red or hue value relative to\n                                the current color range</p>\n',
                         type: 'Number'
@@ -4307,7 +4307,7 @@
                     line: 579,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description:
                           '<p>red or hue value relative to\n                                the current color range</p>\n',
                         type: 'Number'
@@ -10487,7 +10487,7 @@
                     line: 298,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description:
                           '<p>red or hue value relative to\n                                the current color range</p>\n',
                         type: 'Number'
@@ -11672,7 +11672,7 @@
                   type: 'Object|Array'
                 },
                 example: [
-                  '\n\n<p>Calling <a href="#/p5/loadJSON">loadJSON()</a> inside <a href="#/p5/preload">preload()</a> guarantees to complete the\noperation before <a href="#/p5/setup">setup()</a> and <a href="#/p5/draw">draw()</a> are called.</p>\n\n<div><code>\n// Examples use USGS Earthquake API:\n//   https://earthquake.usgs.gov/fdsnws/event/1/#methods\nlet earthquakes;\nfunction preload() {\n  // Get the most recent earthquake in the database\n  let url =\n   \'https://earthquake.usgs.gov/earthquakes/feed/v1.0/\' +\n    \'summary/all_day.geojson\';\n  earthquakes = loadJSON(url);\n}\n\nfunction setup() {\n  noLoop();\n}\n\nfunction draw() {\n  background(200);\n  // Get the magnitude and name of the earthquake out of the loaded JSON\n  let earthquakeMag = earthquakes.features[0].properties.mag;\n  let earthquakeName = earthquakes.features[0].properties.place;\n  ellipse(width / 2, height / 2, earthquakeMag * 10, earthquakeMag * 10);\n  textAlign(CENTER);\n  text(earthquakeName, 0, height - 30, width, 30);\n}\n</code></div>\n\n\n<p>Outside of preload(), you may supply a callback function to handle the\nobject:</p>\n<div><code>\nfunction setup() {\n  noLoop();\n  let url =\n   \'https://earthquake.usgs.gov/earthquakes/feed/v1.0/\' +\n    \'summary/all_day.geojson\';\n  loadJSON(url, drawEarthquake);\n}\n\nfunction draw() {\n  background(200);\n}\n\nfunction drawEarthquake(earthquakes) {\n  // Get the magnitude and name of the earthquake out of the loaded JSON\n  let earthquakeMag = earthquakes.features[0].properties.mag;\n  let earthquakeName = earthquakes.features[0].properties.place;\n  ellipse(width / 2, height / 2, earthquakeMag * 10, earthquakeMag * 10);\n  textAlign(CENTER);\n  text(earthquakeName, 0, height - 30, width, 30);\n}\n</code></div>'
+                  '\n\n<p>Calling <a href="#/p5/loadJSON">loadJSON()</a> inside <a href="#/p5/preload">preload()</a> guarantees to complete the\noperation before <a href="#/p5/setup">setup()</a> and <a href="#/p5/draw">draw()</a> are called.</p>\n\n<div><code>\n// Examples use USGS Earthquake API:\n//   https://earthquake.usgs.gov/fdsnws/event/1/#methods\nlet earthquakes;\nfunction preload() {\n  // Get the most recent earthquake in the database\n  let url =\n   \'https://earthquake.usgs.gov/earthquakes/feed/graph_search_v1.0/\' +\n    \'summary/all_day.geojson\';\n  earthquakes = loadJSON(url);\n}\n\nfunction setup() {\n  noLoop();\n}\n\nfunction draw() {\n  background(200);\n  // Get the magnitude and name of the earthquake out of the loaded JSON\n  let earthquakeMag = earthquakes.features[0].properties.mag;\n  let earthquakeName = earthquakes.features[0].properties.place;\n  ellipse(width / 2, height / 2, earthquakeMag * 10, earthquakeMag * 10);\n  textAlign(CENTER);\n  text(earthquakeName, 0, height - 30, width, 30);\n}\n</code></div>\n\n\n<p>Outside of preload(), you may supply a callback function to handle the\nobject:</p>\n<div><code>\nfunction setup() {\n  noLoop();\n  let url =\n   \'https://earthquake.usgs.gov/earthquakes/feed/graph_search_v1.0/\' +\n    \'summary/all_day.geojson\';\n  loadJSON(url, drawEarthquake);\n}\n\nfunction draw() {\n  background(200);\n}\n\nfunction drawEarthquake(earthquakes) {\n  // Get the magnitude and name of the earthquake out of the loaded JSON\n  let earthquakeMag = earthquakes.features[0].properties.mag;\n  let earthquakeName = earthquakes.features[0].properties.place;\n  ellipse(width / 2, height / 2, earthquakeMag * 10, earthquakeMag * 10);\n  textAlign(CENTER);\n  text(earthquakeName, 0, height - 30, width, 30);\n}\n</code></div>'
                 ],
                 alt:
                   '50x50 ellipse that changes from black to white depending on the current humidity\n50x50 ellipse that changes from black to white depending on the current humidity',
@@ -14596,7 +14596,7 @@
                   type: 'String'
                 },
                 example: [
-                  '\n<div class = "norender">\n<code>\nfunction setup() {\n  let v = createVector(20, 30);\n  print(String(v)); // prints "p5.Vector Object : [20, 30, 0]"\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 0);\n  let v1 = createVector(mouseX, mouseY);\n  drawArrow(v0, v1, \'black\');\n\n  noStroke();\n  text(v1.toString(), 10, 25, 90, 75);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>'
+                  '\n<div class = "norender">\n<code>\nfunction setup() {\n  let v = createVector(20, 30);\n  print(String(v)); // prints "p5.Vector Object : [20, 30, 0]"\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 0);\n  let graph_search_v1 = createVector(mouseX, mouseY);\n  drawArrow(v0, graph_search_v1, \'black\');\n\n  noStroke();\n  text(graph_search_v1.toString(), 10, 25, 90, 75);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>'
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -14611,7 +14611,7 @@
                 name: 'set',
                 chainable: 1,
                 example: [
-                  "\n<div class=\"norender\">\n<code>\nfunction setup() {\n  let v = createVector(1, 2, 3);\n  v.set(4, 5, 6); // Sets vector to [4, 5, 6]\n\n  let v1 = createVector(0, 0, 0);\n  let arr = [1, 2, 3];\n  v1.set(arr); // Sets vector to [1, 2, 3]\n}\n</code>\n</div>\n\n<div>\n<code>\nlet v0, v1;\nfunction setup() {\n  createCanvas(100, 100);\n\n  v0 = createVector(0, 0);\n  v1 = createVector(50, 50);\n}\n\nfunction draw() {\n  background(240);\n\n  drawArrow(v0, v1, 'black');\n  v1.set(v1.x + random(-1, 1), v1.y + random(-1, 1));\n\n  noStroke();\n  text('x: ' + round(v1.x) + ' y: ' + round(v1.y), 20, 90);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
+                  "\n<div class=\"norender\">\n<code>\nfunction setup() {\n  let v = createVector(1, 2, 3);\n  v.set(4, 5, 6); // Sets vector to [4, 5, 6]\n\n  let graph_search_v1 = createVector(0, 0, 0);\n  let arr = [1, 2, 3];\n  graph_search_v1.set(arr); // Sets vector to [1, 2, 3]\n}\n</code>\n</div>\n\n<div>\n<code>\nlet v0, graph_search_v1;\nfunction setup() {\n  createCanvas(100, 100);\n\n  v0 = createVector(0, 0);\n  graph_search_v1 = createVector(50, 50);\n}\n\nfunction draw() {\n  background(240);\n\n  drawArrow(v0, graph_search_v1, 'black');\n  graph_search_v1.set(graph_search_v1.x + random(-1, 1), graph_search_v1.y + random(-1, 1));\n\n  noStroke();\n  text('x: ' + round(graph_search_v1.x) + ' y: ' + round(graph_search_v1.y), 20, 90);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -14666,7 +14666,7 @@
                   type: 'p5.Vector'
                 },
                 example: [
-                  '\n<div class="norender">\n<code>\nlet v1 = createVector(1, 2, 3);\nlet v2 = v1.copy();\nprint(v1.x === v2.x && v1.y === v2.y && v1.z === v2.z);\n// Prints "true"\n</code>\n</div>'
+                  '\n<div class="norender">\n<code>\nlet graph_search_v1 = createVector(1, 2, 3);\nlet v2 = graph_search_v1.copy();\nprint(graph_search_v1.x === v2.x && graph_search_v1.y === v2.y && graph_search_v1.z === v2.z);\n// Prints "true"\n</code>\n</div>'
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -14681,7 +14681,7 @@
                 name: 'add',
                 chainable: 1,
                 example: [
-                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(1, 2, 3);\nv.add(4, 5, 6);\n// v's components are set to [5, 7, 9]\n</code>\n</div>\n\n<div class=\"norender\">\n<code>\n// Static method\nlet v1 = createVector(1, 2, 3);\nlet v2 = createVector(2, 3, 4);\n\nlet v3 = p5.Vector.add(v1, v2);\n// v3 has components [3, 5, 7]\nprint(v3);\n</code>\n</div>\n\n<div>\n<code>\n// red vector + blue vector = purple vector\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 0);\n  let v1 = createVector(mouseX, mouseY);\n  drawArrow(v0, v1, 'red');\n\n  let v2 = createVector(-30, 20);\n  drawArrow(v1, v2, 'blue');\n\n  let v3 = p5.Vector.add(v1, v2);\n  drawArrow(v0, v3, 'purple');\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
+                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(1, 2, 3);\nv.add(4, 5, 6);\n// v's components are set to [5, 7, 9]\n</code>\n</div>\n\n<div class=\"norender\">\n<code>\n// Static method\nlet graph_search_v1 = createVector(1, 2, 3);\nlet v2 = createVector(2, 3, 4);\n\nlet v3 = p5.Vector.add(graph_search_v1, v2);\n// v3 has components [3, 5, 7]\nprint(v3);\n</code>\n</div>\n\n<div>\n<code>\n// red vector + blue vector = purple vector\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 0);\n  let graph_search_v1 = createVector(mouseX, mouseY);\n  drawArrow(v0, graph_search_v1, 'red');\n\n  let v2 = createVector(-30, 20);\n  drawArrow(graph_search_v1, v2, 'blue');\n\n  let v3 = p5.Vector.add(graph_search_v1, v2);\n  drawArrow(v0, v3, 'purple');\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -14725,7 +14725,7 @@
                     line: 1555,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description:
                           '<p>a <a href="#/p5.Vector">p5.Vector</a> to add</p>\n',
                         type: 'p5.Vector'
@@ -14748,7 +14748,7 @@
                     line: 1562,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description: '',
                         type: 'p5.Vector'
                       },
@@ -14775,7 +14775,7 @@
                 name: 'sub',
                 chainable: 1,
                 example: [
-                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(4, 5, 6);\nv.sub(1, 1, 1);\n// v's components are set to [3, 4, 5]\n</code>\n</div>\n\n<div class=\"norender\">\n<code>\n// Static method\nlet v1 = createVector(2, 3, 4);\nlet v2 = createVector(1, 2, 3);\n\nlet v3 = p5.Vector.sub(v1, v2);\n// v3 has components [1, 1, 1]\nprint(v3);\n</code>\n</div>\n\n<div>\n<code>\n// red vector - blue vector = purple vector\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 0);\n  let v1 = createVector(70, 50);\n  drawArrow(v0, v1, 'red');\n\n  let v2 = createVector(mouseX, mouseY);\n  drawArrow(v0, v2, 'blue');\n\n  let v3 = p5.Vector.sub(v1, v2);\n  drawArrow(v2, v3, 'purple');\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
+                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(4, 5, 6);\nv.sub(1, 1, 1);\n// v's components are set to [3, 4, 5]\n</code>\n</div>\n\n<div class=\"norender\">\n<code>\n// Static method\nlet graph_search_v1 = createVector(2, 3, 4);\nlet v2 = createVector(1, 2, 3);\n\nlet v3 = p5.Vector.sub(graph_search_v1, v2);\n// v3 has components [1, 1, 1]\nprint(v3);\n</code>\n</div>\n\n<div>\n<code>\n// red vector - blue vector = purple vector\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 0);\n  let graph_search_v1 = createVector(70, 50);\n  drawArrow(v0, graph_search_v1, 'red');\n\n  let v2 = createVector(mouseX, mouseY);\n  drawArrow(v0, v2, 'blue');\n\n  let v3 = p5.Vector.sub(graph_search_v1, v2);\n  drawArrow(v2, v3, 'purple');\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -14819,7 +14819,7 @@
                     line: 1585,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description:
                           '<p>a <a href="#/p5.Vector">p5.Vector</a> to subtract from</p>\n',
                         type: 'p5.Vector'
@@ -14842,7 +14842,7 @@
                     line: 1592,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description: '',
                         type: 'p5.Vector'
                       },
@@ -14869,7 +14869,7 @@
                 name: 'mult',
                 chainable: 1,
                 example: [
-                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(1, 2, 3);\nv.mult(2);\n// v's components are set to [2, 4, 6]\n</code>\n</div>\n\n<div class=\"norender\">\n<code>\n// Static method\nlet v1 = createVector(1, 2, 3);\nlet v2 = p5.Vector.mult(v1, 2);\n// v2 has components [2, 4, 6]\nprint(v2);\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(50, 50);\n  let v1 = createVector(25, -25);\n  drawArrow(v0, v1, 'red');\n\n  let num = map(mouseX, 0, width, -2, 2, true);\n  let v2 = p5.Vector.mult(v1, num);\n  drawArrow(v0, v2, 'blue');\n\n  noStroke();\n  text('multiplied by ' + num.toFixed(2), 5, 90);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
+                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(1, 2, 3);\nv.mult(2);\n// v's components are set to [2, 4, 6]\n</code>\n</div>\n\n<div class=\"norender\">\n<code>\n// Static method\nlet graph_search_v1 = createVector(1, 2, 3);\nlet v2 = p5.Vector.mult(graph_search_v1, 2);\n// v2 has components [2, 4, 6]\nprint(v2);\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(50, 50);\n  let graph_search_v1 = createVector(25, -25);\n  drawArrow(v0, graph_search_v1, 'red');\n\n  let num = map(mouseX, 0, width, -2, 2, true);\n  let v2 = p5.Vector.mult(graph_search_v1, num);\n  drawArrow(v0, v2, 'blue');\n\n  noStroke();\n  text('multiplied by ' + num.toFixed(2), 5, 90);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -14938,7 +14938,7 @@
                 name: 'div',
                 chainable: 1,
                 example: [
-                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(6, 4, 2);\nv.div(2); //v's components are set to [3, 2, 1]\n</code>\n</div>\n\n<div class=\"norender\">\n<code>\n// Static method\nlet v1 = createVector(6, 4, 2);\nlet v2 = p5.Vector.div(v1, 2);\n// v2 has components [3, 2, 1]\nprint(v2);\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 100);\n  let v1 = createVector(50, -50);\n  drawArrow(v0, v1, 'red');\n\n  let num = map(mouseX, 0, width, 10, 0.5, true);\n  let v2 = p5.Vector.div(v1, num);\n  drawArrow(v0, v2, 'blue');\n\n  noStroke();\n  text('divided by ' + num.toFixed(2), 10, 90);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
+                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(6, 4, 2);\nv.div(2); //v's components are set to [3, 2, 1]\n</code>\n</div>\n\n<div class=\"norender\">\n<code>\n// Static method\nlet graph_search_v1 = createVector(6, 4, 2);\nlet v2 = p5.Vector.div(graph_search_v1, 2);\n// v2 has components [3, 2, 1]\nprint(v2);\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 100);\n  let graph_search_v1 = createVector(50, -50);\n  drawArrow(v0, graph_search_v1, 'red');\n\n  let num = map(mouseX, 0, width, 10, 0.5, true);\n  let v2 = p5.Vector.div(graph_search_v1, num);\n  drawArrow(v0, v2, 'blue');\n\n  noStroke();\n  text('divided by ' + num.toFixed(2), 10, 90);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -15010,7 +15010,7 @@
                   type: 'Number'
                 },
                 example: [
-                  '\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 0);\n  let v1 = createVector(mouseX, mouseY);\n  drawArrow(v0, v1, \'black\');\n\n  noStroke();\n  text(\'vector length: \' + v1.mag().toFixed(2), 10, 70, 90, 30);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>\n<div class="norender">\n<code>\nlet v = createVector(20.0, 30.0, 40.0);\nlet m = v.mag();\nprint(m); // Prints "53.85164807134504"\n</code>\n</div>'
+                  '\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 0);\n  let graph_search_v1 = createVector(mouseX, mouseY);\n  drawArrow(v0, graph_search_v1, \'black\');\n\n  noStroke();\n  text(\'vector length: \' + graph_search_v1.mag().toFixed(2), 10, 70, 90, 30);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>\n<div class="norender">\n<code>\nlet v = createVector(20.0, 30.0, 40.0);\nlet m = v.mag();\nprint(m); // Prints "53.85164807134504"\n</code>\n</div>'
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -15053,7 +15053,7 @@
                   type: 'Number'
                 },
                 example: [
-                  '\n<div class="norender">\n<code>\n// Static method\nlet v1 = createVector(6, 4, 2);\nprint(v1.magSq()); // Prints "56"\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 0);\n  let v1 = createVector(mouseX, mouseY);\n  drawArrow(v0, v1, \'black\');\n\n  noStroke();\n  text(\'vector length squared: \' + v1.magSq().toFixed(2), 10, 45, 90, 55);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>'
+                  '\n<div class="norender">\n<code>\n// Static method\nlet graph_search_v1 = createVector(6, 4, 2);\nprint(graph_search_v1.magSq()); // Prints "56"\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 0);\n  let graph_search_v1 = createVector(mouseX, mouseY);\n  drawArrow(v0, graph_search_v1, \'black\');\n\n  noStroke();\n  text(\'vector length squared: \' + graph_search_v1.magSq().toFixed(2), 10, 45, 90, 55);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>'
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -15071,7 +15071,7 @@
                   type: 'Number'
                 },
                 example: [
-                  '\n<div class="norender">\n<code>\nlet v1 = createVector(1, 2, 3);\nlet v2 = createVector(2, 3, 4);\n\nprint(v1.dot(v2)); // Prints "20"\n</code>\n</div>\n\n<div class="norender">\n<code>\n//Static method\nlet v1 = createVector(1, 2, 3);\nlet v2 = createVector(3, 2, 1);\nprint(p5.Vector.dot(v1, v2)); // Prints "10"\n</code>\n</div>'
+                  '\n<div class="norender">\n<code>\nlet graph_search_v1 = createVector(1, 2, 3);\nlet v2 = createVector(2, 3, 4);\n\nprint(graph_search_v1.dot(v2)); // Prints "20"\n</code>\n</div>\n\n<div class="norender">\n<code>\n//Static method\nlet graph_search_v1 = createVector(1, 2, 3);\nlet v2 = createVector(3, 2, 1);\nprint(p5.Vector.dot(graph_search_v1, v2)); // Prints "10"\n</code>\n</div>'
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -15122,7 +15122,7 @@
                     line: 1667,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description:
                           '<p>the first <a href="#/p5.Vector">p5.Vector</a></p>\n',
                         type: 'p5.Vector'
@@ -15155,7 +15155,7 @@
                   type: 'p5.Vector'
                 },
                 example: [
-                  '\n<div class="norender">\n<code>\nlet v1 = createVector(1, 2, 3);\nlet v2 = createVector(1, 2, 3);\n\nv1.cross(v2); // v\'s components are [0, 0, 0]\n</code>\n</div>\n\n<div class="norender">\n<code>\n// Static method\nlet v1 = createVector(1, 0, 0);\nlet v2 = createVector(0, 1, 0);\n\nlet crossProduct = p5.Vector.cross(v1, v2);\n// crossProduct has components [0, 0, 1]\nprint(crossProduct);\n</code>\n</div>'
+                  '\n<div class="norender">\n<code>\nlet graph_search_v1 = createVector(1, 2, 3);\nlet v2 = createVector(1, 2, 3);\n\ngraph_search_v1.cross(v2); // v\'s components are [0, 0, 0]\n</code>\n</div>\n\n<div class="norender">\n<code>\n// Static method\nlet graph_search_v1 = createVector(1, 0, 0);\nlet v2 = createVector(0, 1, 0);\n\nlet crossProduct = p5.Vector.cross(graph_search_v1, v2);\n// crossProduct has components [0, 0, 1]\nprint(crossProduct);\n</code>\n</div>'
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -15181,7 +15181,7 @@
                     line: 1681,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description:
                           '<p>the first <a href="#/p5.Vector">p5.Vector</a></p>\n',
                         type: 'p5.Vector'
@@ -15213,7 +15213,7 @@
                   type: 'Number'
                 },
                 example: [
-                  "\n<div class=\"norender\">\n<code>\nlet v1 = createVector(1, 0, 0);\nlet v2 = createVector(0, 1, 0);\n\nlet distance = v1.dist(v2); // distance is 1.4142...\nprint(distance);\n</code>\n</div>\n\n<div class=\"norender\">\n<code>\n// Static method\nlet v1 = createVector(1, 0, 0);\nlet v2 = createVector(0, 1, 0);\n\nlet distance = p5.Vector.dist(v1, v2);\n// distance is 1.4142...\nprint(distance);\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 0);\n\n  let v1 = createVector(70, 50);\n  drawArrow(v0, v1, 'red');\n\n  let v2 = createVector(mouseX, mouseY);\n  drawArrow(v0, v2, 'blue');\n\n  noStroke();\n  text('distance between vectors: ' + v2.dist(v1).toFixed(2), 5, 50, 95, 50);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
+                  "\n<div class=\"norender\">\n<code>\nlet graph_search_v1 = createVector(1, 0, 0);\nlet v2 = createVector(0, 1, 0);\n\nlet distance = graph_search_v1.dist(v2); // distance is 1.4142...\nprint(distance);\n</code>\n</div>\n\n<div class=\"norender\">\n<code>\n// Static method\nlet graph_search_v1 = createVector(1, 0, 0);\nlet v2 = createVector(0, 1, 0);\n\nlet distance = p5.Vector.dist(graph_search_v1, v2);\n// distance is 1.4142...\nprint(distance);\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 0);\n\n  let graph_search_v1 = createVector(70, 50);\n  drawArrow(v0, graph_search_v1, 'red');\n\n  let v2 = createVector(mouseX, mouseY);\n  drawArrow(v0, v2, 'blue');\n\n  noStroke();\n  text('distance between vectors: ' + v2.dist(graph_search_v1).toFixed(2), 5, 50, 95, 50);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -15238,7 +15238,7 @@
                     line: 1696,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description:
                           '<p>the first <a href="#/p5.Vector">p5.Vector</a></p>\n',
                         type: 'p5.Vector'
@@ -15270,7 +15270,7 @@
                   type: 'p5.Vector'
                 },
                 example: [
-                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(10, 20, 2);\n// v has components [10.0, 20.0, 2.0]\nv.normalize();\n// v's components are set to\n// [0.4454354, 0.8908708, 0.089087084]\n</code>\n</div>\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(50, 50);\n  let v1 = createVector(mouseX - 50, mouseY - 50);\n\n  drawArrow(v0, v1, 'red');\n  v1.normalize();\n  drawArrow(v0, v1.mult(35), 'blue');\n\n  noFill();\n  ellipse(50, 50, 35 * 2);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
+                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(10, 20, 2);\n// v has components [10.0, 20.0, 2.0]\nv.normalize();\n// v's components are set to\n// [0.4454354, 0.8908708, 0.089087084]\n</code>\n</div>\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(50, 50);\n  let graph_search_v1 = createVector(mouseX - 50, mouseY - 50);\n\n  drawArrow(v0, graph_search_v1, 'red');\n  graph_search_v1.normalize();\n  drawArrow(v0, graph_search_v1.mult(35), 'blue');\n\n  noFill();\n  ellipse(50, 50, 35 * 2);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -15292,7 +15292,7 @@
                 ],
                 chainable: 1,
                 example: [
-                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(10, 20, 2);\n// v has components [10.0, 20.0, 2.0]\nv.limit(5);\n// v's components are set to\n// [2.2271771, 4.4543543, 0.4454354]\n</code>\n</div>\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(50, 50);\n  let v1 = createVector(mouseX - 50, mouseY - 50);\n\n  drawArrow(v0, v1, 'red');\n  drawArrow(v0, v1.limit(35), 'blue');\n\n  noFill();\n  ellipse(50, 50, 35 * 2);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
+                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(10, 20, 2);\n// v has components [10.0, 20.0, 2.0]\nv.limit(5);\n// v's components are set to\n// [2.2271771, 4.4543543, 0.4454354]\n</code>\n</div>\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(50, 50);\n  let graph_search_v1 = createVector(mouseX - 50, mouseY - 50);\n\n  drawArrow(v0, graph_search_v1, 'red');\n  drawArrow(v0, graph_search_v1.limit(35), 'blue');\n\n  noFill();\n  ellipse(50, 50, 35 * 2);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -15314,7 +15314,7 @@
                 ],
                 chainable: 1,
                 example: [
-                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(10, 20, 2);\n// v has components [10.0, 20.0, 2.0]\nv.setMag(10);\n// v's components are set to [6.0, 8.0, 0.0]\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 0);\n  let v1 = createVector(50, 50);\n\n  drawArrow(v0, v1, 'red');\n\n  let length = map(mouseX, 0, width, 0, 141, true);\n  v1.setMag(length);\n  drawArrow(v0, v1, 'blue');\n\n  noStroke();\n  text('magnitude set to: ' + length.toFixed(2), 10, 70, 90, 30);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
+                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(10, 20, 2);\n// v has components [10.0, 20.0, 2.0]\nv.setMag(10);\n// v's components are set to [6.0, 8.0, 0.0]\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(0, 0);\n  let graph_search_v1 = createVector(50, 50);\n\n  drawArrow(v0, graph_search_v1, 'red');\n\n  let length = map(mouseX, 0, width, 0, 141, true);\n  graph_search_v1.setMag(length);\n  drawArrow(v0, graph_search_v1, 'blue');\n\n  noStroke();\n  text('magnitude set to: ' + length.toFixed(2), 10, 70, 90, 30);\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -15332,7 +15332,7 @@
                   type: 'Number'
                 },
                 example: [
-                  "\n<div class = \"norender\">\n<code>\nfunction setup() {\n  let v1 = createVector(30, 50);\n  print(v1.heading()); // 1.0303768265243125\n\n  v1 = createVector(40, 50);\n  print(v1.heading()); // 0.8960553845713439\n\n  v1 = createVector(30, 70);\n  print(v1.heading()); // 1.1659045405098132\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(50, 50);\n  let v1 = createVector(mouseX - 50, mouseY - 50);\n\n  drawArrow(v0, v1, 'black');\n\n  let myHeading = v1.heading();\n  noStroke();\n  text(\n    'vector heading: ' +\n      myHeading.toFixed(2) +\n      ' radians or ' +\n      degrees(myHeading).toFixed(2) +\n      ' degrees',\n    10,\n    50,\n    90,\n    50\n  );\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
+                  "\n<div class = \"norender\">\n<code>\nfunction setup() {\n  let graph_search_v1 = createVector(30, 50);\n  print(graph_search_v1.heading()); // 1.0303768265243125\n\n  graph_search_v1 = createVector(40, 50);\n  print(graph_search_v1.heading()); // 0.8960553845713439\n\n  graph_search_v1 = createVector(30, 70);\n  print(graph_search_v1.heading()); // 1.1659045405098132\n}\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(50, 50);\n  let graph_search_v1 = createVector(mouseX - 50, mouseY - 50);\n\n  drawArrow(v0, graph_search_v1, 'black');\n\n  let myHeading = graph_search_v1.heading();\n  noStroke();\n  text(\n    'vector heading: ' +\n      myHeading.toFixed(2) +\n      ' radians or ' +\n      degrees(myHeading).toFixed(2) +\n      ' degrees',\n    10,\n    50,\n    90,\n    50\n  );\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -15354,7 +15354,7 @@
                 ],
                 chainable: 1,
                 example: [
-                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(10.0, 20.0);\n// v has components [10.0, 20.0, 0.0]\nv.rotate(HALF_PI);\n// v's components are set to [-20.0, 9.999999, 0.0]\n</code>\n</div>\n\n<div>\n<code>\nlet angle = 0;\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(50, 50);\n  let v1 = createVector(50, 0);\n\n  drawArrow(v0, v1.rotate(angle), 'black');\n  angle += 0.01;\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
+                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(10.0, 20.0);\n// v has components [10.0, 20.0, 0.0]\nv.rotate(HALF_PI);\n// v's components are set to [-20.0, 9.999999, 0.0]\n</code>\n</div>\n\n<div>\n<code>\nlet angle = 0;\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(50, 50);\n  let graph_search_v1 = createVector(50, 0);\n\n  drawArrow(v0, graph_search_v1.rotate(angle), 'black');\n  angle += 0.01;\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -15380,7 +15380,7 @@
                   type: 'Number'
                 },
                 example: [
-                  "\n<div class=\"norender\">\n<code>\nlet v1 = createVector(1, 0, 0);\nlet v2 = createVector(0, 1, 0);\n\nlet angle = v1.angleBetween(v2);\n// angle is PI/2\nprint(angle);\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n  let v0 = createVector(50, 50);\n\n  let v1 = createVector(50, 0);\n  drawArrow(v0, v1, 'red');\n\n  let v2 = createVector(mouseX - 50, mouseY - 50);\n  drawArrow(v0, v2, 'blue');\n\n  let angleBetween = v1.angleBetween(v2);\n  noStroke();\n  text(\n    'angle between: ' +\n      angleBetween.toFixed(2) +\n      ' radians or ' +\n      degrees(angleBetween).toFixed(2) +\n      ' degrees',\n    10,\n    50,\n    90,\n    50\n  );\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
+                  "\n<div class=\"norender\">\n<code>\nlet graph_search_v1 = createVector(1, 0, 0);\nlet v2 = createVector(0, 1, 0);\n\nlet angle = graph_search_v1.angleBetween(v2);\n// angle is PI/2\nprint(angle);\n</code>\n</div>\n\n<div>\n<code>\nfunction draw() {\n  background(240);\n  let v0 = createVector(50, 50);\n\n  let graph_search_v1 = createVector(50, 0);\n  drawArrow(v0, graph_search_v1, 'red');\n\n  let v2 = createVector(mouseX - 50, mouseY - 50);\n  drawArrow(v0, v2, 'blue');\n\n  let angleBetween = graph_search_v1.angleBetween(v2);\n  noStroke();\n  text(\n    'angle between: ' +\n      angleBetween.toFixed(2) +\n      ' radians or ' +\n      degrees(angleBetween).toFixed(2) +\n      ' degrees',\n    10,\n    50,\n    90,\n    50\n  );\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -15394,7 +15394,7 @@
                 name: 'lerp',
                 chainable: 1,
                 example: [
-                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(1, 1, 0);\n\nv.lerp(3, 3, 0, 0.5); // v now has components [2,2,0]\n</code>\n</div>\n\n<div class=\"norender\">\n<code>\nlet v1 = createVector(0, 0, 0);\nlet v2 = createVector(100, 100, 0);\n\nlet v3 = p5.Vector.lerp(v1, v2, 0.5);\n// v3 has components [50,50,0]\nprint(v3);\n</code>\n</div>\n\n<div>\n<code>\nlet step = 0.01;\nlet amount = 0;\n\nfunction draw() {\n  background(240);\n  let v0 = createVector(0, 0);\n\n  let v1 = createVector(mouseX, mouseY);\n  drawArrow(v0, v1, 'red');\n\n  let v2 = createVector(90, 90);\n  drawArrow(v0, v2, 'blue');\n\n  if (amount > 1 || amount < 0) {\n    step *= -1;\n  }\n  amount += step;\n  let v3 = p5.Vector.lerp(v1, v2, amount);\n\n  drawArrow(v0, v3, 'purple');\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
+                  "\n<div class=\"norender\">\n<code>\nlet v = createVector(1, 1, 0);\n\nv.lerp(3, 3, 0, 0.5); // v now has components [2,2,0]\n</code>\n</div>\n\n<div class=\"norender\">\n<code>\nlet graph_search_v1 = createVector(0, 0, 0);\nlet v2 = createVector(100, 100, 0);\n\nlet v3 = p5.Vector.lerp(graph_search_v1, v2, 0.5);\n// v3 has components [50,50,0]\nprint(v3);\n</code>\n</div>\n\n<div>\n<code>\nlet step = 0.01;\nlet amount = 0;\n\nfunction draw() {\n  background(240);\n  let v0 = createVector(0, 0);\n\n  let graph_search_v1 = createVector(mouseX, mouseY);\n  drawArrow(v0, graph_search_v1, 'red');\n\n  let v2 = createVector(90, 90);\n  drawArrow(v0, v2, 'blue');\n\n  if (amount > 1 || amount < 0) {\n    step *= -1;\n  }\n  amount += step;\n  let v3 = p5.Vector.lerp(graph_search_v1, v2, amount);\n\n  drawArrow(v0, v3, 'purple');\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -15448,7 +15448,7 @@
                     line: 1711,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description: '',
                         type: 'p5.Vector'
                       },
@@ -15474,7 +15474,7 @@
                     line: 1719,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description: '',
                         type: 'p5.Vector'
                       },
@@ -15527,7 +15527,7 @@
                   type: 'Boolean'
                 },
                 example: [
-                  '\n<div class = "norender">\n<code>\nlet v1 = createVector(5, 10, 20);\nlet v2 = createVector(5, 10, 20);\nlet v3 = createVector(13, 10, 19);\n\nprint(v1.equals(v2.x, v2.y, v2.z)); // true\nprint(v1.equals(v3.x, v3.y, v3.z)); // false\n</code>\n</div>\n\n<div class="norender">\n<code>\nlet v1 = createVector(10.0, 20.0, 30.0);\nlet v2 = createVector(10.0, 20.0, 30.0);\nlet v3 = createVector(0.0, 0.0, 0.0);\nprint(v1.equals(v2)); // true\nprint(v1.equals(v3)); // false\n</code>\n</div>'
+                  '\n<div class = "norender">\n<code>\nlet graph_search_v1 = createVector(5, 10, 20);\nlet v2 = createVector(5, 10, 20);\nlet v3 = createVector(13, 10, 19);\n\nprint(graph_search_v1.equals(v2.x, v2.y, v2.z)); // true\nprint(graph_search_v1.equals(v3.x, v3.y, v3.z)); // false\n</code>\n</div>\n\n<div class="norender">\n<code>\nlet graph_search_v1 = createVector(10.0, 20.0, 30.0);\nlet v2 = createVector(10.0, 20.0, 30.0);\nlet v3 = createVector(0.0, 0.0, 0.0);\nprint(graph_search_v1.equals(v2)); // true\nprint(graph_search_v1.equals(v3)); // false\n</code>\n</div>'
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -15658,7 +15658,7 @@
                   type: 'p5.Vector'
                 },
                 example: [
-                  "\n<div class=\"norender\">\n<code>\nlet v = p5.Vector.random2D();\n// May make v's attributes something like:\n// [0.61554617, -0.51195765, 0.0] or\n// [-0.4695841, -0.14366731, 0.0] or\n// [0.6091097, -0.22805278, 0.0]\nprint(v);\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  frameRate(1);\n}\n\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(50, 50);\n  let v1 = p5.Vector.random2D();\n  drawArrow(v0, v1.mult(50), 'black');\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
+                  "\n<div class=\"norender\">\n<code>\nlet v = p5.Vector.random2D();\n// May make v's attributes something like:\n// [0.61554617, -0.51195765, 0.0] or\n// [-0.4695841, -0.14366731, 0.0] or\n// [0.6091097, -0.22805278, 0.0]\nprint(v);\n</code>\n</div>\n\n<div>\n<code>\nfunction setup() {\n  frameRate(1);\n}\n\nfunction draw() {\n  background(240);\n\n  let v0 = createVector(50, 50);\n  let graph_search_v1 = p5.Vector.random2D();\n  drawArrow(v0, graph_search_v1.mult(50), 'black');\n}\n\n// draw an arrow for a vector at a given base position\nfunction drawArrow(base, vec, myColor) {\n  push();\n  stroke(myColor);\n  strokeWeight(3);\n  fill(myColor);\n  translate(base.x, base.y);\n  line(0, 0, vec.x, vec.y);\n  rotate(vec.heading());\n  let arrowSize = 7;\n  translate(vec.mag() - arrowSize, 0);\n  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);\n  pop();\n}\n</code>\n</div>"
                 ],
                 class: 'p5.Vector',
                 module: 'Math',
@@ -18474,7 +18474,7 @@
                     line: 12,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description:
                           '<p>red or hue value relative to\n                                the current color range</p>\n',
                         type: 'Number'
@@ -18573,7 +18573,7 @@
                     line: 87,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description:
                           '<p>red or hue value (depending on the current\ncolor mode),</p>\n',
                         type: 'Number'
@@ -18643,7 +18643,7 @@
                     line: 136,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description: '',
                         type: 'Number'
                       },
@@ -18697,7 +18697,7 @@
                     line: 185,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description:
                           '<p>red or hue value (depending on the current\ncolor mode),</p>\n',
                         type: 'Number'
@@ -18734,7 +18734,7 @@
                     line: 226,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description: '',
                         type: 'Number'
                       },
@@ -19235,7 +19235,7 @@
                     line: 573,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description:
                           '<p>gray value, red or hue value\n                        (depending on the current color mode),</p>\n',
                         type: 'Number'
@@ -19294,7 +19294,7 @@
                     line: 623,
                     params: [
                       {
-                        name: 'v1',
+                        name: 'graph_search_v1',
                         description:
                           '<p>gray value, red or hue value\n                      (depending on the current color mode),</p>\n',
                         type: 'Number'
@@ -74372,13 +74372,13 @@
            * @example
            * <div>
            * <code>
-           * let v1 = createVector(40, 50);
+           * let graph_search_v1 = createVector(40, 50);
            * let v2 = createVector(40, 50);
            *
-           * ellipse(v1.x, v1.y, 50, 50);
+           * ellipse(graph_search_v1.x, graph_search_v1.y, 50, 50);
            * ellipse(v2.x, v2.y, 50, 50);
-           * v1.add(v2);
-           * ellipse(v1.x, v1.y, 50, 50);
+           * graph_search_v1.add(v2);
+           * ellipse(graph_search_v1.x, graph_search_v1.y, 50, 50);
            * </code>
            * </div>
            *
@@ -74440,11 +74440,11 @@
            *   background(240);
            *
            *   let v0 = createVector(0, 0);
-           *   let v1 = createVector(mouseX, mouseY);
-           *   drawArrow(v0, v1, 'black');
+           *   let graph_search_v1 = createVector(mouseX, mouseY);
+           *   drawArrow(v0, graph_search_v1, 'black');
            *
            *   noStroke();
-           *   text(v1.toString(), 10, 25, 90, 75);
+           *   text(graph_search_v1.toString(), 10, 25, 90, 75);
            * }
            *
            * // draw an arrow for a vector at a given base position
@@ -74483,31 +74483,31 @@
            *   let v = createVector(1, 2, 3);
            *   v.set(4, 5, 6); // Sets vector to [4, 5, 6]
            *
-           *   let v1 = createVector(0, 0, 0);
+           *   let graph_search_v1 = createVector(0, 0, 0);
            *   let arr = [1, 2, 3];
-           *   v1.set(arr); // Sets vector to [1, 2, 3]
+           *   graph_search_v1.set(arr); // Sets vector to [1, 2, 3]
            * }
            * </code>
            * </div>
            *
            * <div>
            * <code>
-           * let v0, v1;
+           * let v0, graph_search_v1;
            * function setup() {
            *   createCanvas(100, 100);
            *
            *   v0 = createVector(0, 0);
-           *   v1 = createVector(50, 50);
+           *   graph_search_v1 = createVector(50, 50);
            * }
            *
            * function draw() {
            *   background(240);
            *
-           *   drawArrow(v0, v1, 'black');
-           *   v1.set(v1.x + random(-1, 1), v1.y + random(-1, 1));
+           *   drawArrow(v0, graph_search_v1, 'black');
+           *   graph_search_v1.set(graph_search_v1.x + random(-1, 1), graph_search_v1.y + random(-1, 1));
            *
            *   noStroke();
-           *   text('x: ' + round(v1.x) + ' y: ' + round(v1.y), 20, 90);
+           *   text('x: ' + round(graph_search_v1.x) + ' y: ' + round(graph_search_v1.y), 20, 90);
            * }
            *
            * // draw an arrow for a vector at a given base position
@@ -74559,9 +74559,9 @@
            * @example
            * <div class="norender">
            * <code>
-           * let v1 = createVector(1, 2, 3);
-           * let v2 = v1.copy();
-           * print(v1.x === v2.x && v1.y === v2.y && v1.z === v2.z);
+           * let graph_search_v1 = createVector(1, 2, 3);
+           * let v2 = graph_search_v1.copy();
+           * print(graph_search_v1.x === v2.x && graph_search_v1.y === v2.y && graph_search_v1.z === v2.z);
            * // Prints "true"
            * </code>
            * </div>
@@ -74597,10 +74597,10 @@
            * <div class="norender">
            * <code>
            * // Static method
-           * let v1 = createVector(1, 2, 3);
+           * let graph_search_v1 = createVector(1, 2, 3);
            * let v2 = createVector(2, 3, 4);
            *
-           * let v3 = p5.Vector.add(v1, v2);
+           * let v3 = p5.Vector.add(graph_search_v1, v2);
            * // v3 has components [3, 5, 7]
            * print(v3);
            * </code>
@@ -74613,13 +74613,13 @@
            *   background(240);
            *
            *   let v0 = createVector(0, 0);
-           *   let v1 = createVector(mouseX, mouseY);
-           *   drawArrow(v0, v1, 'red');
+           *   let graph_search_v1 = createVector(mouseX, mouseY);
+           *   drawArrow(v0, graph_search_v1, 'red');
            *
            *   let v2 = createVector(-30, 20);
-           *   drawArrow(v1, v2, 'blue');
+           *   drawArrow(graph_search_v1, v2, 'blue');
            *
-           *   let v3 = p5.Vector.add(v1, v2);
+           *   let v3 = p5.Vector.add(graph_search_v1, v2);
            *   drawArrow(v0, v3, 'purple');
            * }
            *
@@ -74687,10 +74687,10 @@
            * <div class="norender">
            * <code>
            * // Static method
-           * let v1 = createVector(2, 3, 4);
+           * let graph_search_v1 = createVector(2, 3, 4);
            * let v2 = createVector(1, 2, 3);
            *
-           * let v3 = p5.Vector.sub(v1, v2);
+           * let v3 = p5.Vector.sub(graph_search_v1, v2);
            * // v3 has components [1, 1, 1]
            * print(v3);
            * </code>
@@ -74703,13 +74703,13 @@
            *   background(240);
            *
            *   let v0 = createVector(0, 0);
-           *   let v1 = createVector(70, 50);
-           *   drawArrow(v0, v1, 'red');
+           *   let graph_search_v1 = createVector(70, 50);
+           *   drawArrow(v0, graph_search_v1, 'red');
            *
            *   let v2 = createVector(mouseX, mouseY);
            *   drawArrow(v0, v2, 'blue');
            *
-           *   let v3 = p5.Vector.sub(v1, v2);
+           *   let v3 = p5.Vector.sub(graph_search_v1, v2);
            *   drawArrow(v2, v3, 'purple');
            * }
            *
@@ -74774,8 +74774,8 @@
            * <div class="norender">
            * <code>
            * // Static method
-           * let v1 = createVector(1, 2, 3);
-           * let v2 = p5.Vector.mult(v1, 2);
+           * let graph_search_v1 = createVector(1, 2, 3);
+           * let v2 = p5.Vector.mult(graph_search_v1, 2);
            * // v2 has components [2, 4, 6]
            * print(v2);
            * </code>
@@ -74787,11 +74787,11 @@
            *   background(240);
            *
            *   let v0 = createVector(50, 50);
-           *   let v1 = createVector(25, -25);
-           *   drawArrow(v0, v1, 'red');
+           *   let graph_search_v1 = createVector(25, -25);
+           *   drawArrow(v0, graph_search_v1, 'red');
            *
            *   let num = map(mouseX, 0, width, -2, 2, true);
-           *   let v2 = p5.Vector.mult(v1, num);
+           *   let v2 = p5.Vector.mult(graph_search_v1, num);
            *   drawArrow(v0, v2, 'blue');
            *
            *   noStroke();
@@ -74849,8 +74849,8 @@
            * <div class="norender">
            * <code>
            * // Static method
-           * let v1 = createVector(6, 4, 2);
-           * let v2 = p5.Vector.div(v1, 2);
+           * let graph_search_v1 = createVector(6, 4, 2);
+           * let v2 = p5.Vector.div(graph_search_v1, 2);
            * // v2 has components [3, 2, 1]
            * print(v2);
            * </code>
@@ -74862,11 +74862,11 @@
            *   background(240);
            *
            *   let v0 = createVector(0, 100);
-           *   let v1 = createVector(50, -50);
-           *   drawArrow(v0, v1, 'red');
+           *   let graph_search_v1 = createVector(50, -50);
+           *   drawArrow(v0, graph_search_v1, 'red');
            *
            *   let num = map(mouseX, 0, width, 10, 0.5, true);
-           *   let v2 = p5.Vector.div(v1, num);
+           *   let v2 = p5.Vector.div(graph_search_v1, num);
            *   drawArrow(v0, v2, 'blue');
            *
            *   noStroke();
@@ -74922,11 +74922,11 @@
            *   background(240);
            *
            *   let v0 = createVector(0, 0);
-           *   let v1 = createVector(mouseX, mouseY);
-           *   drawArrow(v0, v1, 'black');
+           *   let graph_search_v1 = createVector(mouseX, mouseY);
+           *   drawArrow(v0, graph_search_v1, 'black');
            *
            *   noStroke();
-           *   text('vector length: ' + v1.mag().toFixed(2), 10, 70, 90, 30);
+           *   text('vector length: ' + graph_search_v1.mag().toFixed(2), 10, 70, 90, 30);
            * }
            *
            * // draw an arrow for a vector at a given base position
@@ -74969,8 +74969,8 @@
            * <div class="norender">
            * <code>
            * // Static method
-           * let v1 = createVector(6, 4, 2);
-           * print(v1.magSq()); // Prints "56"
+           * let graph_search_v1 = createVector(6, 4, 2);
+           * print(graph_search_v1.magSq()); // Prints "56"
            * </code>
            * </div>
            *
@@ -74980,11 +74980,11 @@
            *   background(240);
            *
            *   let v0 = createVector(0, 0);
-           *   let v1 = createVector(mouseX, mouseY);
-           *   drawArrow(v0, v1, 'black');
+           *   let graph_search_v1 = createVector(mouseX, mouseY);
+           *   drawArrow(v0, graph_search_v1, 'black');
            *
            *   noStroke();
-           *   text('vector length squared: ' + v1.magSq().toFixed(2), 10, 45, 90, 55);
+           *   text('vector length squared: ' + graph_search_v1.magSq().toFixed(2), 10, 45, 90, 55);
            * }
            *
            * // draw an arrow for a vector at a given base position
@@ -75026,19 +75026,19 @@
            * @example
            * <div class="norender">
            * <code>
-           * let v1 = createVector(1, 2, 3);
+           * let graph_search_v1 = createVector(1, 2, 3);
            * let v2 = createVector(2, 3, 4);
            *
-           * print(v1.dot(v2)); // Prints "20"
+           * print(graph_search_v1.dot(v2)); // Prints "20"
            * </code>
            * </div>
            *
            * <div class="norender">
            * <code>
            * //Static method
-           * let v1 = createVector(1, 2, 3);
+           * let graph_search_v1 = createVector(1, 2, 3);
            * let v2 = createVector(3, 2, 1);
-           * print(p5.Vector.dot(v1, v2)); // Prints "10"
+           * print(p5.Vector.dot(graph_search_v1, v2)); // Prints "10"
            * </code>
            * </div>
            */
@@ -75065,20 +75065,20 @@
            * @example
            * <div class="norender">
            * <code>
-           * let v1 = createVector(1, 2, 3);
+           * let graph_search_v1 = createVector(1, 2, 3);
            * let v2 = createVector(1, 2, 3);
            *
-           * v1.cross(v2); // v's components are [0, 0, 0]
+           * graph_search_v1.cross(v2); // v's components are [0, 0, 0]
            * </code>
            * </div>
            *
            * <div class="norender">
            * <code>
            * // Static method
-           * let v1 = createVector(1, 0, 0);
+           * let graph_search_v1 = createVector(1, 0, 0);
            * let v2 = createVector(0, 1, 0);
            *
-           * let crossProduct = p5.Vector.cross(v1, v2);
+           * let crossProduct = p5.Vector.cross(graph_search_v1, v2);
            * // crossProduct has components [0, 0, 1]
            * print(crossProduct);
            * </code>
@@ -75105,10 +75105,10 @@
            * @example
            * <div class="norender">
            * <code>
-           * let v1 = createVector(1, 0, 0);
+           * let graph_search_v1 = createVector(1, 0, 0);
            * let v2 = createVector(0, 1, 0);
            *
-           * let distance = v1.dist(v2); // distance is 1.4142...
+           * let distance = graph_search_v1.dist(v2); // distance is 1.4142...
            * print(distance);
            * </code>
            * </div>
@@ -75116,10 +75116,10 @@
            * <div class="norender">
            * <code>
            * // Static method
-           * let v1 = createVector(1, 0, 0);
+           * let graph_search_v1 = createVector(1, 0, 0);
            * let v2 = createVector(0, 1, 0);
            *
-           * let distance = p5.Vector.dist(v1, v2);
+           * let distance = p5.Vector.dist(graph_search_v1, v2);
            * // distance is 1.4142...
            * print(distance);
            * </code>
@@ -75132,14 +75132,14 @@
            *
            *   let v0 = createVector(0, 0);
            *
-           *   let v1 = createVector(70, 50);
-           *   drawArrow(v0, v1, 'red');
+           *   let graph_search_v1 = createVector(70, 50);
+           *   drawArrow(v0, graph_search_v1, 'red');
            *
            *   let v2 = createVector(mouseX, mouseY);
            *   drawArrow(v0, v2, 'blue');
            *
            *   noStroke();
-           *   text('distance between vectors: ' + v2.dist(v1).toFixed(2), 5, 50, 95, 50);
+           *   text('distance between vectors: ' + v2.dist(graph_search_v1).toFixed(2), 5, 50, 95, 50);
            * }
            *
            * // draw an arrow for a vector at a given base position
@@ -75187,11 +75187,11 @@
            *   background(240);
            *
            *   let v0 = createVector(50, 50);
-           *   let v1 = createVector(mouseX - 50, mouseY - 50);
+           *   let graph_search_v1 = createVector(mouseX - 50, mouseY - 50);
            *
-           *   drawArrow(v0, v1, 'red');
-           *   v1.normalize();
-           *   drawArrow(v0, v1.mult(35), 'blue');
+           *   drawArrow(v0, graph_search_v1, 'red');
+           *   graph_search_v1.normalize();
+           *   drawArrow(v0, graph_search_v1.mult(35), 'blue');
            *
            *   noFill();
            *   ellipse(50, 50, 35 * 2);
@@ -75245,10 +75245,10 @@
            *   background(240);
            *
            *   let v0 = createVector(50, 50);
-           *   let v1 = createVector(mouseX - 50, mouseY - 50);
+           *   let graph_search_v1 = createVector(mouseX - 50, mouseY - 50);
            *
-           *   drawArrow(v0, v1, 'red');
-           *   drawArrow(v0, v1.limit(35), 'blue');
+           *   drawArrow(v0, graph_search_v1, 'red');
+           *   drawArrow(v0, graph_search_v1.limit(35), 'blue');
            *
            *   noFill();
            *   ellipse(50, 50, 35 * 2);
@@ -75303,13 +75303,13 @@
            *   background(240);
            *
            *   let v0 = createVector(0, 0);
-           *   let v1 = createVector(50, 50);
+           *   let graph_search_v1 = createVector(50, 50);
            *
-           *   drawArrow(v0, v1, 'red');
+           *   drawArrow(v0, graph_search_v1, 'red');
            *
            *   let length = map(mouseX, 0, width, 0, 141, true);
-           *   v1.setMag(length);
-           *   drawArrow(v0, v1, 'blue');
+           *   graph_search_v1.setMag(length);
+           *   drawArrow(v0, graph_search_v1, 'blue');
            *
            *   noStroke();
            *   text('magnitude set to: ' + length.toFixed(2), 10, 70, 90, 30);
@@ -75345,14 +75345,14 @@
            * <div class = "norender">
            * <code>
            * function setup() {
-           *   let v1 = createVector(30, 50);
-           *   print(v1.heading()); // 1.0303768265243125
+           *   let graph_search_v1 = createVector(30, 50);
+           *   print(graph_search_v1.heading()); // 1.0303768265243125
            *
-           *   v1 = createVector(40, 50);
-           *   print(v1.heading()); // 0.8960553845713439
+           *   graph_search_v1 = createVector(40, 50);
+           *   print(graph_search_v1.heading()); // 0.8960553845713439
            *
-           *   v1 = createVector(30, 70);
-           *   print(v1.heading()); // 1.1659045405098132
+           *   graph_search_v1 = createVector(30, 70);
+           *   print(graph_search_v1.heading()); // 1.1659045405098132
            * }
            * </code>
            * </div>
@@ -75363,11 +75363,11 @@
            *   background(240);
            *
            *   let v0 = createVector(50, 50);
-           *   let v1 = createVector(mouseX - 50, mouseY - 50);
+           *   let graph_search_v1 = createVector(mouseX - 50, mouseY - 50);
            *
-           *   drawArrow(v0, v1, 'black');
+           *   drawArrow(v0, graph_search_v1, 'black');
            *
-           *   let myHeading = v1.heading();
+           *   let myHeading = graph_search_v1.heading();
            *   noStroke();
            *   text(
            *     'vector heading: ' +
@@ -75429,9 +75429,9 @@
            *   background(240);
            *
            *   let v0 = createVector(50, 50);
-           *   let v1 = createVector(50, 0);
+           *   let graph_search_v1 = createVector(50, 0);
            *
-           *   drawArrow(v0, v1.rotate(angle), 'black');
+           *   drawArrow(v0, graph_search_v1.rotate(angle), 'black');
            *   angle += 0.01;
            * }
            *
@@ -75469,10 +75469,10 @@
            * @example
            * <div class="norender">
            * <code>
-           * let v1 = createVector(1, 0, 0);
+           * let graph_search_v1 = createVector(1, 0, 0);
            * let v2 = createVector(0, 1, 0);
            *
-           * let angle = v1.angleBetween(v2);
+           * let angle = graph_search_v1.angleBetween(v2);
            * // angle is PI/2
            * print(angle);
            * </code>
@@ -75484,13 +75484,13 @@
            *   background(240);
            *   let v0 = createVector(50, 50);
            *
-           *   let v1 = createVector(50, 0);
-           *   drawArrow(v0, v1, 'red');
+           *   let graph_search_v1 = createVector(50, 0);
+           *   drawArrow(v0, graph_search_v1, 'red');
            *
            *   let v2 = createVector(mouseX - 50, mouseY - 50);
            *   drawArrow(v0, v2, 'blue');
            *
-           *   let angleBetween = v1.angleBetween(v2);
+           *   let angleBetween = graph_search_v1.angleBetween(v2);
            *   noStroke();
            *   text(
            *     'angle between: ' +
@@ -75557,10 +75557,10 @@
            *
            * <div class="norender">
            * <code>
-           * let v1 = createVector(0, 0, 0);
+           * let graph_search_v1 = createVector(0, 0, 0);
            * let v2 = createVector(100, 100, 0);
            *
-           * let v3 = p5.Vector.lerp(v1, v2, 0.5);
+           * let v3 = p5.Vector.lerp(graph_search_v1, v2, 0.5);
            * // v3 has components [50,50,0]
            * print(v3);
            * </code>
@@ -75575,8 +75575,8 @@
            *   background(240);
            *   let v0 = createVector(0, 0);
            *
-           *   let v1 = createVector(mouseX, mouseY);
-           *   drawArrow(v0, v1, 'red');
+           *   let graph_search_v1 = createVector(mouseX, mouseY);
+           *   drawArrow(v0, graph_search_v1, 'red');
            *
            *   let v2 = createVector(90, 90);
            *   drawArrow(v0, v2, 'blue');
@@ -75585,7 +75585,7 @@
            *     step *= -1;
            *   }
            *   amount += step;
-           *   let v3 = p5.Vector.lerp(v1, v2, amount);
+           *   let v3 = p5.Vector.lerp(graph_search_v1, v2, amount);
            *
            *   drawArrow(v0, v3, 'purple');
            * }
@@ -75666,22 +75666,22 @@
            * @example
            * <div class = "norender">
            * <code>
-           * let v1 = createVector(5, 10, 20);
+           * let graph_search_v1 = createVector(5, 10, 20);
            * let v2 = createVector(5, 10, 20);
            * let v3 = createVector(13, 10, 19);
            *
-           * print(v1.equals(v2.x, v2.y, v2.z)); // true
-           * print(v1.equals(v3.x, v3.y, v3.z)); // false
+           * print(graph_search_v1.equals(v2.x, v2.y, v2.z)); // true
+           * print(graph_search_v1.equals(v3.x, v3.y, v3.z)); // false
            * </code>
            * </div>
            *
            * <div class="norender">
            * <code>
-           * let v1 = createVector(10.0, 20.0, 30.0);
+           * let graph_search_v1 = createVector(10.0, 20.0, 30.0);
            * let v2 = createVector(10.0, 20.0, 30.0);
            * let v3 = createVector(0.0, 0.0, 0.0);
-           * print(v1.equals(v2)); // true
-           * print(v1.equals(v3)); // false
+           * print(graph_search_v1.equals(v2)); // true
+           * print(graph_search_v1.equals(v3)); // false
            * </code>
            * </div>
            */
@@ -75838,8 +75838,8 @@
            *   background(240);
            *
            *   let v0 = createVector(50, 50);
-           *   let v1 = p5.Vector.random2D();
-           *   drawArrow(v0, v1.mult(50), 'black');
+           *   let graph_search_v1 = p5.Vector.random2D();
+           *   drawArrow(v0, graph_search_v1.mult(50), 'black');
            * }
            *
            * // draw an arrow for a vector at a given base position
@@ -75919,7 +75919,7 @@
 
           /*
     * Subtracts one <a href="#/p5.Vector">p5.Vector</a> from another and returns a new one.  The second
-    * vector (v2) is subtracted from the first (v1), resulting in v1-v2.
+    * vector (v2) is subtracted from the first (graph_search_v1), resulting in graph_search_v1-v2.
     */
           /**
            * @method sub
@@ -87059,7 +87059,7 @@
             fontVert:
               "precision mediump float;\n\nattribute vec3 aPosition;\nattribute vec2 aTexCoord;\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\n\nuniform vec4 uGlyphRect;\nuniform float uGlyphOffset;\n\nvarying vec2 vTexCoord;\nvarying float w;\n\nvoid main() {\n  vec4 positionVec4 = vec4(aPosition, 1.0);\n\n  // scale by the size of the glyph's rectangle\n  positionVec4.xy *= uGlyphRect.zw - uGlyphRect.xy;\n\n  // move to the corner of the glyph\n  positionVec4.xy += uGlyphRect.xy;\n\n  // move to the letter's line offset\n  positionVec4.x += uGlyphOffset;\n  \n  gl_Position = uProjectionMatrix * uModelViewMatrix * positionVec4;\n  vTexCoord = aTexCoord;\n  w = gl_Position.w;\n}\n",
             fontFrag:
-              "#extension GL_OES_standard_derivatives : enable\nprecision mediump float;\n\n#if 0\n  // simulate integer math using floats\n\t#define int float\n\t#define ivec2 vec2\n\t#define INT(x) float(x)\n\n\tint ifloor(float v) { return floor(v); }\n\tivec2 ifloor(vec2 v) { return floor(v); }\n\n#else\n  // use native integer math\n\tprecision highp int;\n\t#define INT(x) x\n\n\tint ifloor(float v) { return int(v); }\n\tint ifloor(int v) { return v; }\n\tivec2 ifloor(vec2 v) { return ivec2(v); }\n\n#endif\n\nuniform sampler2D uSamplerStrokes;\nuniform sampler2D uSamplerRowStrokes;\nuniform sampler2D uSamplerRows;\nuniform sampler2D uSamplerColStrokes;\nuniform sampler2D uSamplerCols;\n\nuniform ivec2 uStrokeImageSize;\nuniform ivec2 uCellsImageSize;\nuniform ivec2 uGridImageSize;\n\nuniform ivec2 uGridOffset;\nuniform ivec2 uGridSize;\nuniform vec4 uMaterialColor;\n\nvarying vec2 vTexCoord;\n\n// some helper functions\nint round(float v) { return ifloor(v + 0.5); }\nivec2 round(vec2 v) { return ifloor(v + 0.5); }\nfloat saturate(float v) { return clamp(v, 0.0, 1.0); }\nvec2 saturate(vec2 v) { return clamp(v, 0.0, 1.0); }\n\nint mul(float v1, int v2) {\n  return ifloor(v1 * float(v2));\n}\n\nivec2 mul(vec2 v1, ivec2 v2) {\n  return ifloor(v1 * vec2(v2) + 0.5);\n}\n\n// unpack a 16-bit integer from a float vec2\nint getInt16(vec2 v) {\n  ivec2 iv = round(v * 255.0);\n  return iv.x * INT(128) + iv.y;\n}\n\nvec2 pixelScale;\nvec2 coverage = vec2(0.0);\nvec2 weight = vec2(0.5);\nconst float minDistance = 1.0/8192.0;\nconst float hardness = 1.05; // amount of antialias\n\n// the maximum number of curves in a glyph\nconst int N = INT(250);\n\n// retrieves an indexed pixel from a sampler\nvec4 getTexel(sampler2D sampler, int pos, ivec2 size) {\n  int width = size.x;\n  int y = ifloor(pos / width);\n  int x = pos - y * width;  // pos % width\n\n  return texture2D(sampler, (vec2(x, y) + 0.5) / vec2(size));\n}\n\nvoid calulateCrossings(vec2 p0, vec2 p1, vec2 p2, out vec2 C1, out vec2 C2) {\n\n  // get the coefficients of the quadratic in t\n  vec2 a = p0 - p1 * 2.0 + p2;\n  vec2 b = p0 - p1;\n  vec2 c = p0 - vTexCoord;\n\n  // found out which values of 't' it crosses the axes\n  vec2 surd = sqrt(max(vec2(0.0), b * b - a * c));\n  vec2 t1 = ((b - surd) / a).yx;\n  vec2 t2 = ((b + surd) / a).yx;\n\n  // approximate straight lines to avoid rounding errors\n  if (abs(a.y) < 0.001)\n    t1.x = t2.x = c.y / (2.0 * b.y);\n\n  if (abs(a.x) < 0.001)\n    t1.y = t2.y = c.x / (2.0 * b.x);\n\n  // plug into quadratic formula to find the corrdinates of the crossings\n  C1 = ((a * t1 - b * 2.0) * t1 + c) * pixelScale;\n  C2 = ((a * t2 - b * 2.0) * t2 + c) * pixelScale;\n}\n\nvoid coverageX(vec2 p0, vec2 p1, vec2 p2) {\n\n  vec2 C1, C2;\n  calulateCrossings(p0, p1, p2, C1, C2);\n\n  // determine on which side of the x-axis the points lie\n  bool y0 = p0.y > vTexCoord.y;\n  bool y1 = p1.y > vTexCoord.y;\n  bool y2 = p2.y > vTexCoord.y;\n\n  // could web be under the curve (after t1)?\n  if (y1 ? !y2 : y0) {\n    // add the coverage for t1\n    coverage.x += saturate(C1.x + 0.5);\n    // calculate the anti-aliasing for t1\n    weight.x = min(weight.x, abs(C1.x));\n  }\n\n  // are we outside the curve (after t2)?\n  if (y1 ? !y0 : y2) {\n    // subtract the coverage for t2\n    coverage.x -= saturate(C2.x + 0.5);\n    // calculate the anti-aliasing for t2\n    weight.x = min(weight.x, abs(C2.x));\n  }\n}\n\n// this is essentially the same as coverageX, but with the axes swapped\nvoid coverageY(vec2 p0, vec2 p1, vec2 p2) {\n\n  vec2 C1, C2;\n  calulateCrossings(p0, p1, p2, C1, C2);\n\n  bool x0 = p0.x > vTexCoord.x;\n  bool x1 = p1.x > vTexCoord.x;\n  bool x2 = p2.x > vTexCoord.x;\n\n  if (x1 ? !x2 : x0) {\n    coverage.y -= saturate(C1.y + 0.5);\n    weight.y = min(weight.y, abs(C1.y));\n  }\n\n  if (x1 ? !x0 : x2) {\n    coverage.y += saturate(C2.y + 0.5);\n    weight.y = min(weight.y, abs(C2.y));\n  }\n}\n\nvoid main() {\n\n  // calculate the pixel scale based on screen-coordinates\n  pixelScale = hardness / fwidth(vTexCoord);\n\n  // which grid cell is this pixel in?\n  ivec2 gridCoord = ifloor(vTexCoord * vec2(uGridSize));\n\n  // intersect curves in this row\n  {\n    // the index into the row info bitmap\n    int rowIndex = gridCoord.y + uGridOffset.y;\n    // fetch the info texel\n    vec4 rowInfo = getTexel(uSamplerRows, rowIndex, uGridImageSize);\n    // unpack the rowInfo\n    int rowStrokeIndex = getInt16(rowInfo.xy);\n    int rowStrokeCount = getInt16(rowInfo.zw);\n\n    for (int iRowStroke = INT(0); iRowStroke < N; iRowStroke++) {\n      if (iRowStroke >= rowStrokeCount)\n        break;\n\n      // each stroke is made up of 3 points: the start and control point\n      // and the start of the next curve.\n      // fetch the indices of this pair of strokes:\n      vec4 strokeIndices = getTexel(uSamplerRowStrokes, rowStrokeIndex++, uCellsImageSize);\n\n      // unpack the stroke index\n      int strokePos = getInt16(strokeIndices.xy);\n\n      // fetch the two strokes\n      vec4 stroke0 = getTexel(uSamplerStrokes, strokePos + INT(0), uStrokeImageSize);\n      vec4 stroke1 = getTexel(uSamplerStrokes, strokePos + INT(1), uStrokeImageSize);\n\n      // calculate the coverage\n      coverageX(stroke0.xy, stroke0.zw, stroke1.xy);\n    }\n  }\n\n  // intersect curves in this column\n  {\n    int colIndex = gridCoord.x + uGridOffset.x;\n    vec4 colInfo = getTexel(uSamplerCols, colIndex, uGridImageSize);\n    int colStrokeIndex = getInt16(colInfo.xy);\n    int colStrokeCount = getInt16(colInfo.zw);\n    \n    for (int iColStroke = INT(0); iColStroke < N; iColStroke++) {\n      if (iColStroke >= colStrokeCount)\n        break;\n\n      vec4 strokeIndices = getTexel(uSamplerColStrokes, colStrokeIndex++, uCellsImageSize);\n\n      int strokePos = getInt16(strokeIndices.xy);\n      vec4 stroke0 = getTexel(uSamplerStrokes, strokePos + INT(0), uStrokeImageSize);\n      vec4 stroke1 = getTexel(uSamplerStrokes, strokePos + INT(1), uStrokeImageSize);\n      coverageY(stroke0.xy, stroke0.zw, stroke1.xy);\n    }\n  }\n\n  weight = saturate(1.0 - weight * 2.0);\n  float distance = max(weight.x + weight.y, minDistance); // manhattan approx.\n  float antialias = abs(dot(coverage, weight) / distance);\n  float cover = min(abs(coverage.x), abs(coverage.y));\n  gl_FragColor = uMaterialColor;\n  gl_FragColor.a *= saturate(max(antialias, cover));\n}",
+              "#extension GL_OES_standard_derivatives : enable\nprecision mediump float;\n\n#if 0\n  // simulate integer math using floats\n\t#define int float\n\t#define ivec2 vec2\n\t#define INT(x) float(x)\n\n\tint ifloor(float v) { return floor(v); }\n\tivec2 ifloor(vec2 v) { return floor(v); }\n\n#else\n  // use native integer math\n\tprecision highp int;\n\t#define INT(x) x\n\n\tint ifloor(float v) { return int(v); }\n\tint ifloor(int v) { return v; }\n\tivec2 ifloor(vec2 v) { return ivec2(v); }\n\n#endif\n\nuniform sampler2D uSamplerStrokes;\nuniform sampler2D uSamplerRowStrokes;\nuniform sampler2D uSamplerRows;\nuniform sampler2D uSamplerColStrokes;\nuniform sampler2D uSamplerCols;\n\nuniform ivec2 uStrokeImageSize;\nuniform ivec2 uCellsImageSize;\nuniform ivec2 uGridImageSize;\n\nuniform ivec2 uGridOffset;\nuniform ivec2 uGridSize;\nuniform vec4 uMaterialColor;\n\nvarying vec2 vTexCoord;\n\n// some helper functions\nint round(float v) { return ifloor(v + 0.5); }\nivec2 round(vec2 v) { return ifloor(v + 0.5); }\nfloat saturate(float v) { return clamp(v, 0.0, 1.0); }\nvec2 saturate(vec2 v) { return clamp(v, 0.0, 1.0); }\n\nint mul(float graph_search_v1, int v2) {\n  return ifloor(graph_search_v1 * float(v2));\n}\n\nivec2 mul(vec2 graph_search_v1, ivec2 v2) {\n  return ifloor(graph_search_v1 * vec2(v2) + 0.5);\n}\n\n// unpack a 16-bit integer from a float vec2\nint getInt16(vec2 v) {\n  ivec2 iv = round(v * 255.0);\n  return iv.x * INT(128) + iv.y;\n}\n\nvec2 pixelScale;\nvec2 coverage = vec2(0.0);\nvec2 weight = vec2(0.5);\nconst float minDistance = 1.0/8192.0;\nconst float hardness = 1.05; // amount of antialias\n\n// the maximum number of curves in a glyph\nconst int N = INT(250);\n\n// retrieves an indexed pixel from a sampler\nvec4 getTexel(sampler2D sampler, int pos, ivec2 size) {\n  int width = size.x;\n  int y = ifloor(pos / width);\n  int x = pos - y * width;  // pos % width\n\n  return texture2D(sampler, (vec2(x, y) + 0.5) / vec2(size));\n}\n\nvoid calulateCrossings(vec2 p0, vec2 p1, vec2 p2, out vec2 C1, out vec2 C2) {\n\n  // get the coefficients of the quadratic in t\n  vec2 a = p0 - p1 * 2.0 + p2;\n  vec2 b = p0 - p1;\n  vec2 c = p0 - vTexCoord;\n\n  // found out which values of 't' it crosses the axes\n  vec2 surd = sqrt(max(vec2(0.0), b * b - a * c));\n  vec2 t1 = ((b - surd) / a).yx;\n  vec2 t2 = ((b + surd) / a).yx;\n\n  // approximate straight lines to avoid rounding errors\n  if (abs(a.y) < 0.001)\n    t1.x = t2.x = c.y / (2.0 * b.y);\n\n  if (abs(a.x) < 0.001)\n    t1.y = t2.y = c.x / (2.0 * b.x);\n\n  // plug into quadratic formula to find the corrdinates of the crossings\n  C1 = ((a * t1 - b * 2.0) * t1 + c) * pixelScale;\n  C2 = ((a * t2 - b * 2.0) * t2 + c) * pixelScale;\n}\n\nvoid coverageX(vec2 p0, vec2 p1, vec2 p2) {\n\n  vec2 C1, C2;\n  calulateCrossings(p0, p1, p2, C1, C2);\n\n  // determine on which side of the x-axis the points lie\n  bool y0 = p0.y > vTexCoord.y;\n  bool y1 = p1.y > vTexCoord.y;\n  bool y2 = p2.y > vTexCoord.y;\n\n  // could web be under the curve (after t1)?\n  if (y1 ? !y2 : y0) {\n    // add the coverage for t1\n    coverage.x += saturate(C1.x + 0.5);\n    // calculate the anti-aliasing for t1\n    weight.x = min(weight.x, abs(C1.x));\n  }\n\n  // are we outside the curve (after t2)?\n  if (y1 ? !y0 : y2) {\n    // subtract the coverage for t2\n    coverage.x -= saturate(C2.x + 0.5);\n    // calculate the anti-aliasing for t2\n    weight.x = min(weight.x, abs(C2.x));\n  }\n}\n\n// this is essentially the same as coverageX, but with the axes swapped\nvoid coverageY(vec2 p0, vec2 p1, vec2 p2) {\n\n  vec2 C1, C2;\n  calulateCrossings(p0, p1, p2, C1, C2);\n\n  bool x0 = p0.x > vTexCoord.x;\n  bool x1 = p1.x > vTexCoord.x;\n  bool x2 = p2.x > vTexCoord.x;\n\n  if (x1 ? !x2 : x0) {\n    coverage.y -= saturate(C1.y + 0.5);\n    weight.y = min(weight.y, abs(C1.y));\n  }\n\n  if (x1 ? !x0 : x2) {\n    coverage.y += saturate(C2.y + 0.5);\n    weight.y = min(weight.y, abs(C2.y));\n  }\n}\n\nvoid main() {\n\n  // calculate the pixel scale based on screen-coordinates\n  pixelScale = hardness / fwidth(vTexCoord);\n\n  // which grid cell is this pixel in?\n  ivec2 gridCoord = ifloor(vTexCoord * vec2(uGridSize));\n\n  // intersect curves in this row\n  {\n    // the index into the row info bitmap\n    int rowIndex = gridCoord.y + uGridOffset.y;\n    // fetch the info texel\n    vec4 rowInfo = getTexel(uSamplerRows, rowIndex, uGridImageSize);\n    // unpack the rowInfo\n    int rowStrokeIndex = getInt16(rowInfo.xy);\n    int rowStrokeCount = getInt16(rowInfo.zw);\n\n    for (int iRowStroke = INT(0); iRowStroke < N; iRowStroke++) {\n      if (iRowStroke >= rowStrokeCount)\n        break;\n\n      // each stroke is made up of 3 points: the start and control point\n      // and the start of the next curve.\n      // fetch the indices of this pair of strokes:\n      vec4 strokeIndices = getTexel(uSamplerRowStrokes, rowStrokeIndex++, uCellsImageSize);\n\n      // unpack the stroke index\n      int strokePos = getInt16(strokeIndices.xy);\n\n      // fetch the two strokes\n      vec4 stroke0 = getTexel(uSamplerStrokes, strokePos + INT(0), uStrokeImageSize);\n      vec4 stroke1 = getTexel(uSamplerStrokes, strokePos + INT(1), uStrokeImageSize);\n\n      // calculate the coverage\n      coverageX(stroke0.xy, stroke0.zw, stroke1.xy);\n    }\n  }\n\n  // intersect curves in this column\n  {\n    int colIndex = gridCoord.x + uGridOffset.x;\n    vec4 colInfo = getTexel(uSamplerCols, colIndex, uGridImageSize);\n    int colStrokeIndex = getInt16(colInfo.xy);\n    int colStrokeCount = getInt16(colInfo.zw);\n    \n    for (int iColStroke = INT(0); iColStroke < N; iColStroke++) {\n      if (iColStroke >= colStrokeCount)\n        break;\n\n      vec4 strokeIndices = getTexel(uSamplerColStrokes, colStrokeIndex++, uCellsImageSize);\n\n      int strokePos = getInt16(strokeIndices.xy);\n      vec4 stroke0 = getTexel(uSamplerStrokes, strokePos + INT(0), uStrokeImageSize);\n      vec4 stroke1 = getTexel(uSamplerStrokes, strokePos + INT(1), uStrokeImageSize);\n      coverageY(stroke0.xy, stroke0.zw, stroke1.xy);\n    }\n  }\n\n  weight = saturate(1.0 - weight * 2.0);\n  float distance = max(weight.x + weight.y, minDistance); // manhattan approx.\n  float antialias = abs(dot(coverage, weight) / distance);\n  float cover = min(abs(coverage.x), abs(coverage.y));\n  gl_FragColor = uMaterialColor;\n  gl_FragColor.a *= saturate(max(antialias, cover));\n}",
             lineVert:
               "/*\n  Part of the Processing project - http://processing.org\n  Copyright (c) 2012-15 The Processing Foundation\n  Copyright (c) 2004-12 Ben Fry and Casey Reas\n  Copyright (c) 2001-04 Massachusetts Institute of Technology\n  This library is free software; you can redistribute it and/or\n  modify it under the terms of the GNU Lesser General Public\n  License as published by the Free Software Foundation, version 2.1.\n  This library is distributed in the hope that it will be useful,\n  but WITHOUT ANY WARRANTY; without even the implied warranty of\n  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\n  Lesser General Public License for more details.\n  You should have received a copy of the GNU Lesser General\n  Public License along with this library; if not, write to the\n  Free Software Foundation, Inc., 59 Temple Place, Suite 330,\n  Boston, MA  02111-1307  USA\n*/\n\n#define PROCESSING_LINE_SHADER\n\nuniform mat4 uModelViewMatrix;\nuniform mat4 uProjectionMatrix;\nuniform float uStrokeWeight;\n\nuniform vec4 uViewport;\n\nattribute vec4 aPosition;\nattribute vec4 aDirection;\n  \nvoid main() {\n  // using a scale <1 moves the lines towards the camera\n  // in order to prevent popping effects due to half of\n  // the line disappearing behind the geometry faces.\n  vec3 scale = vec3(0.9995);\n\n  vec4 posp = uModelViewMatrix * aPosition;\n  vec4 posq = uModelViewMatrix * (aPosition + vec4(aDirection.xyz, 0));\n\n  // Moving vertices slightly toward the camera\n  // to avoid depth-fighting with the fill triangles.\n  // Discussed here:\n  // http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=showflat&Number=252848  \n  posp.xyz = posp.xyz * scale;\n  posq.xyz = posq.xyz * scale;\n\n  vec4 p = uProjectionMatrix * posp;\n  vec4 q = uProjectionMatrix * posq;\n\n  // formula to convert from clip space (range -1..1) to screen space (range 0..[width or height])\n  // screen_p = (p.xy/p.w + <1,1>) * 0.5 * uViewport.zw\n\n  // prevent division by W by transforming the tangent formula (div by 0 causes\n  // the line to disappear, see https://github.com/processing/processing/issues/5183)\n  // t = screen_q - screen_p\n  //\n  // tangent is normalized and we don't care which aDirection it points to (+-)\n  // t = +- normalize( screen_q - screen_p )\n  // t = +- normalize( (q.xy/q.w+<1,1>)*0.5*uViewport.zw - (p.xy/p.w+<1,1>)*0.5*uViewport.zw )\n  //\n  // extract common factor, <1,1> - <1,1> cancels out\n  // t = +- normalize( (q.xy/q.w - p.xy/p.w) * 0.5 * uViewport.zw )\n  //\n  // convert to common divisor\n  // t = +- normalize( ((q.xy*p.w - p.xy*q.w) / (p.w*q.w)) * 0.5 * uViewport.zw )\n  //\n  // remove the common scalar divisor/factor, not needed due to normalize and +-\n  // (keep uViewport - can't remove because it has different components for x and y\n  //  and corrects for aspect ratio, see https://github.com/processing/processing/issues/5181)\n  // t = +- normalize( (q.xy*p.w - p.xy*q.w) * uViewport.zw )\n\n  vec2 tangent = normalize((q.xy*p.w - p.xy*q.w) * uViewport.zw);\n\n  // flip tangent to normal (it's already normalized)\n  vec2 normal = vec2(-tangent.y, tangent.x);\n\n  float thickness = aDirection.w * uStrokeWeight;\n  vec2 offset = normal * thickness / 2.0;\n\n  // Perspective ---\n  // convert from world to clip by multiplying with projection scaling factor\n  // to get the right thickness (see https://github.com/processing/processing/issues/5182)\n  // invert Y, projections in Processing invert Y\n  vec2 perspScale = (uProjectionMatrix * vec4(1, -1, 0, 0)).xy;\n\n  // No Perspective ---\n  // multiply by W (to cancel out division by W later in the pipeline) and\n  // convert from screen to clip (derived from clip to screen above)\n  vec2 noPerspScale = p.w / (0.5 * uViewport.zw);\n\n  //gl_Position.xy = p.xy + offset.xy * mix(noPerspScale, perspScale, float(perspective > 0));\n  gl_Position.xy = p.xy + offset.xy * perspScale;\n  gl_Position.zw = p.zw;\n}\n",
             lineFrag:

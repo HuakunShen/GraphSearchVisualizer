@@ -5,7 +5,7 @@ const PORT = 3000;
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/app.html'));
+    res.sendFile(path.join(__dirname, 'public/graph_search_v1/app.html'));
 });
 
 app.listen(PORT, function() {
