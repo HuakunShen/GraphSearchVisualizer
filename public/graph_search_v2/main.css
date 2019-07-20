@@ -1,0 +1,33 @@
+body {
+    text-align: center;
+    background-color: #2d3436;
+    color: white;
+}
+
+#defaultCanvas0 {
+    display: inline-block;
+}
+button {
+    display: block;
+}
+
+.container {
+    /*background-color: #4CAF50;*/
+    margin: 50px 100px;
+    height: 100%;
+}
+
+.ui.form .inline.fields label {
+    margin: 10px;
+    color: white !important;
+}
+
+.ui.form {
+    display: inline-block;
+    text-align: center;
+}
+
+#start_search {
+    display: inline-block;
+
+}
