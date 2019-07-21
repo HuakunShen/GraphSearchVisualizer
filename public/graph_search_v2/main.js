@@ -1,8 +1,5 @@
-import * as helper from "./helper_functions.js";
-// import * as data_structure from "/lib/data_structure.js"
-import * as constant from "./constants.js"
-import Search from "./search.js"
-import {Cell} from "./search.js";
+import * as constant from "./constants.js";
+import Search, {Cell} from "./search.js";
 import Graph from "./graph.js";
 
 let search, graph;

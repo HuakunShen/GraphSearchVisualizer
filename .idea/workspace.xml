@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0c24664-8fbf-4479-8fb3-03c6417394a6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/graph_search_v2/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/graph_search_v2/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/graph_search_v2/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/graph_search_v2/main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,14 +24,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/graph_search_v2/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-              <folding>
-                <element signature="e#727#769#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="43" selection-start-column="43" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -63,7 +60,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/graph_search_v2/search.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="88">
@@ -148,8 +145,8 @@
         <option value="$PROJECT_DIR$/public/graph_search_v2/main.html" />
         <option value="$PROJECT_DIR$/public/graph_search_v2/main.css" />
         <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/public/graph_search_v2/main.js" />
         <option value="$PROJECT_DIR$/public/graph_search_v2/search.js" />
+        <option value="$PROJECT_DIR$/public/graph_search_v2/main.js" />
       </list>
     </option>
   </component>
@@ -297,7 +294,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71060000" />
+    <option name="totallyTimeSpent" value="71115000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -473,13 +470,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/graph_search_v2/graph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1000">
-          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/graph_search_v2/slidebar.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -518,13 +508,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/graph_search_v2/graph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1000">
+          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/graph_search_v2/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-          <folding>
-            <element signature="e#727#769#0" expanded="true" />
-          </folding>
+        <state>
+          <caret column="43" selection-start-column="43" selection-end-column="43" />
         </state>
       </provider>
     </entry>
