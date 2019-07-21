@@ -68,6 +68,8 @@ $('#clear_board')[0].onclick = function () {
     $('#start_search')[0].style.display = 'inline-block';
     // clearInterval(interval);
     cancelAnimationFrame(requestId);
+    $('#data')[0].style.display = "none";
+
 };
 
 $('#start_search')[0].onclick = function (event) {
