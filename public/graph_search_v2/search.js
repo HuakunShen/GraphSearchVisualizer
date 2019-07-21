@@ -11,7 +11,7 @@ export default class Search {
         this.graph = graph;
         switch (mode) {
             case "BFS":
-                this.search_algo = new BFS(graph);
+                this.search_algo = new BFS(this.graph);
                 console.log("BFS Created");
                 break;
             case "DFS":
