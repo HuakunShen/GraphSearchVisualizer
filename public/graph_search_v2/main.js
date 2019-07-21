@@ -41,6 +41,11 @@ document.onmouseup = function (event) {
     return false;
 };
 
+board.ontouchmove = function (event) {
+    mouse_is_down = true;
+    return false;
+};
+
 $('#clear_board')[0].onclick = function () {
     graph.clearBoard();
     search = null;
