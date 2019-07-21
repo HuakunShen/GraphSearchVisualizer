@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0c24664-8fbf-4479-8fb3-03c6417394a6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/graph_search_v2/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/graph_search_v2/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/graph_search_v2/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/graph_search_v2/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/graph_search_v2/slidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/graph_search_v2/slidebar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,6 +15,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/graph_search_v2/main.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -46,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/graph_search_v2/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
+            <state relative-caret-position="759">
+              <caret line="60" column="1" lean-forward="true" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -143,6 +150,7 @@
       <find>setup</find>
       <find>start</find>
       <find>game_active</find>
+      <find>radio_btn_group_div</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -173,7 +181,6 @@
         <option value="$PROJECT_DIR$/public/module_export/index.html" />
         <option value="$PROJECT_DIR$/public/graph_search_A_Start/main.js" />
         <option value="$PROJECT_DIR$/public/graph_search_A_Start/main.html" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/public/lib/p5.js" />
         <option value="$PROJECT_DIR$/public/graph_search_v1/app.css" />
         <option value="$PROJECT_DIR$/public/graph_search_v2/app.js" />
@@ -185,6 +192,7 @@
         <option value="$PROJECT_DIR$/public/graph_search_v2/slidebar.css" />
         <option value="$PROJECT_DIR$/public/graph_search_v2/main.html" />
         <option value="$PROJECT_DIR$/public/graph_search_v2/main.css" />
+        <option value="$PROJECT_DIR$/server.js" />
       </list>
     </option>
   </component>
@@ -327,12 +335,12 @@
       <workItem from="1563503249046" duration="1781000" />
       <workItem from="1563646328983" duration="1059000" />
       <workItem from="1563649461791" duration="5950000" />
-      <workItem from="1563674176155" duration="19841000" />
+      <workItem from="1563674176155" duration="20215000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69791000" />
+    <option name="totallyTimeSpent" value="70165000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2575" height="1424" extended-state="6" />
@@ -456,13 +464,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" selection-start-column="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/lib/p5.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -510,16 +511,6 @@
         <state relative-caret-position="-132" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/graph_search_v2/helper_functions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/graph_search_v2/constants.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -554,6 +545,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/graph_search_v2/slidebar.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/graph_search_v2/helper_functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/graph_search_v2/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="60" column="1" lean-forward="true" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/graph_search_v2/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="726">
@@ -572,17 +587,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/graph_search_v2/slidebar.css">
+    <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/graph_search_v2/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
+        <state relative-caret-position="132">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
         </state>
       </provider>
     </entry>
