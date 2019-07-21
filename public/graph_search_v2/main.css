@@ -14,7 +14,7 @@ button {
 .container {
     /*background-color: #4CAF50;*/
     display: inline-block;
-    margin: 50px 50px 100px 100px;
+    margin: 30px 50px 100px 100px;
     height: 100%;
 }
 
@@ -53,7 +53,6 @@ button {
 
 
 .radio_btn_group_div {
-    margin: 10px;
 
 }
 
