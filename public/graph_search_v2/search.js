@@ -5,10 +5,17 @@ import * as helper from "./helper_functions.js";
 export default class Search {
     constructor(graph, mode) {
         console.log("search created " + mode);
-        this.graph = graph;
+
+        // this.graph = graph;
+        // this.total_searched = 0;
         switch (mode) {
             case "BFS":
-                this.search_algo = new BFS(this.graph);
+                this.data = {
+                    graph: graph,
+                    total_searched: 0,   // source node is the first one
+                    total_discovered: 1
+                };
+                this.search_algo = new BFS(this.data);
                 console.log("BFS Created");
                 break;
             case "DFS":
@@ -25,11 +32,14 @@ export default class Search {
 }
 
 class BFS {
-    constructor(graph) {
-        this.graph = graph;
+    constructor(data) {
+        this.graph = data.graph;
+        this.data = data;
         this.queue = new data_structure.Queue();
-        this.current_cell = graph.source;
+        this.current_cell = this.graph.source;
         this.queue.enqueue(this.current_cell);
+        // this.data.total_discovered++;
+        // this.data.total_searched++;
         this.path_complete = false;
     }
 
@@ -39,11 +49,12 @@ class BFS {
             while (!this.queue.isEmpty()) {
                 this.current_cell = this.queue.dequeue();
                 if (this.current_cell.distance === distance_to_stop) {
-                    this.queue.enqueue(this.current_cell);
+                    this.queue.enqueueHead(this.current_cell);
                     break;
                 }
                 if (this.current_cell === this.graph.target) {
                     this.queue.clear();
+                    this.graph.target.found = true;
                 } else {
                     const legal_cells = helper.getLegalCellsAround(this.graph, this.current_cell);
                     // console.log(legal_cells);
@@ -52,6 +63,8 @@ class BFS {
                             new_cell.update(constant.DISCOVERED_COLOR);
                         }
                         this.queue.enqueue(new_cell);
+                        this.data.total_discovered++;
+
                         new_cell.parent = this.current_cell;
                         new_cell.distance = this.current_cell.distance + 1;
                         new_cell.div.innerText = new_cell.distance;
@@ -60,16 +73,24 @@ class BFS {
                         this.current_cell.update(constant.EXPLORED_COLOR);
                     }
                 }
+                // console.log(this.current_cell);
+                this.data.total_searched++;
+                // console.log("num searched: " + this.data.total_searched);
+                // console.log("num discovered: " + this.data.total_discovered);
             }
         } else {
             // backtrace the path
-            if (this.current_cell.parent != null) {
-                this.current_cell = this.current_cell.parent;
-            }
-            if (this.current_cell !== this.graph.source) {
-                this.current_cell.update(constant.PATH_COLOR);
+            if (this.graph.target.found === true) {
+                if (this.current_cell.parent != null) {
+                    this.current_cell = this.current_cell.parent;
+                }
+                if (this.current_cell !== this.graph.source) {
+                    this.current_cell.update(constant.PATH_COLOR);
+                } else {
+                    this.path_complete = true;
+                    return true;
+                }
             } else {
-                this.path_complete = true;
                 return true;
             }
         }

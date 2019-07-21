@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>requestAnimationFrame</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 100px;
+            display: inline-block;
+            padding: 20px;
+        }
+
+        #test {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="test"></div>
+    <button id="stop">Stop Animation</button>
+    <br>
+    <form id="fps_form" onsubmit="return false">
+        <input id="fps" type="number" name="fps">
+        <button type="submit" id="apply">Apply</button>
+    </form>
+</div>
+
+
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script>
+
+    var fps = 2;
+    var interval = 1000 / fps;
+    let last = 0;
+    let requestId;
+
+    function test(timeStamp) {
+
+        requestId = requestAnimationFrame(test);
+        // console.log(timeStamp);
+
+
+        if (timeStamp > last) {
+            const div = document.getElementById("test");
+            if (div.style.backgroundColor === "red") {
+                div.style.backgroundColor = "green";
+            } else {
+                div.style.backgroundColor = "red";
+            }
+            last = timeStamp + interval;
+
+
+        }
+
+    }
+
+    requestId = window.requestAnimationFrame(test);
+
+    // cancelAnimationFrame(requestId);
+
+    document.querySelector("#stop").onclick = function () {
+        if (this.innerText === "Stop Animation") {
+            cancelAnimationFrame(requestId);
+            this.innerHTML = "Resume";
+        } else {
+            requestId = requestAnimationFrame(test);
+            this.innerHTML = "Stop Animation";
+        }
+    };
+
+    // $("#apply")[0].onclick = function () {
+    //     fps = $("#fps")[0].value;
+    //     interval = 1000 / fps;
+    // };
+
+    $("#fps")[0].oninput = function () {
+        if (this.value !== "" && this.value !== 0) {
+            fps = $("#fps")[0].value;
+            interval = 1000 / fps;
+        }
+    }
+
+    // $("#fps_form")[0].submit(function(e) {
+    //     e.preventDefault();
+    // });
+
+
+</script>
+</body>
+</html>

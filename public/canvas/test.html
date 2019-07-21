@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+
+    <style>
+        body {
+            text-align: center;
+            background-color: lightgrey;
+        }
+
+        #canvas {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<!--<canvas id="gameCanvas" height="300" width="300"></canvas>-->
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script>
+    let canvas = createCanvas(400, 400);
+    let ctx = canvas.getContext("2d");
+    ctx.fillStyle = "rgb(255,242,141)";
+    ctx.fillRect(0, 0, canvas.getAttribute("width"), canvas.getAttribute("height"));
+
+    //report the mouse position on click
+    canvas.addEventListener("click", function (evt) {
+        var mousePos = getMousePos(canvas, evt);
+        alert(mousePos.x + ',' + mousePos.y);
+    }, false);
+
+    ctx.fillStyle = "white";
+    // ctx.strokeStyle =
+    // ctx.stroke("rgb(255, 0, 0)");
+    ctx.fillRect(25, 25, 100, 100);
+
+    ctx.rect(10, 10, 150, 100);
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 10;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.rect(200, 200, 50, 50);
+    ctx.stroke();
+    ctx.fillStyle = "blue";
+    ctx.fill();
+
+
+    // draw yellow rect
+    ctx.beginPath();
+    ctx.rect(150, 150, 50, 50);
+    ctx.stroke();
+    ctx.fillStyle = "yellow";
+    ctx.fill();
+
+    //Get Mouse Position
+    function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+            x: Math.round(evt.clientX - rect.left),
+            y: Math.round(evt.clientY - rect.top)
+        };
+    }
+
+
+    function createCanvas(width, height) {
+        let canvas = document.createElement("canvas");
+        canvas.id = "canvas";
+        canvas.style.width = width + "px";
+        canvas.style.height = height + "px";
+        canvas.width = width;
+        canvas.height = height;
+        $("body")[0].appendChild(canvas);
+        return canvas;
+    }
+</script>
+</body>
+</html>

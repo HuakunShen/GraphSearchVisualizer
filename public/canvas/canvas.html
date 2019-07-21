@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+    <style>
+        .canvas {
+            /*width: 150px;*/
+            /*height: 150px;*/
+            /*display: static;*/
+        }
+
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!--<canvas id="canvas" width="150" height="150"></canvas>-->
+<canvas id="cc" height="300" width="300" style="display: inline-block;"></canvas>
+
+<canvas id="gameCanvas" height="300" width="300" style="display: inline-block;"></canvas>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script>
+
+
+    let canvas = document.createElement("canvas");
+    $("body")[0].appendChild(canvas);
+    var ctx = canvas.getContext('2d');
+    for (var i = 0; i < 6; i++) {
+        for (var j = 0; j < 6; j++) {
+            ctx.fillStyle = 'rgb(' + Math.floor(255 - 42.5 * i) + ', ' +
+                Math.floor(255 - 42.5 * j) + ', 0)';
+            ctx.fillRect(j * 25, i * 25, 25, 25);
+        }
+    }
+
+    $("body")[0].appendChild(document.createElement("br"));
+
+
+    canvas = document.createElement("canvas");
+    // canvas.classList.add("canvas");
+    $("body")[0].appendChild(canvas);
+    ctx = canvas.getContext('2d');
+    for (var i = 0; i < 6; i++) {
+        for (var j = 0; j < 6; j++) {
+            ctx.strokeStyle = 'rgb(0, ' + Math.floor(255 - 42.5 * i) + ', ' +
+                Math.floor(255 - 42.5 * j) + ')';
+            ctx.beginPath();
+            ctx.arc(12.5 + j * 25, 12.5 + i * 25, 10, 0, Math.PI * 2, true);
+            ctx.stroke();
+        }
+    }
+    // $("body")[0].appendChild(document.createElement("br"));
+
+
+    canvas = $("#cc")[0];
+    // $("body")[0].appendChild(canvas);
+    // canvas.classList.add("canvas");
+    let rect1;
+    // canvas.addEventListener('mousemove', function (e) {
+    //     rect1 = canvas.getBoundingClientRect();
+    //     console.log("x: " + e.clientX - rect1.left);
+    //     console.log("y: " + e.clientY - rect1.top);
+    //     console.log("");
+    // });
+
+
+    ctx = canvas.getContext('2d');
+    for (var i = 0; i < 10; i++) {
+        ctx.lineWidth = 1 + i;
+        ctx.beginPath();
+        ctx.moveTo(5 + i * 14, 5);
+        ctx.lineTo(5 + i * 14, 140);
+        ctx.stroke();
+    }
+    // $("body")[0].appendChild(document.createElement("br"));
+    canvas.addEventListener("click", function (evt) {
+        var mousePos = getMousePos(canvas, evt);
+        alert(mousePos.x + ',' + mousePos.y);
+    }, false);
+
+    //Get Mouse Position
+    function getMousePos(canvas, evt) {
+        rect1 = canvas.getBoundingClientRect();
+        return {
+            x: evt.clientX - rect1.left,
+            y: evt.clientY - rect1.top
+        };
+    }
+
+
+
+    let rect;
+    //set up the canvas and context
+    canvas = document.getElementById("gameCanvas");
+    ctx = canvas.getContext("2d");
+    ctx.fillStyle = "rgba(1,1,1,1)";
+    ctx.fillRect(0, 0, canvas.getAttribute("height"), canvas.getAttribute("width"));
+
+    //report the mouse position on click
+    canvas.addEventListener("mousemove", function (evt) {
+        var mousePos = getMousePos(canvas, evt);
+        console.log(mousePos.x + ',' + mousePos.y);
+    }, false);
+
+    //Get Mouse Position
+    function getMousePos(canvas, evt) {
+        rect = canvas.getBoundingClientRect();
+        return {
+            x: evt.clientX - rect.left,
+            y: evt.clientY - rect.top
+        };
+    }
+
+
+</script>
+</body>
+</html>

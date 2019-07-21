@@ -7962,7 +7962,7 @@
                 ],
                 chainable: 1,
                 example: [
-                  "\n<div><code>\n// To test this sketch, simply drag a\n// file over the canvas\nfunction setup() {\n  let c = createCanvas(100, 100);\n  background(200);\n  textAlign(CENTER);\n  text('Drag file', width / 2, height / 2);\n  c.dragOver(dragOverCallback);\n}\n\n// This function will be called whenever\n// a file is dragged over the canvas\nfunction dragOverCallback() {\n  background(240);\n  text('Dragged over', width / 2, height / 2);\n}\n</code></div>"
+                  "\n<div><code>\n// To canvas this sketch, simply drag a\n// file over the canvas\nfunction setup() {\n  let c = createCanvas(100, 100);\n  background(200);\n  textAlign(CENTER);\n  text('Drag file', width / 2, height / 2);\n  c.dragOver(dragOverCallback);\n}\n\n// This function will be called whenever\n// a file is dragged over the canvas\nfunction dragOverCallback() {\n  background(240);\n  text('Dragged over', width / 2, height / 2);\n}\n</code></div>"
                 ],
                 alt: 'nothing displayed',
                 class: 'p5.Element',
@@ -7986,7 +7986,7 @@
                 ],
                 chainable: 1,
                 example: [
-                  "\n<div><code>\n// To test this sketch, simply drag a file\n// over and then out of the canvas area\nfunction setup() {\n  let c = createCanvas(100, 100);\n  background(200);\n  textAlign(CENTER);\n  text('Drag file', width / 2, height / 2);\n  c.dragLeave(dragLeaveCallback);\n}\n\n// This function will be called whenever\n// a file is dragged out of the canvas\nfunction dragLeaveCallback() {\n  background(240);\n  text('Dragged off', width / 2, height / 2);\n}\n</code></div>"
+                  "\n<div><code>\n// To canvas this sketch, simply drag a file\n// over and then out of the canvas area\nfunction setup() {\n  let c = createCanvas(100, 100);\n  background(200);\n  textAlign(CENTER);\n  text('Drag file', width / 2, height / 2);\n  c.dragLeave(dragLeaveCallback);\n}\n\n// This function will be called whenever\n// a file is dragged out of the canvas\nfunction dragLeaveCallback() {\n  background(240);\n  text('Dragged off', width / 2, height / 2);\n}\n</code></div>"
                 ],
                 alt: 'nothing displayed',
                 class: 'p5.Element',
@@ -8328,7 +8328,7 @@
                 file: 'src/core/transform.js',
                 line: 13,
                 description:
-                  '<p>Multiplies the current matrix by the one specified through the parameters.\nThis is a powerful operation that can perform the equivalent of translate,\nscale, shear and rotate all at once. You can learn more about transformation\nmatrices on <a href="https://en.wikipedia.org/wiki/Transformation_matrix">\nWikipedia</a>.</p>\n<p>The naming of the arguments here follows the naming of the <a href=\n"https://html.spec.whatwg.org/multipage/canvas.html#dom-context-2d-transform">\nWHATWG specification</a> and corresponds to a\ntransformation matrix of the\nform:</p>\n<blockquote>\n<p><img style="max-width: 150px" src="assets/transformation-matrix.png"\nalt="The transformation matrix used when applyMatrix is called"/></p>\n</blockquote>\n',
+                  '<p>Multiplies the current matrix by the one specified through the parameters.\nThis is a powerful operation that can perform the equivalent of translate,\nscale, shear and rotate all at once. You can learn more about transformation\nmatrices on <a href="https://en.wikipedia.org/wiki/Transformation_matrix">\nWikipedia</a>.</p>\n<p>The naming of the arguments here follows the naming of the <a href=\n"https://html.spec.whatwg.org/multipage/requestAnimationFrame.html#dom-context-2d-transform">\nWHATWG specification</a> and corresponds to a\ntransformation matrix of the\nform:</p>\n<blockquote>\n<p><img style="max-width: 150px" src="assets/transformation-matrix.png"\nalt="The transformation matrix used when applyMatrix is called"/></p>\n</blockquote>\n',
                 itemtype: 'method',
                 name: 'applyMatrix',
                 params: [
@@ -11811,7 +11811,7 @@
                   type: 'String[]'
                 },
                 example: [
-                  '\n\n<p>Calling loadStrings() inside <a href="#/p5/preload">preload()</a> guarantees to complete the\noperation before <a href="#/p5/setup">setup()</a> and <a href="#/p5/draw">draw()</a> are called.</p>\n\n<div><code>\nlet result;\nfunction preload() {\n  result = loadStrings(\'assets/test.txt\');\n}\n\nfunction setup() {\n  background(200);\n  let ind = floor(random(result.length));\n  text(result[ind], 10, 10, 80, 80);\n}\n</code></div>\n\n<p>Outside of preload(), you may supply a callback function to handle the\nobject:</p>\n\n<div><code>\nfunction setup() {\n  loadStrings(\'assets/test.txt\', pickString);\n}\n\nfunction pickString(result) {\n  background(200);\n  let ind = floor(random(result.length));\n  text(result[ind], 10, 10, 80, 80);\n}\n</code></div>'
+                  '\n\n<p>Calling loadStrings() inside <a href="#/p5/preload">preload()</a> guarantees to complete the\noperation before <a href="#/p5/setup">setup()</a> and <a href="#/p5/draw">draw()</a> are called.</p>\n\n<div><code>\nlet result;\nfunction preload() {\n  result = loadStrings(\'assets/canvas.txt\');\n}\n\nfunction setup() {\n  background(200);\n  let ind = floor(random(result.length));\n  text(result[ind], 10, 10, 80, 80);\n}\n</code></div>\n\n<p>Outside of preload(), you may supply a callback function to handle the\nobject:</p>\n\n<div><code>\nfunction setup() {\n  loadStrings(\'assets/canvas.txt\', pickString);\n}\n\nfunction pickString(result) {\n  background(200);\n  let ind = floor(random(result.length));\n  text(result[ind], 10, 10, 80, 80);\n}\n</code></div>'
                 ],
                 alt:
                   'randomly generated text from a file, for example "i smell like butter"\nrandomly generated text from a file, for example "i have three feet"',
@@ -21216,7 +21216,7 @@
                   type: 'String'
                 },
                 example: [
-                  "\n<div><code>\nvar ele;\n\nfunction setup() {\n  background(250);\n\n  //p5.MediaElement objects are usually created\n  //by calling the createAudio(), createVideo(),\n  //and createCapture() functions.\n\n  //In this example we create\n  //a new p5.MediaElement via createAudio().\n  ele = createAudio('assets/beat.mp3');\n\n  //We'll set up our example so that\n  //when you click on the text,\n  //an alert box displays the MediaElement's\n  //src field.\n  textAlign(CENTER);\n  text('Click Me!', width / 2, height / 2);\n}\n\nfunction mouseClicked() {\n  //here we test if the mouse is over the\n  //canvas element when it's clicked\n  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {\n    //Show our p5.MediaElement's src field\n    alert(ele.src);\n  }\n}\n</code></div>"
+                  "\n<div><code>\nvar ele;\n\nfunction setup() {\n  background(250);\n\n  //p5.MediaElement objects are usually created\n  //by calling the createAudio(), createVideo(),\n  //and createCapture() functions.\n\n  //In this example we create\n  //a new p5.MediaElement via createAudio().\n  ele = createAudio('assets/beat.mp3');\n\n  //We'll set up our example so that\n  //when you click on the text,\n  //an alert box displays the MediaElement's\n  //src field.\n  textAlign(CENTER);\n  text('Click Me!', width / 2, height / 2);\n}\n\nfunction mouseClicked() {\n  //here we canvas if the mouse is over the\n  //canvas element when it's clicked\n  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {\n    //Show our p5.MediaElement's src field\n    alert(ele.src);\n  }\n}\n</code></div>"
                 ],
                 class: 'p5.MediaElement',
                 module: 'p5.dom',
@@ -21230,7 +21230,7 @@
                 name: 'play',
                 chainable: 1,
                 example: [
-                  "\n<div><code>\nvar ele;\n\nfunction setup() {\n  //p5.MediaElement objects are usually created\n  //by calling the createAudio(), createVideo(),\n  //and createCapture() functions.\n\n  //In this example we create\n  //a new p5.MediaElement via createAudio().\n  ele = createAudio('assets/beat.mp3');\n\n  background(250);\n  textAlign(CENTER);\n  text('Click to Play!', width / 2, height / 2);\n}\n\nfunction mouseClicked() {\n  //here we test if the mouse is over the\n  //canvas element when it's clicked\n  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {\n    //Here we call the play() function on\n    //the p5.MediaElement we created above.\n    //This will start the audio sample.\n    ele.play();\n\n    background(200);\n    text('You clicked Play!', width / 2, height / 2);\n  }\n}\n</code></div>"
+                  "\n<div><code>\nvar ele;\n\nfunction setup() {\n  //p5.MediaElement objects are usually created\n  //by calling the createAudio(), createVideo(),\n  //and createCapture() functions.\n\n  //In this example we create\n  //a new p5.MediaElement via createAudio().\n  ele = createAudio('assets/beat.mp3');\n\n  background(250);\n  textAlign(CENTER);\n  text('Click to Play!', width / 2, height / 2);\n}\n\nfunction mouseClicked() {\n  //here we canvas if the mouse is over the\n  //canvas element when it's clicked\n  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {\n    //Here we call the play() function on\n    //the p5.MediaElement we created above.\n    //This will start the audio sample.\n    ele.play();\n\n    background(200);\n    text('You clicked Play!', width / 2, height / 2);\n  }\n}\n</code></div>"
                 ],
                 class: 'p5.MediaElement',
                 module: 'p5.dom',
@@ -21245,7 +21245,7 @@
                 name: 'stop',
                 chainable: 1,
                 example: [
-                  "\n<div><code>\n//This example both starts\n//and stops a sound sample\n//when the user clicks the canvas\n\n//We will store the p5.MediaElement\n//object in here\nvar ele;\n\n//while our audio is playing,\n//this will be set to true\nvar sampleIsPlaying = false;\n\nfunction setup() {\n  //Here we create a p5.MediaElement object\n  //using the createAudio() function.\n  ele = createAudio('assets/beat.mp3');\n  background(200);\n  textAlign(CENTER);\n  text('Click to play!', width / 2, height / 2);\n}\n\nfunction mouseClicked() {\n  //here we test if the mouse is over the\n  //canvas element when it's clicked\n  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {\n    background(200);\n\n    if (sampleIsPlaying) {\n      //if the sample is currently playing\n      //calling the stop() function on\n      //our p5.MediaElement will stop\n      //it and reset its current\n      //time to 0 (i.e. it will start\n      //at the beginning the next time\n      //you play it)\n      ele.stop();\n\n      sampleIsPlaying = false;\n      text('Click to play!', width / 2, height / 2);\n    } else {\n      //loop our sound element until we\n      //call ele.stop() on it.\n      ele.loop();\n\n      sampleIsPlaying = true;\n      text('Click to stop!', width / 2, height / 2);\n    }\n  }\n}\n</code></div>"
+                  "\n<div><code>\n//This example both starts\n//and stops a sound sample\n//when the user clicks the canvas\n\n//We will store the p5.MediaElement\n//object in here\nvar ele;\n\n//while our audio is playing,\n//this will be set to true\nvar sampleIsPlaying = false;\n\nfunction setup() {\n  //Here we create a p5.MediaElement object\n  //using the createAudio() function.\n  ele = createAudio('assets/beat.mp3');\n  background(200);\n  textAlign(CENTER);\n  text('Click to play!', width / 2, height / 2);\n}\n\nfunction mouseClicked() {\n  //here we canvas if the mouse is over the\n  //canvas element when it's clicked\n  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {\n    background(200);\n\n    if (sampleIsPlaying) {\n      //if the sample is currently playing\n      //calling the stop() function on\n      //our p5.MediaElement will stop\n      //it and reset its current\n      //time to 0 (i.e. it will start\n      //at the beginning the next time\n      //you play it)\n      ele.stop();\n\n      sampleIsPlaying = false;\n      text('Click to play!', width / 2, height / 2);\n    } else {\n      //loop our sound element until we\n      //call ele.stop() on it.\n      ele.loop();\n\n      sampleIsPlaying = true;\n      text('Click to stop!', width / 2, height / 2);\n    }\n  }\n}\n</code></div>"
                 ],
                 class: 'p5.MediaElement',
                 module: 'p5.dom',
@@ -21259,7 +21259,7 @@
                 name: 'pause',
                 chainable: 1,
                 example: [
-                  "\n<div><code>\n//This example both starts\n//and pauses a sound sample\n//when the user clicks the canvas\n\n//We will store the p5.MediaElement\n//object in here\nvar ele;\n\n//while our audio is playing,\n//this will be set to true\nvar sampleIsPlaying = false;\n\nfunction setup() {\n  //Here we create a p5.MediaElement object\n  //using the createAudio() function.\n  ele = createAudio('assets/lucky_dragons.mp3');\n  background(200);\n  textAlign(CENTER);\n  text('Click to play!', width / 2, height / 2);\n}\n\nfunction mouseClicked() {\n  //here we test if the mouse is over the\n  //canvas element when it's clicked\n  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {\n    background(200);\n\n    if (sampleIsPlaying) {\n      //Calling pause() on our\n      //p5.MediaElement will stop it\n      //playing, but when we call the\n      //loop() or play() functions\n      //the sample will start from\n      //where we paused it.\n      ele.pause();\n\n      sampleIsPlaying = false;\n      text('Click to resume!', width / 2, height / 2);\n    } else {\n      //loop our sound element until we\n      //call ele.pause() on it.\n      ele.loop();\n\n      sampleIsPlaying = true;\n      text('Click to pause!', width / 2, height / 2);\n    }\n  }\n}\n</code></div>"
+                  "\n<div><code>\n//This example both starts\n//and pauses a sound sample\n//when the user clicks the canvas\n\n//We will store the p5.MediaElement\n//object in here\nvar ele;\n\n//while our audio is playing,\n//this will be set to true\nvar sampleIsPlaying = false;\n\nfunction setup() {\n  //Here we create a p5.MediaElement object\n  //using the createAudio() function.\n  ele = createAudio('assets/lucky_dragons.mp3');\n  background(200);\n  textAlign(CENTER);\n  text('Click to play!', width / 2, height / 2);\n}\n\nfunction mouseClicked() {\n  //here we canvas if the mouse is over the\n  //canvas element when it's clicked\n  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {\n    background(200);\n\n    if (sampleIsPlaying) {\n      //Calling pause() on our\n      //p5.MediaElement will stop it\n      //playing, but when we call the\n      //loop() or play() functions\n      //the sample will start from\n      //where we paused it.\n      ele.pause();\n\n      sampleIsPlaying = false;\n      text('Click to resume!', width / 2, height / 2);\n    } else {\n      //loop our sound element until we\n      //call ele.pause() on it.\n      ele.loop();\n\n      sampleIsPlaying = true;\n      text('Click to pause!', width / 2, height / 2);\n    }\n  }\n}\n</code></div>"
                 ],
                 class: 'p5.MediaElement',
                 module: 'p5.dom',
@@ -21274,7 +21274,7 @@
                 name: 'loop',
                 chainable: 1,
                 example: [
-                  "\n<div><code>\n//Clicking the canvas will loop\n//the audio sample until the user\n//clicks again to stop it\n\n//We will store the p5.MediaElement\n//object in here\nvar ele;\n\n//while our audio is playing,\n//this will be set to true\nvar sampleIsLooping = false;\n\nfunction setup() {\n  //Here we create a p5.MediaElement object\n  //using the createAudio() function.\n  ele = createAudio('assets/lucky_dragons.mp3');\n  background(200);\n  textAlign(CENTER);\n  text('Click to loop!', width / 2, height / 2);\n}\n\nfunction mouseClicked() {\n  //here we test if the mouse is over the\n  //canvas element when it's clicked\n  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {\n    background(200);\n\n    if (!sampleIsLooping) {\n      //loop our sound element until we\n      //call ele.stop() on it.\n      ele.loop();\n\n      sampleIsLooping = true;\n      text('Click to stop!', width / 2, height / 2);\n    } else {\n      ele.stop();\n\n      sampleIsLooping = false;\n      text('Click to loop!', width / 2, height / 2);\n    }\n  }\n}\n</code></div>"
+                  "\n<div><code>\n//Clicking the canvas will loop\n//the audio sample until the user\n//clicks again to stop it\n\n//We will store the p5.MediaElement\n//object in here\nvar ele;\n\n//while our audio is playing,\n//this will be set to true\nvar sampleIsLooping = false;\n\nfunction setup() {\n  //Here we create a p5.MediaElement object\n  //using the createAudio() function.\n  ele = createAudio('assets/lucky_dragons.mp3');\n  background(200);\n  textAlign(CENTER);\n  text('Click to loop!', width / 2, height / 2);\n}\n\nfunction mouseClicked() {\n  //here we canvas if the mouse is over the\n  //canvas element when it's clicked\n  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {\n    background(200);\n\n    if (!sampleIsLooping) {\n      //loop our sound element until we\n      //call ele.stop() on it.\n      ele.loop();\n\n      sampleIsLooping = true;\n      text('Click to stop!', width / 2, height / 2);\n    } else {\n      ele.stop();\n\n      sampleIsLooping = false;\n      text('Click to loop!', width / 2, height / 2);\n    }\n  }\n}\n</code></div>"
                 ],
                 class: 'p5.MediaElement',
                 module: 'p5.dom',
@@ -21289,7 +21289,7 @@
                 name: 'noLoop',
                 chainable: 1,
                 example: [
-                  "\n<div><code>\n//This example both starts\n//and stops loop of sound sample\n//when the user clicks the canvas\n\n//We will store the p5.MediaElement\n//object in here\nvar ele;\n//while our audio is playing,\n//this will be set to true\nvar sampleIsPlaying = false;\n\nfunction setup() {\n  //Here we create a p5.MediaElement object\n  //using the createAudio() function.\n  ele = createAudio('assets/beat.mp3');\n  background(200);\n  textAlign(CENTER);\n  text('Click to play!', width / 2, height / 2);\n}\n\nfunction mouseClicked() {\n  //here we test if the mouse is over the\n  //canvas element when it's clicked\n  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {\n    background(200);\n\n    if (sampleIsPlaying) {\n      ele.noLoop();\n      text('No more Loops!', width / 2, height / 2);\n    } else {\n      ele.loop();\n      sampleIsPlaying = true;\n      text('Click to stop looping!', width / 2, height / 2);\n    }\n  }\n}\n</code></div>\n"
+                  "\n<div><code>\n//This example both starts\n//and stops loop of sound sample\n//when the user clicks the canvas\n\n//We will store the p5.MediaElement\n//object in here\nvar ele;\n//while our audio is playing,\n//this will be set to true\nvar sampleIsPlaying = false;\n\nfunction setup() {\n  //Here we create a p5.MediaElement object\n  //using the createAudio() function.\n  ele = createAudio('assets/beat.mp3');\n  background(200);\n  textAlign(CENTER);\n  text('Click to play!', width / 2, height / 2);\n}\n\nfunction mouseClicked() {\n  //here we canvas if the mouse is over the\n  //canvas element when it's clicked\n  if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {\n    background(200);\n\n    if (sampleIsPlaying) {\n      ele.noLoop();\n      text('No more Loops!', width / 2, height / 2);\n    } else {\n      ele.loop();\n      sampleIsPlaying = true;\n      text('Click to stop looping!', width / 2, height / 2);\n    }\n  }\n}\n</code></div>\n"
                 ],
                 class: 'p5.MediaElement',
                 module: 'p5.dom',
@@ -21705,7 +21705,7 @@
                 file: 'lib/addons/p5.sound.js',
                 line: 214,
                 description:
-                  '<p>Determine which filetypes are supported (inspired by buzz.js)\nThe audio element (el) will only be used to test browser support for various audio formats</p>\n',
+                  '<p>Determine which filetypes are supported (inspired by buzz.js)\nThe audio element (el) will only be used to canvas browser support for various audio formats</p>\n',
                 class: 'p5.sound',
                 module: 'p5.sound',
                 submodule: 'p5.sound'
@@ -28990,7 +28990,7 @@
               },
               {
                 message:
-                  'Missing item type\nDetermine which filetypes are supported (inspired by buzz.js)\nThe audio element (el) will only be used to test browser support for various audio formats',
+                  'Missing item type\nDetermine which filetypes are supported (inspired by buzz.js)\nThe audio element (el) will only be used to canvas browser support for various audio formats',
                 line: ' lib/addons/p5.sound.js:214'
               },
               {
@@ -31399,7 +31399,7 @@
                 typeof process !== 'undefined' &&
                 {}.toString.call(process) === '[object process]';
 
-              // test for web worker but not in IE10
+              // canvas for web worker but not in IE10
               var isWorker =
                 typeof Uint8ClampedArray !== 'undefined' &&
                 typeof importScripts !== 'undefined' &&
@@ -44262,7 +44262,7 @@
 	* xScale, yScale and rotation is currently ignored.
 	*
 	* A few non-trivial instructions are missing as I didn't encounter yet
-	* a font that used them to test a possible implementation.
+	* a font that used them to canvas a possible implementation.
 	*
 	* Some fonts seem to use undocumented features regarding the twilight zone.
 	* Only some of them are implemented as they were encountered.
@@ -44727,7 +44727,7 @@
               /*
 	* Returns the next touched point on the contour.
 	*
-	* v  ... unit vector to test touch axis.
+	* v  ... unit vector to canvas touch axis.
 	*/
               HPoint.prototype.nextTouched = function(v) {
                 var p = this.nextPointOnContour;
@@ -44742,7 +44742,7 @@
               /*
 	* Returns the previous touched point on the contour
 	*
-	* v  ... unit vector to test touch axis.
+	* v  ... unit vector to canvas touch axis.
 	*/
               HPoint.prototype.prevTouched = function(v) {
                 var p = this.prevPointOnContour;
@@ -46371,7 +46371,7 @@
                 stack.push(Math.trunc(n) % 2 ? 0 : 1);
               }
 
-              // IF[] IF test
+              // IF[] IF canvas
               // 0x58
               function IF(state) {
                 var test = state.stack.pop();
@@ -46380,7 +46380,7 @@
                   console.log(state.step, 'IF[]', test);
                 }
 
-                // if test is true it just continues
+                // if canvas is true it just continues
                 // if not the ip is skipped until matching ELSE or EIF
                 if (!test) {
                   skip(state, true);
@@ -49069,7 +49069,7 @@
           // shim for using process in browser
           var process = (module.exports = {});
 
-          // cached from whatever global is present so that test runners that stub it
+          // cached from whatever global is present so that canvas runners that stub it
           // don't break things.  But we need to wrap it in a try catch in case it is
           // wrapped in strict mode code which doesn't define any globals.  It's inside a
           // function because try/catches deoptimize in certain engines.
@@ -54727,7 +54727,7 @@
             misusedAtTopLevelCode.some(function(symbol) {
               // Note that while just checking for the occurrence of the
               // symbol name in the error message could result in false positives,
-              // a more rigorous test is difficult because different browsers
+              // a more rigorous canvas is difficult because different browsers
               // log different messages, and the format of those messages may
               // change over time.
               //
@@ -55260,7 +55260,7 @@
                 this._lastFrameTime = now;
 
                 // If the user is actually using mouse module, then update
-                // coordinates, otherwise skip. We can test this by simply
+                // coordinates, otherwise skip. We can canvas this by simply
                 // checking if any of the mouse functions are available or not.
                 // NOTE : This reflects only in complete build or modular build.
                 if (typeof this._updateMouseCoords !== 'undefined') {
@@ -56385,7 +56385,7 @@
            * @chainable
            * @example
            * <div><code>
-           * // To test this sketch, simply drag a
+           * // To canvas this sketch, simply drag a
            * // file over the canvas
            * function setup() {
            *   let c = createCanvas(100, 100);
@@ -56423,7 +56423,7 @@
            * @chainable
            * @example
            * <div><code>
-           * // To test this sketch, simply drag a file
+           * // To canvas this sketch, simply drag a file
            * // over and then out of the canvas area
            * function setup() {
            *   let c = createCanvas(100, 100);
@@ -68834,7 +68834,7 @@
     * <div><code>
     * let result;
     * function preload() {
-    *   result = loadStrings('assets/test.txt');
+    *   result = loadStrings('assets/canvas.txt');
     * }
    
     * function setup() {
@@ -68849,7 +68849,7 @@
     *
     * <div><code>
     * function setup() {
-    *   loadStrings('assets/test.txt', pickString);
+    *   loadStrings('assets/canvas.txt', pickString);
     * }
     *
     * function pickString(result) {
@@ -81957,7 +81957,7 @@
 
             // start by removing existing 'post' registered debug methods
             for (var i = this._registeredMethods.post.length - 1; i >= 0; i--) {
-              // test for equality...
+              // canvas for equality...
               if (
                 this._registeredMethods.post[i].toString() === this._grid().toString() ||
                 this._registeredMethods.post[i].toString() === this._axesIcon().toString()
@@ -82051,7 +82051,7 @@
 
             // start by removing existing 'post' registered debug methods
             for (var i = this._registeredMethods.post.length - 1; i >= 0; i--) {
-              // test for equality...
+              // canvas for equality...
               if (
                 this._registeredMethods.post[i].toString() === this._grid().toString() ||
                 this._registeredMethods.post[i].toString() === this._axesIcon().toString()
@@ -88322,7 +88322,7 @@
             // libtess will take 3d verts and flatten to a plane for tesselation
             // since only doing 2d tesselation here, provide z=1 normal to skip
             // iterating over verts only to get the same answer.
-            // comment out to test normal-generation code
+            // comment out to canvas normal-generation code
             this._tessy.gluTessNormal(0, 0, 1);
 
             var triangleVerts = [];
@@ -89637,7 +89637,7 @@
                       var t0 = (-B - Q) / (2 * A); // the first inflection point
                       var t1 = (-B + Q) / (2 * A); // the second inflection point
 
-                      // test if the first inflection point lies on the curve
+                      // canvas if the first inflection point lies on the curve
                       if (t0 > 0 && t0 < 1) {
                         // split at the first inflection point
                         cubics.push(this.split(t0));
@@ -89645,7 +89645,7 @@
                         t1 = 1 - (1 - t1) / (1 - t0);
                       }
 
-                      // test if the second inflection point lies on the curve
+                      // canvas if the second inflection point lies on the curve
                       if (t1 > 0 && t1 < 1) {
                         // split at the second inflection point
                         cubics.push(this.split(t1));

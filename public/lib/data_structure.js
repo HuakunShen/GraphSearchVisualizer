@@ -22,6 +22,17 @@ export class Queue {
         }
     }
 
+    enqueueHead(element) {
+        let node = new Node(element);
+        if (this.head === null) {
+            this.head = node;
+            this.tail = node;
+        } else {
+            node.next = this.head;
+            this.head = node;
+        }
+    }
+
     dequeue() {
         if (this.head !== null) {
             let first_element = this.head;

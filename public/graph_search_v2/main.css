@@ -36,6 +36,8 @@ button {
 #board-container {
     /*margin-top: 100px;*/
     display: inline-block;
+    width: 100%;
+    margin-top: 10px;
     /*border: 2px solid black;*/
     /*background-color: #4CAF50;*/
     /*width: 800px;*/
@@ -58,4 +60,17 @@ button {
 
 #board {
     margin-bottom: 50px;
+    display: inline-block;
+}
+
+#data {
+    /*float: right;*/
+    width: 50%;
+    /*height: 100px;*/
+    /*background-color: red;*/
+    display: inline-block;
+
+}
+p {
+    margin: 0;
 }
