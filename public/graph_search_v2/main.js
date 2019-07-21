@@ -20,10 +20,13 @@ output.innerHTML = slider.value;
 slider.oninput = function() {
     output.innerHTML = this.value;
     frame_rate = this.value;
+    // console.log("frame rage: " + frame_rate);
+    if (animation) {
+        clearInterval(interval);
+        setRepeat();
+    }
+
 };
-
-
-
 
 
 $('#apply_setting')[0].onclick = function () {
@@ -38,10 +41,10 @@ document.onmouseup = function (event) {
     return false;
 };
 
-board.ontouchmove = function (event) {
-    mouse_is_down = true;
-    return false;
-};
+// board.ontouchmove = function (event) {
+//     mouse_is_down = true;
+//     return false;
+// };
 
 $('#clear_board')[0].onclick = function () {
     graph.clearBoard();
@@ -51,6 +54,7 @@ $('#clear_board')[0].onclick = function () {
     $('#animation')[0].style.display = 'none';
     $('#animation')[0].innerText = 'Animation';
     $('#start_search')[0].style.display = 'inline-block';
+    clearInterval(interval);
 };
 
 $('#start_search')[0].onclick = function (event) {
@@ -64,6 +68,7 @@ $('#start_search')[0].onclick = function (event) {
         $('#animation')[0].style.display = 'inline-block';
         graph.source.distance = 0;
         graph.source.div.innerText = graph.source.distance;
+        clearInterval(interval);
         setRepeat();
     }
 };
@@ -115,6 +120,7 @@ function setup() {
 
 
 function draw() {
+    console.log("interval active");
     if (game_active) {
         let ret = search.step();
         if (ret) {
