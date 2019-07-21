@@ -6,9 +6,13 @@ let search, graph;
 let mouse_is_down;
 let game_active = false;
 let game_animation = false;
-let interval;
-let frame_rate = 45;
-
+// let interval;
+// let frame_rate = 50;
+// let requestId;
+var fps = 50;
+var interval = 1000 / fps;
+let last = 0;
+let requestId;
 let width = 20, height = 20;
 setup();
 
@@ -17,18 +21,22 @@ const slider = document.getElementById("simulator_speed");
 const output = document.getElementById("speed_display");
 output.innerHTML = slider.value;
 
-slider.oninput = function() {
+slider.oninput = function () {
     output.innerHTML = this.value;
-    frame_rate = this.value;
+    fps = this.value;
     // console.log("frame rage: " + frame_rate);
-    if (animation) {
-        clearInterval(interval);
-        setRepeat();
+    // if (animation) {
+    //     clearInterval(interval);
+    //     setRepeat();
+    // }
+    if (this.value !== "" && this.value !== 0) {
+        interval = 1000 / fps;
     }
 
 };
 
 window.requestAnimationFrame(draw1);
+
 function draw1() {
     console.log("draw1");
 }
@@ -64,7 +72,8 @@ $('#clear_board')[0].onclick = function () {
     $('#animation')[0].style.display = 'none';
     $('#animation')[0].innerText = 'Animation';
     $('#start_search')[0].style.display = 'inline-block';
-    clearInterval(interval);
+    // clearInterval(interval);
+    cancelAnimationFrame(requestId);
 };
 
 $('#start_search')[0].onclick = function (event) {
@@ -78,9 +87,32 @@ $('#start_search')[0].onclick = function (event) {
         $('#animation')[0].style.display = 'inline-block';
         graph.source.distance = 0;
         graph.source.div.innerText = graph.source.distance;
-        clearInterval(interval);
-        setRepeat();
+        // clearInterval(interval);
+        // setRepeat();
+        requestId = requestAnimationFrame(draw);
     }
+    $('#data')[0].style.display = "none";
+    graph.target.found = false;
+
+};
+
+$('#random_btn')[0].onclick = function () {
+    let randomness = prompt("Enter Randomness of Wall (0-100)", "30");
+    randomness = parseInt(randomness);
+    if (!randomness) {
+        alert("Invalid Input, please input a number between 0 and 100");
+        return;
+    }
+    graph.board.forEach((row) => {
+        row.forEach((cell) => {
+            if (cell !== graph.source && cell !== graph.target) {
+                cell.clear();
+                if (Math.random() < randomness / 100.0) {
+                    cell.update(constant.WALL_COLOR);
+                }
+            }
+        })
+    })
 };
 
 $('#step')[0].onclick = function (event) {
@@ -102,6 +134,7 @@ function setup() {
     game_active = false;
     game_animation = false;
     graph = new Graph();
+    $('#data')[0].style.display = "none";
     // graph = helper.createBoard(width, height);
     let board = $('#board')[0];
     for (let row = 0; row < height; row++) {
@@ -129,25 +162,39 @@ function setup() {
 }
 
 
-function draw() {
+function draw(timeStamp) {
     console.log("draw");
-    console.log("interval active");
-    if (game_active) {
-        let ret = search.step();
-        if (ret) {
-            // search done
-            game_active = false;
-            game_animation = false;
-            $('#step')[0].style.display = 'none';
-            $('#animation')[0].style.display = 'none';
-            $('#animation')[0].innerText = 'Animation';
-            $('#start_search')[0].style.display = 'inline-block';
-            clearInterval(interval);
+    requestId = requestAnimationFrame(draw);
+    if (timeStamp > last) {
+        if (game_active) {
+            let ret = search.step();
+            if (ret) {
+                // search done
+                game_active = false;
+                game_animation = false;
+                $('#step')[0].style.display = 'none';
+                $('#animation')[0].style.display = 'none';
+                $('#animation')[0].innerText = 'Animation';
+                $('#start_search')[0].style.display = 'inline-block';
+                // clearInterval(interval);
+                cancelAnimationFrame(requestId);
+                if (!graph.target.found) {
+                    alert("Target Cannot Be Reached");
+                }
+                $('#data')[0].style.display = "inline-block";
+                let data_display = $("#data")[0];
+                data_display.children[0].innerHTML = "Total Searched: " + search.data.total_searched;
+                if (search.data.total_discovered) {
+                    data_display.children[1].innerHTML = "Total Discovered: " + search.data.total_discovered;
+                }
+            }
+            if (!game_animation) {
+                game_active = false;
+            }
         }
-        if (!game_animation) {
-            game_active = false;
-        }
+        last = timeStamp + interval;
     }
+
 
 }
 
@@ -218,7 +265,8 @@ function setupBoardSize() {
 }
 
 function setRepeat() {
-    interval = setInterval(function () {
-        draw();
-    }, 1000.0 / frame_rate);
+    // interval = setInterval(function () {
+    //     draw();
+    // }, 1000.0 / frame_rate);
+    requestId = requestAnimationFrame(draw);
 }

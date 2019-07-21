@@ -16,6 +16,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/graph_search_v2/main.html'));
 });
 
+app.get('/v3', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/graph_search_v3/app.html'));
+});
+
+
 app.listen(process.env.PORT || 3000, function() {
     console.log("server starts on port " + PORT);
 });
