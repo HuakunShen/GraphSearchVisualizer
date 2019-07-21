@@ -35,23 +35,17 @@ slider.oninput = function () {
 
 };
 
-window.requestAnimationFrame(draw1);
-
-function draw1() {
-    console.log("draw1");
-}
-
 $('#apply_setting')[0].onclick = function () {
     setupBoardSize();
 };
 board.onmousedown = function (event) {
-    console.log("mouse down");
+    // console.log("mouse down");
     mouse_is_down = true;
     // updateCell(event);
     return false;
 };
 document.onmouseup = function (event) {
-    console.log("mouse up");
+    // console.log("mouse up");
     mouse_is_down = false;
     return false;
 };
@@ -158,12 +152,12 @@ function setup() {
     }
 
     // search = new Search(graph, "BFS");
-    console.log(graph);
+    // console.log(graph);
 }
 
 
 function draw(timeStamp) {
-    console.log("draw");
+    // console.log("draw");
     requestId = requestAnimationFrame(draw);
     if (timeStamp > last) {
         if (game_active) {
@@ -194,20 +188,20 @@ function draw(timeStamp) {
         }
         last = timeStamp + interval;
     }
-    console.log(search);
+    // console.log(search);
 
 }
 
 function setupCellDiv(cell_div) {
     cell_div.onclick = function (event) {
-        console.log("mouse is clicked");
+        // console.log("mouse is clicked");
         // game_active = true;
         updateCell(event);
     };
 
     cell_div.onmouseover = function (event) {
         if (mouse_is_down) {
-            console.log("mouse is down");
+            // console.log("mouse is down");
             updateCell(event);
         }
     };
@@ -250,6 +244,10 @@ function updateCell(event) {
 function setupBoardSize() {
     let tmp_width = $('#width_input')[0].value;
     let tmp_height = $('#height_input')[0].value;
+    if (tmp_width > 150 || tmp_height > 150) {
+        alert("Input Dimension is Too Large! At Most 150.");
+        return;
+    }
     if (tmp_width === "" || tmp_height === "") {
         alert("Width and Height Not Input");
     } else {
