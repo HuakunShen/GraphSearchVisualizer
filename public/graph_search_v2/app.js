@@ -3,7 +3,8 @@ import * as helper from "./helper_functions.js";
 import * as constant from "./constants.js"
 import Search from "./search.js"
 import {Cell} from "./search.js";
-let search, graph = [];
+import Graph from "./graph.js";
+let search, graph;
 let mouse_is_down;
 let game_active = false;
 
@@ -15,6 +16,7 @@ setInterval(function () {
 
 
 function setup() {
+    graph = new Graph();
     // graph = helper.createBoard(width, height);
     let board = $('#board')[0];
     for (let row = 0; row < height; row++) {
@@ -34,7 +36,7 @@ function setup() {
             row_graph.push(new Cell(cell_div, row, col));
         }
         board.appendChild(row_div);
-        graph.push(row_graph);
+        graph.board.push(row_graph);
     }
 
     search = new Search(graph, "BFS");
@@ -46,6 +48,9 @@ function setup() {
         mouse_is_down = false;
     };
 
+    $('#clear_board')[0].onclick = function() {
+        graph.clearBoard();
+    }
 
 }
 
@@ -60,6 +65,7 @@ function draw() {
 function setupCellDiv(cell_div) {
     cell_div.onclick = function(event) {
         console.log("mouse is clicked");
+        game_active = true;
         updateCell(event);
     };
 
@@ -82,24 +88,28 @@ function updateCell(event) {
     const target = event.target;
     const row = target.getAttribute('data-row');
     const col = target.getAttribute('data-col');
-    const cell = graph[row][col];
+    const cell = graph.board[row][col];
     const select_mode_val = $("input[name='select_mode']:checked").val();
     let color_to_set;
     switch (select_mode_val) {
         case "wall":
-            color_to_set = 'rgb(52, 152, 219)';
+            color_to_set = constant.WALL_COLOR;
             break;
         case "clear":
-            color_to_set = 'rgb(255, 255, 255)';
+            color_to_set = constant.CLEAR_COLOR;
             break;
         case "source":
-            color_to_set = 'rgb(232, 65, 24)';
+            color_to_set = constant.SOURCE_COLOR;
+            graph.updateUnique(cell, constant.SOURCE_COLOR);
             break;
         case "target":
-            color_to_set = 'rgb(76, 209, 55)';
+            color_to_set = constant.TARGET_COLOR;
+            graph.updateUnique(cell, constant.SOURCE_COLOR);
             break;
         default:
     }
+    // console.log(select_mode_val);
+
     cell.update(color_to_set);
 
 }
