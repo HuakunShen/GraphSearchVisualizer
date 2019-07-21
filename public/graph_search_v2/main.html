@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/graph_search_v2/main.css">
+    <link rel="stylesheet" href="/graph_search_v2/slidebar.css">
 </head>
 <body>
 
@@ -28,7 +29,14 @@
             </form>
         </div>
     </div>
-    <br>
+
+    <!-- slide bar-->
+    <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="50" class="slider" id="simulator_speed">
+        <p>Value: <span id="speed_display"></span></p>
+    </div>
+
+
     <!--Selecting mode-->
     <div class="radio_btn_group_div">
         <p style="display: inline-block;margin-right: 10px"><strong>Selecting Mode</strong></p>

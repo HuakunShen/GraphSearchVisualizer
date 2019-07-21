@@ -9,12 +9,24 @@ let search, graph;
 let mouse_is_down;
 let game_active = false;
 let game_animation = false;
+let interval;
+let frame_rate = 45;
 
 let width = 20, height = 20;
 setup();
-setInterval(function () {
-    draw();
-}, 75);
+
+// setup slide bar
+const slider = document.getElementById("simulator_speed");
+const output = document.getElementById("speed_display");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+    output.innerHTML = this.value;
+    frame_rate = this.value;
+};
+
+
+
 
 
 $('#apply_setting')[0].onclick = function () {
@@ -50,6 +62,7 @@ $('#start_search')[0].onclick = function (event) {
         $('#animation')[0].style.display = 'inline-block';
         graph.source.distance = 0;
         graph.source.div.innerText = graph.source.distance;
+        setRepeat();
     }
 };
 
@@ -103,12 +116,14 @@ function draw() {
     if (game_active) {
         let ret = search.step();
         if (ret) {
+            // search done
             game_active = false;
             game_animation = false;
             $('#step')[0].style.display = 'none';
             $('#animation')[0].style.display = 'none';
             $('#animation')[0].innerText = 'Animation';
             $('#start_search')[0].style.display = 'inline-block';
+            clearInterval(interval);
         }
         if (!game_animation) {
             game_active = false;
@@ -182,4 +197,10 @@ function setupBoardSize() {
         });
         setup();
     }
+}
+
+function setRepeat() {
+    interval = setInterval(function () {
+        draw();
+    }, 1000.0 / frame_rate);
 }
