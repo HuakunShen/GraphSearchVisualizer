@@ -158,7 +158,7 @@ function setup() {
     }
 
     // search = new Search(graph, "BFS");
-
+    console.log(graph);
 }
 
 
@@ -194,7 +194,7 @@ function draw(timeStamp) {
         }
         last = timeStamp + interval;
     }
-
+    console.log(search);
 
 }
 

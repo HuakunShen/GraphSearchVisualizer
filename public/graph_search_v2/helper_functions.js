@@ -35,7 +35,7 @@ export function getLegalCellsAround(graph, current_cell) {
     // col
     tmp.forEach((offset) => {
         const new_col = curr_col + offset;
-        if (new_col >= 0 && new_col < board.length) {
+        if (new_col >= 0 && new_col < board[0].length) {
             const new_cell = board[curr_row][new_col];
             if (legal_color.includes(new_cell.color)) {
                 legal_cells.push(new_cell);
