@@ -1,9 +1,18 @@
-body {
+html body {
     text-align: center;
     background-color: #2d3436;
     color: white;
 }
 
+.myContainer {
+    margin-top: 2%;
+}
+
+#board_container {
+    /*margin-top: 100px;*/
+    display: inline-block;
+    border: 2px solid black;
+}
 #defaultCanvas0 {
     display: inline-block;
 }
@@ -11,12 +20,6 @@ button {
     display: block;
 }
 
-.container {
-    /*background-color: #4CAF50;*/
-    display: inline-block;
-    margin: 30px 50px 100px 100px;
-    height: 100%;
-}
 
 .ui.form .inline.fields label {
     margin: 10px;
@@ -36,13 +39,10 @@ button {
 #board-container {
     /*margin-top: 100px;*/
     display: inline-block;
-    width: 100%;
+    /*width: 100%;*/
     margin-top: 10px;
-    /*border: 2px solid black;*/
-    /*background-color: #4CAF50;*/
-    /*width: 800px;*/
-    /*height: 800px;*/
-    /*display: inline-block;*/
+    font-size: 10px;
+
 
 }
 
@@ -59,8 +59,9 @@ button {
 }
 
 #board {
-    margin-bottom: 50px;
-    display: inline-block;
+    /*margin-bottom: 50px;*/
+    /*display: inline-block;*/
+    /*text-align: center;*/
 }
 
 #data {
@@ -73,4 +74,9 @@ button {
 }
 p {
     margin: 0;
+}
+
+#simulator_speed {
+    width: 500px;
+    height: 15px;
 }
