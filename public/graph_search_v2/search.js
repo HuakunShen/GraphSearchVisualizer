@@ -3,15 +3,12 @@ import * as constant from "./constants.js";
 import * as helper from "./helper_functions.js";
 
 export default class Search {
-    search_algo;
-    graph;
-
     constructor(graph, mode) {
         console.log("search created " + mode);
         this.graph = graph;
         switch (mode) {
             case "BFS":
-                this.search_algo = new BFS(graph);
+                this.search_algo = new BFS(this.graph);
                 console.log("BFS Created");
                 break;
             case "DFS":

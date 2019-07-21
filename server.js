@@ -4,7 +4,7 @@ var path = require('path');
 const PORT = 3000;
 app.use(express.static('public'));
 
-app.get('/', function(req, res) {
+app.get('/v1it', function(req, res) {
     res.sendFile(path.join(__dirname, 'public/graph_search_v1/app.html'));
 });
 
@@ -12,10 +12,10 @@ app.get('/module', function(req, res) {
     res.sendFile(path.join(__dirname, 'public/module_export/index.html'));
 });
 
-app.get('/v2', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/graph_search_v2/main.html'));
 });
 
-app.listen(PORT, function() {
+app.listen(process.env.PORT || 3000, function() {
     console.log("server starts on port " + PORT);
 });
