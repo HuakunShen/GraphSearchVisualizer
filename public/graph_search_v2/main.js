@@ -28,21 +28,31 @@ slider.oninput = function() {
 
 };
 
+window.requestAnimationFrame(draw1);
+function draw1() {
+    console.log("draw1");
+}
 
 $('#apply_setting')[0].onclick = function () {
     setupBoardSize();
 };
 board.onmousedown = function (event) {
+    console.log("mouse down");
     mouse_is_down = true;
+    // updateCell(event);
     return false;
 };
 document.onmouseup = function (event) {
+    console.log("mouse up");
     mouse_is_down = false;
     return false;
 };
-
+//
 // board.ontouchmove = function (event) {
+//     console.log("touch move");
+//     console.log(event.target);
 //     mouse_is_down = true;
+//     updateCell(event);
 //     return false;
 // };
 
@@ -120,6 +130,7 @@ function setup() {
 
 
 function draw() {
+    console.log("draw");
     console.log("interval active");
     if (game_active) {
         let ret = search.step();
@@ -157,7 +168,6 @@ function setupCellDiv(cell_div) {
         event.preventDefault();
         // cellClicked(event);
         // $("input[name='mode']").value = "clear";
-
         return false;
     }, false);
 }
