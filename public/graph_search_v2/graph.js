@@ -46,6 +46,7 @@ export default class Graph {
                 if (cell !== source && cell !== target && cell.color !== constant.WALL_COLOR) {
                     cell.clear();
                 }
+                cell.div.innerText = "";
             });
         });
     }
