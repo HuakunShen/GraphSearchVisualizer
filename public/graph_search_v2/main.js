@@ -12,7 +12,6 @@ let last = 0;
 let width = 20, height = 20;
 setup();
 initialize();
-helper.setup_ui();
 
 function setup() {
     game_active = false;
@@ -221,6 +220,19 @@ function initialize() {
             event.target.innerText = "Pause";
             game_animation = true;
             game_active = true;
+        }
+    };
+
+    // setup slide bar
+    const slider = document.getElementById("simulator_speed");
+    const output = document.getElementById("speed_display");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+        fps = this.value;
+        if (this.value !== "" && this.value !== 0) {
+            interval = 1000 / fps;
         }
     };
 }

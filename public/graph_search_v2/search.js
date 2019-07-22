@@ -171,7 +171,7 @@ class DFS {
         let next_cell = undefined;
         while(!next_cell){
             while(this.current_cell.curMove < 4 && next_cell === undefined){
-                console.log(this.current_cell.curMove)
+                console.log(this.current_cell.curMove);
                 next_cell = helper.moveByDir(this.graph,this.current_cell);
             }
             if(this.current_cell.curMove === 4 && next_cell === undefined){
@@ -182,7 +182,8 @@ class DFS {
             }
 
         }
-        return next_cell
+        return next_cell;
+        // return helper.getLegalCellsAround(this.graph, this.current_cell)[0];
 
     }
 }
