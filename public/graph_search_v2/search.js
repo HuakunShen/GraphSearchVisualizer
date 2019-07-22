@@ -19,7 +19,13 @@ export default class Search {
                 console.log("BFS Created");
                 break;
             case "DFS":
-
+                this.data = {
+                    graph: graph,
+                    total_searched: 0,   // source node is the first one
+                    total_discovered: 1
+                };
+                this.search_algo = new DFS(this.data);
+                console.log("DFS Created");
                 break;
             default:
 
@@ -99,7 +105,83 @@ class BFS {
 }
 
 class DFS {
-    constructor() {
+    constructor(data) {
+        this.graph = data.graph;
+        this.data = data;
+        this.queue = new data_structure.Queue();
+        this.current_cell = this.graph.source;
+        this.current_cell.curMove = 0;
+        this.queue.enqueue(this.current_cell);
+        // this.data.total_discovered++;
+        // this.data.total_searched++;
+        this.path_complete = false;
+    }
+
+    step() {
+        if (! this.graph.target.found) {
+            let next_cell = this.found_nextCell();
+            if(next_cell === undefined){
+                return false;
+            }
+            if(next_cell.moves === undefined){
+                next_cell.curMove = 0;
+            }
+            if (this.current_cell === this.graph.target) {
+                this.graph.target.found = true;
+            } else {
+                // console.log(legal_cells);
+                if (next_cell.color === constant.UNDISCOVERED_COLOR) {
+                    next_cell.update(constant.DISCOVERED_COLOR);
+                }
+                this.data.total_discovered++;
+
+                next_cell.parent = this.current_cell;
+                next_cell.distance = this.current_cell.distance + 1;
+                next_cell.div.innerText = next_cell.distance;
+                if (this.current_cell !== this.graph.source) {
+                    this.current_cell.update(constant.EXPLORED_COLOR);
+                }
+                this.current_cell = next_cell;
+                // console.log(this.current_cell);
+                this.data.total_searched++;
+                // console.log("num searched: " + this.data.total_searched);
+                // console.log("num discovered: " + this.data.total_discovered);
+            }
+        } else {
+            // backtrace the path
+            if (this.graph.target.found === true) {
+                if (this.current_cell.parent != null) {
+                    this.current_cell = this.current_cell.parent;
+                }
+                if (this.current_cell !== this.graph.source) {
+                    this.current_cell.update(constant.PATH_COLOR);
+                } else {
+                    this.path_complete = true;
+                    return true;
+                }
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    found_nextCell(){
+        let next_cell = undefined;
+        while(!next_cell){
+            while(this.current_cell.curMove < 4 && next_cell === undefined){
+                console.log(this.current_cell.curMove)
+                next_cell = helper.moveByDir(this.graph,this.current_cell);
+            }
+            if(this.current_cell.curMove === 4 && next_cell === undefined){
+                if(this.current_cell.parent === undefined){
+                    return undefined;
+                }
+                this.current_cell = this.current_cell.parent;
+            }
+
+        }
+        return next_cell
 
     }
 }
