@@ -3,20 +3,16 @@ import Search, {Cell} from "./search.js";
 import Graph from "./graph.js";
 import * as helper from './helper_functions.js';
 
-let search, graph;
-let mouse_is_down;
+let search, graph, mouse_is_down, requestId;
 let game_active = false;
 let game_animation = false;
 let fps = 50;
 let interval = 1000 / fps;
 let last = 0;
-let requestId;
 let width = 20, height = 20;
 setup();
 initialize();
 helper.setup_ui();
-
-
 
 function setup() {
     game_active = false;
@@ -48,7 +44,6 @@ function setup() {
 
 
 function draw(timeStamp) {
-    // console.log("draw");
     requestId = requestAnimationFrame(draw);
     if (timeStamp > last) {
         if (game_active) {
@@ -61,13 +56,12 @@ function draw(timeStamp) {
                 $('#animation')[0].style.display = 'none';
                 $('#animation')[0].innerText = 'Animation';
                 $('#start_search')[0].style.display = 'inline-block';
-                // clearInterval(interval);
                 cancelAnimationFrame(requestId);
                 if (!graph.target.found) {
                     alert("Target Cannot Be Reached");
                 }
-                $('#data')[0].style.display = "inline-block";
                 let data_display = $("#data")[0];
+                data_display.style.display = "inline-block";
                 data_display.children[0].innerHTML = "Total Searched: " + search.data.total_searched;
                 if (search.data.total_discovered) {
                     data_display.children[1].innerHTML = "Total Discovered: " + search.data.total_discovered;

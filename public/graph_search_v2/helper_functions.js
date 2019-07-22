@@ -11,7 +11,6 @@ export function setup_ui() {
         if (this.value !== "" && this.value !== 0) {
             interval = 1000 / fps;
         }
-
     };
 }
 
