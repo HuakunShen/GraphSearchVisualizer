@@ -122,7 +122,7 @@ class DFS {
         if (! this.graph.target.found) {
             let next_cell = this.found_nextCell();
             if(next_cell === undefined){
-                return false;
+                return true;
             }
             if(next_cell.moves === undefined){
                 next_cell.curMove = 0;
