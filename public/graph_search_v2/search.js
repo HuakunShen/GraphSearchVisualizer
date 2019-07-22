@@ -129,6 +129,9 @@ class DFS {
             }
             console.log(this.current_cell,this.graph.target)
             if (next_cell === this.graph.target) {
+                next_cell.parent = this.current_cell;
+                next_cell.distance = this.current_cell.distance + 1;
+                next_cell.div.innerText = next_cell.distance;
                 this.current_cell = next_cell;
                 this.graph.target.found = true;
             } else {
