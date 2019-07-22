@@ -1,18 +1,18 @@
 import * as constant from "./constants.js";
-import {Cell} from "./search.js";
-
-export function button_click() {
-    // game_active = true;
-    console.log("clicked");
-}
-
 export function setup_ui() {
+// setup slide bar
+    const slider = document.getElementById("simulator_speed");
+    const output = document.getElementById("speed_display");
+    output.innerHTML = slider.value;
 
-}
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+        fps = this.value;
+        if (this.value !== "" && this.value !== 0) {
+            interval = 1000 / fps;
+        }
 
-
-export function clearColorOnBoard(color) {
-
+    };
 }
 
 export function getLegalCellsAround(graph, current_cell) {

@@ -27,9 +27,13 @@ export default class Search {
                 this.search_algo = new DFS(this.data);
                 console.log("DFS Created");
                 break;
+            case "A*":
+
+                break;
             default:
 
         }
+        console.log(this.search_algo);
     }
 
     step() {
@@ -39,14 +43,11 @@ export default class Search {
 
 class BFS {
     constructor(data) {
-        this.graph = data.graph;
         this.data = data;
+        this.graph = data.graph;
         this.queue = new data_structure.Queue();
         this.current_cell = this.graph.source;
         this.queue.enqueue(this.current_cell);
-        // this.data.total_discovered++;
-        // this.data.total_searched++;
-        this.path_complete = false;
     }
 
     step() {
