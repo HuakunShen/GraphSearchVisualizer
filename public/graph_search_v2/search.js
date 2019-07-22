@@ -19,11 +19,21 @@ export default class Search {
                 console.log("BFS Created");
                 break;
             case "DFS":
+                this.data = {
+                    graph: graph,
+                    total_searched: 0,   // source node is the first one
+                    total_discovered: 1
+                };
+                this.search_algo = new DFS(this.data);
+                console.log("DFS Created");
+                break;
+            case "A*":
 
                 break;
             default:
 
         }
+        console.log(this.search_algo);
     }
 
     step() {
@@ -33,14 +43,11 @@ export default class Search {
 
 class BFS {
     constructor(data) {
-        this.graph = data.graph;
         this.data = data;
+        this.graph = data.graph;
         this.queue = new data_structure.Queue();
         this.current_cell = this.graph.source;
         this.queue.enqueue(this.current_cell);
-        // this.data.total_discovered++;
-        // this.data.total_searched++;
-        this.path_complete = false;
     }
 
     step() {
@@ -99,8 +106,15 @@ class BFS {
 }
 
 class DFS {
-    constructor() {
+    constructor(data) {
+        this.data = data;
+        this.graph = data.graph;
+        this.current_cell = this.graph.source;
+        this.stack = [this.current_cell];
+    }
 
+    step() {
+        // if ()
     }
 }
 
