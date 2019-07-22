@@ -127,7 +127,9 @@ class DFS {
             if(next_cell.moves === undefined){
                 next_cell.curMove = 0;
             }
-            if (this.current_cell === this.graph.target) {
+            console.log(this.current_cell,this.graph.target)
+            if (next_cell === this.graph.target) {
+                this.current_cell = next_cell;
                 this.graph.target.found = true;
             } else {
                 // console.log(legal_cells);
