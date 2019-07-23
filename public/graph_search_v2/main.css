@@ -4,9 +4,13 @@ html body {
     color: white;
 }
 
-.myContainer {
-    margin-top: 2%;
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
+
+
 
 #board_container {
     /*margin-top: 100px;*/
@@ -64,19 +68,55 @@ button {
     /*text-align: center;*/
 }
 
-#data {
+#data-container {
     /*float: right;*/
-    width: 50%;
+    /*width: 25%;*/
     /*height: 100px;*/
     /*background-color: red;*/
     display: inline-block;
-
+    /*background-color: #2196F3;*/
+    position: relative;
+    top: 50px;
 }
+
+#data-container p {
+    text-align: left;
+}
+
 p {
     margin: 0;
 }
 
 #simulator_speed {
-    width: 500px;
+    /*width: 500px;*/
     height: 15px;
 }
+
+.column {
+    float: left;
+    padding: 10px;
+}
+
+.main-container {
+    margin-top: 2%;
+    width: 75%;
+}
+
+.column.side {
+    width: 25%;
+    height: 50px;
+
+}
+
+.slide-container {
+    width: 50%;
+}
+
+@media screen and (max-width: 600px) {
+    .column.side, .column.main-container {
+        width: 100%;
+    }
+}
+
+
+

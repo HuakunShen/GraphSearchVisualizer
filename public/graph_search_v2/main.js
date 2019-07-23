@@ -17,7 +17,7 @@ function setup() {
     game_active = false;
     game_animation = false;
     graph = new Graph();
-    $('#data')[0].style.display = "none";
+    // $('#data')[0].style.display = "none";
     // graph = helper.createBoard(width, height);
     let board = $('#board')[0];
     for (let row = 0; row < height; row++) {
@@ -59,11 +59,12 @@ function draw(timeStamp) {
                 if (!graph.target.found) {
                     alert("Target Cannot Be Reached");
                 }
-                let data_display = $("#data")[0];
-                data_display.style.display = "inline-block";
-                data_display.children[0].innerHTML = "Total Searched: " + search.data.total_searched;
-                if (search.data.total_discovered) {
-                    data_display.children[1].innerHTML = "Total Discovered: " + search.data.total_discovered;
+                const data_display = $("#data-container p");
+                // data_display.style.display = "inline-block";
+                data_display[0].innerHTML = "Total Searched: " + search.data.total_searched;
+                if (search.data.total_discovered != null) {
+                    console.log("total discovered: " + search.data.total_discovered);
+                    data_display[1].innerHTML = "Total Discovered: " + search.data.total_discovered;
                 }
             }
             if (!game_animation) {
@@ -167,7 +168,7 @@ function initialize() {
         $('#start_search')[0].style.display = 'inline-block';
         // clearInterval(interval);
         cancelAnimationFrame(requestId);
-        $('#data')[0].style.display = "none";
+        // $('#data')[0].style.display = "none";
 
     };
 
@@ -184,7 +185,7 @@ function initialize() {
             graph.source.div.innerText = graph.source.distance;
             requestId = requestAnimationFrame(draw);
         }
-        $('#data')[0].style.display = "none";
+        // $('#data')[0].style.display = "none";
         graph.target.found = false;
 
     };
