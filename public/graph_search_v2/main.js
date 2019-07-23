@@ -1,7 +1,7 @@
 import * as constant from "./constants.js";
 import Search, {Cell} from "./search.js";
 import Graph from "./graph.js";
-import * as helper from './helper_functions.js';
+// import * as helper from './helper_functions.js';
 
 let search, graph, mouse_is_down, requestId;
 let game_active = false;

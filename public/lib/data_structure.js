@@ -119,10 +119,12 @@ export class MinHeap {
         if (!this.isLeaf(index)) {
             const left_child = this.getLeftChildIndex(index);
             const right_child = this.getRightChildIndex(index);
-            let min_of_child = this.data[left_child] <= this.data[right_child] ? left_child : right_child;
-            if (this.data[index] > this.data[min_of_child]) {
-                this.swap(index, min_of_child);
-                this.minHeapify(min_of_child);
+            if (right_child) {
+                let min_of_child = this.data[left_child] <= this.data[right_child] ? left_child : right_child;
+                if (this.data[index] > this.data[min_of_child]) {
+                    this.swap(index, min_of_child);
+                    this.minHeapify(min_of_child);
+                }
             }
         }
     }
@@ -145,16 +147,11 @@ export class MinHeap {
     }
 
     checkIndex(index) {
-        if (typeof (index) === "number") {
-            if (index >= this.data.length || index < 0) {
-                console.log("MinHeap Index Error");
-                return false;
-            } else {
-                return true
-            }
-        } else {
-            // console.log("MinHeap Index Type Error, " + typeof(index));
+        if (index >= this.data.length || index < 0) {
+            console.log("MinHeap Index Error");
             return false;
+        } else {
+            return true
         }
     }
 
@@ -168,16 +165,20 @@ export class MinHeap {
 
     test(sample_size = 100) {
         // let heap = new MinHeap();
+        // Test Insert
         for (let i = 0; i < sample_size; i++) {
             this.insert(Math.round(Math.random() * 100));
         }
         this.isMinHeap() ? console.log("Insert Test Passed") : console.log("Insert Test Failed");
 
+        // Test Extract Min
         for (let i = 0; i < sample_size; i++) {
-            let min_element = Math.min.apply(Math, this);
+            // this.print();
+            let min_element = Math.min.apply(Math, this.data);
             let extracted_min = this.extractMin();
             if (min_element !== extracted_min || !this.isMinHeap()) {
                 console.log("Extract Min Test Failed");
+                this.print();
                 return false;
             }
         }

@@ -1,7 +1,6 @@
 import * as data_structure from "../lib/data_structure.js";
 import * as constant from "./constants.js";
 import * as helper from "./helper_functions.js";
-import {MinHeap} from "../lib/data_structure";
 
 export default class Search {
     constructor(graph, mode) {
