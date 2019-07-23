@@ -5,7 +5,7 @@ import * as helper from "./helper_functions.js";
 export default class Search {
     constructor(graph, mode) {
         console.log("search created " + mode);
-
+        this.mode = mode;
         // this.graph = graph;
         // this.total_searched = 0;
         switch (mode) {

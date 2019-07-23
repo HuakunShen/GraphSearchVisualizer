@@ -86,6 +86,29 @@ export function moveByDir(graph,current_cell) {
 
 }
 
+export function createElement(tag, msg=null) {
+    let p = document.createElement(tag);
+    if (msg) {
+        let textnode = document.createTextNode(msg);
+        p.appendChild(textnode);
+    }
+    return p;
+}
+
+export function scrollToBottom(element_id) {
+    let objDiv = document.getElementById(element_id);
+    objDiv.scrollTop = objDiv.scrollHeight;
+}
+
+// export function appendParagraph(message) {
+//     const data_display = $("#data-container .data-content")[0];
+//     // data_display.style.display = "inline-block";
+//     let p = document.createElement('p');
+//     let textnode = document.createTextNode(message);
+//     p.appendChild(textnode);
+//     data_display.appendChild(p);
+// }
+
 function isSorted(arr) {
     for (let i = 0; i < arr.length - 1; i++) {
         if (arr[i] < arr[i + 1]) {
