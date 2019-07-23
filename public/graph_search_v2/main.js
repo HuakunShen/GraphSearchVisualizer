@@ -59,17 +59,7 @@ function draw(timeStamp) {
                 if (!graph.target.found) {
                     alert("Target Cannot Be Reached");
                 }
-                const data_display = $("#data-content")[0];
-                data_display.appendChild(helper.createElement('p', search.mode));
-                data_display.appendChild(helper.createElement('p', "Total Searched: " + search.data.total_searched));
-                data_display.appendChild(helper.createElement('p', "Total Discovered: " + search.data.total_discovered));
-                data_display.appendChild(helper.createElement('br'))
-                helper.scrollToBottom("data-content");
-                // data_display[0].innerHTML = "Total Searched: " + search.data.total_searched;
-                // if (search.data.total_discovered != null) {
-                //     console.log("total discovered: " + search.data.total_discovered);
-                //     data_display[1].innerHTML = "Total Discovered: " + search.data.total_discovered;
-                // }
+                helper.appendStat(search);
             }
             if (!game_animation) {
                 game_active = false;

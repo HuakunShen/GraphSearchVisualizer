@@ -1,5 +1,23 @@
 import * as constant from "./constants.js";
 
+export function appendStat(search) {
+    function greyOutPreviousStat() {
+        let paragraphs = $("#data-content p");
+        for (let i = paragraphs.length - 1; i > -1 && i > paragraphs.length - 10; i--) {
+            paragraphs[i].style.color = "grey";
+        }
+    }
+
+    greyOutPreviousStat();
+    const data_display = $("#data-content")[0];
+    data_display.appendChild(createElement('p', search.mode));
+    data_display.appendChild(createElement('p', "Total Searched: " + search.data.total_searched));
+    data_display.appendChild(createElement('p', "Total Discovered: " + search.data.total_discovered));
+    data_display.appendChild(createElement('p', "Path Length: " + search.data.path_length));
+    data_display.appendChild(createElement('br'));
+    scrollToBottom("data-content");
+}
+
 
 export function getLegalCellsAround(graph, current_cell) {
     const tmp = [-1, 1];
@@ -31,7 +49,7 @@ export function getLegalCellsAround(graph, current_cell) {
     return legal_cells;
 }
 
-export function moveByDir(graph,current_cell) {
+export function moveByDir(graph, current_cell) {
     const board = graph.board;
     const curr_row = current_cell.row;
     const curr_col = current_cell.col;
@@ -40,8 +58,8 @@ export function moveByDir(graph,current_cell) {
     // console.log(current_cell.moves[current_cell.curMove]);
     switch (current_cell.curMove) {
         case 0:
-            current_cell.curMove ++;
-            if(curr_row + 1 < board.length){
+            current_cell.curMove++;
+            if (curr_row + 1 < board.length) {
                 var new_cell = board[curr_row + 1][curr_col];
 
                 if (legal_color.includes(new_cell.color)) {
@@ -50,8 +68,8 @@ export function moveByDir(graph,current_cell) {
             }
             return undefined;
         case 1:
-            current_cell.curMove ++;
-            if(curr_col + 1 < board[0].length){
+            current_cell.curMove++;
+            if (curr_col + 1 < board[0].length) {
                 var new_cell = board[curr_row][curr_col + 1];
                 if (legal_color.includes(new_cell.color)) {
                     return new_cell;
@@ -61,8 +79,8 @@ export function moveByDir(graph,current_cell) {
             return undefined;
 
         case 2:
-            current_cell.curMove ++;
-            if(curr_row - 1 > -1){
+            current_cell.curMove++;
+            if (curr_row - 1 > -1) {
                 var new_cell = board[curr_row - 1][curr_col];
                 if (legal_color.includes(new_cell.color)) {
                     return new_cell;
@@ -71,8 +89,8 @@ export function moveByDir(graph,current_cell) {
 
             return undefined;
         case 3:
-            current_cell.curMove ++;
-            if(curr_col -1 > -1){
+            current_cell.curMove++;
+            if (curr_col - 1 > -1) {
                 var new_cell = board[curr_row][curr_col - 1];
                 if (legal_color.includes(new_cell.color)) {
                     return new_cell;
@@ -86,7 +104,7 @@ export function moveByDir(graph,current_cell) {
 
 }
 
-export function createElement(tag, msg=null) {
+export function createElement(tag, msg = null) {
     let p = document.createElement(tag);
     if (msg) {
         let textnode = document.createTextNode(msg);

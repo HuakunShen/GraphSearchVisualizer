@@ -13,7 +13,8 @@ export default class Search {
                 this.data = {
                     graph: graph,
                     total_searched: 0,   // source node is the first one
-                    total_discovered: 1
+                    total_discovered: 1,
+                    path_length: 0
                 };
                 this.search_algo = new BFS(this.data);
                 console.log("BFS Created");
@@ -22,7 +23,8 @@ export default class Search {
                 this.data = {
                     graph: graph,
                     total_searched: 0,   // source node is the first one
-                    total_discovered: 1
+                    total_discovered: 1,
+                    path_length: 0
                 };
                 this.search_algo = new DFS(this.data);
                 console.log("DFS Created");
@@ -89,6 +91,8 @@ class BFS {
             // backtrace the path
             if (this.graph.target.found === true) {
                 if (this.current_cell.parent != null) {
+                    this.data.path_length++;
+                    console.log("path length: " + this.data.path_length);
                     this.current_cell = this.current_cell.parent;
                 }
                 if (this.current_cell !== this.graph.source) {
@@ -157,6 +161,8 @@ class DFS {
             // backtrace the path
             if (this.graph.target.found === true) {
                 if (this.current_cell.parent != null) {
+                    this.data.path_length++;
+                    console.log("path length: " + this.data.path_length);
                     this.current_cell = this.current_cell.parent;
                 }
                 if (this.current_cell !== this.graph.source) {
