@@ -11,106 +11,116 @@
     <link rel="stylesheet" href="/graph_search_v2/slidebar.css">
 </head>
 <body>
-
-
-<div class="myContainer">
+<div class="page-container">
     <h1>Graph Searching Algorithm Visualizer</h1>
-    <div id="setting_div">
-        <div style="display: block; margin-top: 50px">
-            <form onsubmit="return false;">
-                <div class="ui input">
-                    <input type="number" id="width_input" class="dimension-input" type="text" placeholder="Width">
-                    <input type="number" id="height_input" class="dimension-input" type="text" placeholder="Height"
-                           style="margin-left: 10px">
-                </div>
-                <button id="apply_setting" type="submit" class="ui primary button" style="margin-left: 10px">
-                    Apply
-                </button>
-            </form>
+
+    <div class="column side setting">
+        <div id="board-size-setting">
+            <h4>Board Size Setting</h4>
+            <div style="">
+                <form onsubmit="return false;">
+                    <div class="ui input">
+                        <input type="number" id="width_input" class="dimension-input" type="text" placeholder="Width">
+                    </div>
+                    <div class="ui input">
+                        <input type="number" id="height_input" class="dimension-input" type="text" placeholder="Height">
+                    </div>
+                    <br>
+                    <button id="apply_setting" type="submit" class="ui primary button" style="margin-left: 10px">
+                        Apply
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- slide bar-->
+        <br><br>
+        <h4>Simulator Speed</h4>
+        <div class="slide-container">
+            <input type="range" min="1" max="60" value="50" class="slider" id="simulator_speed">
+            <p>Frame Rate: <span id="speed_display"></span></p>
         </div>
     </div>
 
-    <!-- slide bar-->
-    <br>
-    <h4>Simulator Speed</h4>
-    <div class="slidecontainer">
-        <input type="range" min="1" max="60" value="50" class="slider" id="simulator_speed">
-        <p>Frame Rate: <span id="speed_display"></span></p>
+
+    <div class="main-container column">
+        <!--Selecting mode-->
+        <div class="radio_btn_group_div">
+            <p style="display: inline-block;margin-right: 10px"><strong>Selecting Mode</strong></p>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="select_mode1" name="select_mode" class="custom-control-input" value="wall"
+                       checked="checked">
+                <label class="custom-control-label" for="select_mode1">Wall</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="select_mode2" name="select_mode" class="custom-control-input" value="clear">
+                <label class="custom-control-label" for="select_mode2">Clear</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="select_mode3" name="select_mode" class="custom-control-input" value="source">
+                <label class="custom-control-label" for="select_mode3">Source</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="select_mode4" name="select_mode" class="custom-control-input" value="target">
+                <label class="custom-control-label" for="select_mode4">Target</label>
+            </div>
+        </div>
+
+        <!--Search Method Selection-->
+        <div class="radio_btn_group_div">
+            <p style="display: inline-block;margin-right: 10px"><strong>Selecting Mode</strong></p>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="search_algo1" name="search_algo" class="custom-control-input" value="BFS"
+                       checked="checked">
+                <label class="custom-control-label" for="search_algo1">BFS</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="search_algo2" name="search_algo" class="custom-control-input" value="DFS">
+                <label class="custom-control-label" for="search_algo2">DFS</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="search_algo3" name="search_algo" class="custom-control-input" value="A*">
+                <label class="custom-control-label" for="search_algo3">A*</label>
+            </div>
+
+        </div>
+
+        <div id="control-button-group">
+            <button id="random_btn" type="submit" class="ui primary button"
+                    style="margin-left: 10px; margin-top: 10px;">
+                Random Walls
+            </button>
+
+            <button id="clear_board" type="submit" class="ui primary button"
+                    style="margin-left: 10px; margin-top: 10px;">
+                Clear Board
+            </button>
+            <!-- start search button -->
+            <button id="start_search" type="submit" class="ui primary button"
+                    style="margin-left: 10px; margin-top: 10px;">
+                Start Search
+            </button>
+            <!-- step -->
+            <button id="step" type="submit" class="ui primary button"
+                    style="margin-left: 10px; margin-top: 10px; display: none;">
+                Step
+            </button>
+            <button id="animation" type="submit" class="ui primary button"
+                    style="margin-left: 10px; margin-top: 10px; display: none;">
+                Animation
+            </button>
+        </div>
+
+        <div id="board-container">
+            <div id="board"></div>
+        </div>
     </div>
-
-
-    <!--Selecting mode-->
-    <div class="radio_btn_group_div">
-        <p style="display: inline-block;margin-right: 10px"><strong>Selecting Mode</strong></p>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="select_mode1" name="select_mode" class="custom-control-input" value="wall" checked="checked">
-            <label class="custom-control-label" for="select_mode1">Wall</label>
+    <div id="data-container" class="column side">
+        <div>
+            <h2>Statistics</h2>
+            <p>Total Searched: </p>
+            <p>Total Discovered: </p>
         </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="select_mode2" name="select_mode" class="custom-control-input" value="clear">
-            <label class="custom-control-label" for="select_mode2">Clear</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="select_mode3" name="select_mode" class="custom-control-input" value="source">
-            <label class="custom-control-label" for="select_mode3">Source</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="select_mode4" name="select_mode" class="custom-control-input" value="target">
-            <label class="custom-control-label" for="select_mode4">Target</label>
-        </div>
-    </div>
-
-    <!--Search Method Selection-->
-    <div class="radio_btn_group_div">
-        <p style="display: inline-block;margin-right: 10px"><strong>Selecting Mode</strong></p>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="search_algo1" name="search_algo" class="custom-control-input" value="BFS" checked="checked">
-            <label class="custom-control-label" for="search_algo1">BFS</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="search_algo2" name="search_algo" class="custom-control-input" value="DFS">
-            <label class="custom-control-label" for="search_algo2">DFS</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="search_algo3" name="search_algo" class="custom-control-input" value="A*">
-            <label class="custom-control-label" for="search_algo3">A*</label>
-        </div>
-
-    </div>
-
-    <button id="random_btn" type="submit" class="ui primary button" style="margin-left: 10px; margin-top: 10px;">
-        Random Walls
-    </button>
-
-    <button id="clear_board" type="submit" class="ui primary button" style="margin-left: 10px; margin-top: 10px;">
-        Clear Board
-    </button>
-    <!-- start search button -->
-    <button id="start_search" type="submit" class="ui primary button" style="margin-left: 10px; margin-top: 10px;">
-        Start Search
-    </button>
-    <!-- step -->
-    <button id="step" type="submit" class="ui primary button" style="margin-left: 10px; margin-top: 10px; display: none;">
-        Step
-    </button>
-    <button id="animation" type="submit" class="ui primary button" style="margin-left: 10px; margin-top: 10px; display: none;">
-        Animation
-    </button>
-
-    <br>
-    <div id="data">
-        <p></p>
-        <p></p>
-    </div>
-    <br>
-
-
-
-
-
-
-    <div id="board-container">
-        <div id="board"></div>
     </div>
 </div>
 <script src="/lib/p5.js"></script>

@@ -127,7 +127,12 @@ class DFS {
             if(next_cell.moves === undefined){
                 next_cell.curMove = 0;
             }
-            if (this.current_cell === this.graph.target) {
+            console.log(this.current_cell,this.graph.target)
+            if (next_cell === this.graph.target) {
+                next_cell.parent = this.current_cell;
+                next_cell.distance = this.current_cell.distance + 1;
+                next_cell.div.innerText = next_cell.distance;
+                this.current_cell = next_cell;
                 this.graph.target.found = true;
             } else {
                 // console.log(legal_cells);
@@ -195,6 +200,7 @@ export class Cell {
         this.color = constant.UNDISCOVERED_COLOR;
         this.wall = false;
         this.div = div;
+        this.cost = 0;
     }
 
     update(color) {
@@ -212,3 +218,7 @@ export class Cell {
     }
 
 }
+
+Cell.prototype.valueOf = function() {
+    return this.cost;
+};
