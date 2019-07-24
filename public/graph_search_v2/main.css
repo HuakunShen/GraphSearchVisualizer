@@ -151,6 +151,24 @@ p {
     display: inline-block;
 }
 
+p a {
+    text-decoration: none;
+    color: white;
+}
+
+a {
+    color: #74b9ff;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: greenyellow;
+}
+
 #apply_setting {
     margin-left: 0 !important;
 }
