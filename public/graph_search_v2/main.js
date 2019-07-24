@@ -13,6 +13,7 @@ let width = 20, height = 20;
 setup();
 initialize();
 
+
 function setup() {
     game_active = false;
     game_animation = false;
@@ -39,6 +40,10 @@ function setup() {
         board.appendChild(row_div);
         graph.board.push(row_graph);
     }
+
+    // for testing, set source and target beforehand
+    // graph.update(graph.board[0][0], constant.SOURCE_COLOR);
+    // graph.update(graph.board[10][10], constant.TARGET_COLOR);
 }
 
 
@@ -173,6 +178,9 @@ function initialize() {
             alert("Source or Target is Not Set");
         } else {
             graph.clearMinorCells();
+            graph.target.found = false;
+            console.log(graph.source);
+            console.log(graph.target);
             search = new Search(graph, $("input[name='search_algo']:checked").val());
             event.target.style.display = 'none';
             $('#step')[0].style.display = 'inline-block';
@@ -180,7 +188,7 @@ function initialize() {
             graph.source.distance = 0;
             graph.source.div.innerText = graph.source.distance;
             requestId = requestAnimationFrame(draw);
-            graph.target.found = false;
+
         }
         // $('#data')[0].style.display = "none";
 

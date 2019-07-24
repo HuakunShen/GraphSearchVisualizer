@@ -105,10 +105,9 @@ export class MinHeap {
         let min = this.getMin();
         if (!min) {
             return null;
+        } else if (this.data.length === 1) {
+            return this.data.pop();
         } else {
-            if (this.isLeaf(0)) {
-                return this.data.pop();
-            }
             this.data[0] = this.data.pop();     // move last (max) element to root position
             this.minHeapify(0);           // swap element down until min heap is formed
             return min;
@@ -139,7 +138,7 @@ export class MinHeap {
     }
 
     isLeaf(index) {
-        return index >= this.data.length / 2 && index <= this.data.length;
+        return (index >= this.data.length / 2 && index <= this.data.length);
     }
 
     isEmpty() {
@@ -203,6 +202,10 @@ export class MinHeap {
                 + " RIGHT CHILD :" + this.data[2 * i + 1]);
             console.log();
         }
+    }
+
+    empty() {
+        this.data = [];
     }
 }
 
