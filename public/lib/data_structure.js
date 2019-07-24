@@ -131,7 +131,7 @@ export class MinHeap {
     insert(element) {
         this.data.push(element);
         let current_index = this.data.length - 1;
-        while (this.data[current_index] < this.data[this.getParentIndex(current_index)]) {
+        while (this.data[current_index] <= this.data[this.getParentIndex(current_index)]) {
             this.swap(current_index, this.getParentIndex(current_index));
             current_index = this.getParentIndex(current_index);
         }
