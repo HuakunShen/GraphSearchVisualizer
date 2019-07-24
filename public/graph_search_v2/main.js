@@ -27,8 +27,8 @@ function setup() {
         row_div.style.display = "flex";
         for (let col = 0; col < width; col++) {
             let cell_div = document.createElement("div");
-            cell_div.style.width = constant.cell_dimension + "px";
-            cell_div.style.height = constant.cell_dimension + "px";
+            cell_div.style.width = constant.cell_dimension + "em";
+            cell_div.style.height = constant.cell_dimension + "em";
             cell_div.setAttribute("data-row", row.toString());
             cell_div.setAttribute("data-col", col.toString());
             cell_div.style.backgroundColor = constant.UNDISCOVERED_COLOR;

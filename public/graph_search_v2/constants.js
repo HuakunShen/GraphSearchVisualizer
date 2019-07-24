@@ -1,4 +1,4 @@
-export const cell_dimension = 20;
+export const cell_dimension = 2;
 export const WALL_COLOR = "rgb(52, 152, 219)";
 export const CLEAR_COLOR = "rgb(255, 255, 255)";
 export const UNDISCOVERED_COLOR = "rgb(255, 255, 255)";
