@@ -9,6 +9,8 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/graph_search_v2/main.css">
     <link rel="stylesheet" href="/graph_search_v2/slidebar.css">
+    <!--    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>-->
+
 </head>
 <body>
 <div class="page-container">
@@ -47,7 +49,6 @@
         </div>
 
     </div>
-
 
 
     <div class="main-container column">
@@ -123,13 +124,27 @@
         </div>
         <br>
         <a href="https://github.com/HuakunShen/GraphSearchVisualizer_Web" target="_blank">Source Code</a>
+        <div id="description">
+            <b>BFS: Breadth First Search</b><br>
+            <p><strong>Worst-Case Time Complexity: </strong>$$O(|V|+|E|)=O(b^d)$$</p>
+            <p><strong>Worst-Case Space Complexity: </strong>$$O(|V|)=O(b^d)$$</p>
+
+            <b>DFS: Depth First Search</b><br>
+            <p><strong>Worst-Case Time Complexity: </strong>$$O(|V|+|E|)=O(b^d)$$</p>
+            <p><strong>Worst-Case Space Complexity: </strong>$$O(|V|)=O(bd)$$</p>
+
+            <b>A*: A Star Search</b><br>
+            <p><strong>Worst-Case Time Complexity: </strong>$$O(|E|)=O(b^d)$$</p>
+            <p><strong>Worst-Case Space Complexity: </strong>$$O(|V|)=O(b^d)$$</p>
+        </div>
     </div>
-<!--    <div id="data-container" class="column side">-->
-<!--        <h2>Statistics</h2>-->
-<!--        <div id="data-content"></div>-->
-<!--    </div>-->
+    <!--    <div id="data-container" class="column side">-->
+    <!--        <h2>Statistics</h2>-->
+    <!--        <div id="data-content"></div>-->
+    <!--    </div>-->
 </div>
-<script src="/lib/p5.js"></script>
+<!--<script src="/lib/p5.js"></script>-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

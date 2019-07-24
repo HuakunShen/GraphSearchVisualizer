@@ -1,66 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>CSS Website Layout</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    <title>MathJax Dynamic Math Test Page</title>
 
-        body {
-            margin: 0;
-        }
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [["$","$"],["\\(","\\)"]]
+    }
+  });
+</script>
+    <script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full">
+    </script>
 
-
-        /* Create three unequal columns that floats next to each other */
-        .column {
-            float: left;
-            padding: 10px;
-        }
-
-        /* Left and right column */
-        .column.side {
-            width: 25%;
-        }
-
-        /* Middle column */
-        .column.middle {
-            width: 50%;
-        }
-
-        /* Clear floats after the columns */
-
-
-        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-        @media screen and (max-width: 600px) {
-            .column.side, .column.middle {
-                width: 100%;
-            }
-        }
-    </style>
 </head>
 <body>
 
+<script>
+    //
+    //  Use a closure to hide the local variables from the
+    //  global namespace
+    //
+    (function () {
+        var QUEUE = MathJax.Hub.queue;  // shorthand for the queue
+        var math = null;                // the element jax for the math output.
 
+        //
+        //  Get the element jax when MathJax has produced it.
+        //
+        QUEUE.Push(function () {
+            math = MathJax.Hub.getAllJax("MathOutput")[0];
+        });
 
-<div class="row">
-    <div class="column side">
-        <h2>Side</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-    </div>
+        //
+        //  The onchange event handler that typesets the
+        //  math entered by the user
+        //
+        window.UpdateMath = function (TeX) {
+            QUEUE.Push(["Text",math,"\\displaystyle{"+TeX+"}"]);
+        }
+    })();
+</script>
 
-    <div class="column middle">
-        <h2>Main Content</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
-    </div>
+Type some TeX code:
+<input id="MathInput" size="50" onchange="UpdateMath(this.value)" />
+<p>
 
-    <div class="column side">
-        <h2>Side</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-    </div>
+<div id="MathOutput">
+    You typed: ${}$
 </div>
 
 </body>
