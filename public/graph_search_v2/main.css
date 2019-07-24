@@ -33,6 +33,16 @@ html body {
     border: 2px solid black;
 }
 
+#description {
+    width: 100%;
+    position: relative;
+    text-align: left;
+    padding-left: 10%;
+    /*padding-right: 20%;*/
+    margin-top: 3em;
+    /*height: 50px;*/
+}
+
 #defaultCanvas0 {
     display: inline-block;
 }

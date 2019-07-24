@@ -191,9 +191,32 @@ function initialize() {
 
         }
         // $('#data')[0].style.display = "none";
-
-
     };
+
+    // let algos = Array.from($("input[name='search_algo']"));
+    // algos.forEach((input) => {
+    //     input.oninput = function() {
+    //         const value = input.value;
+    //
+    //         switch (value) {
+    //             case "BFS":
+    //                 $("#description")[0].innerHTML = constant.BFS_DESCRIPTION;
+    //                 break;
+    //             case "DFS":
+    //                 $("#description")[0].innerHTML = constant.DFS_DESCRIPTION;
+    //                 break;
+    //             case "A*":
+    //                 $("#description")[0].innerHTML = constant.A_STAR_DESCRIPTION;
+    //                 break;
+    //             default:
+    //         }
+    //         const head= document.getElementsByTagName('head')[0];
+    //         const script= document.createElement('script');
+    //         script.src= '\'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML\'';
+    //         // head.innerHTML = head.innerHTML + '<script src=\'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML\' async></script>';
+    //         head.appendChild(script);
+    //     }
+    // });
 
     $('#random_btn')[0].onclick = function () {
         let randomness = prompt("Enter Randomness of Wall (0-100)", "30");
@@ -244,4 +267,6 @@ function initialize() {
             interval = 1000 / fps;
         }
     };
+
+    // $("#description")[0].innerHTML = constant.BFS_DESCRIPTION;
 }
