@@ -16,8 +16,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/graph_search_v2/main.html'));
 });
 
-app.get('/v3', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/graph_search_v3/app.html'));
+app.get('/math_equation', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/realtime_math_equation/main.html'));
 });
 
 
