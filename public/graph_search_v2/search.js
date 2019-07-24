@@ -5,7 +5,7 @@ import * as helper from "./helper_functions.js";
 export default class Search {
     constructor(graph, mode) {
         console.log("search created " + mode);
-
+        this.mode = mode;
         // this.graph = graph;
         // this.total_searched = 0;
         switch (mode) {
@@ -13,7 +13,8 @@ export default class Search {
                 this.data = {
                     graph: graph,
                     total_searched: 0,   // source node is the first one
-                    total_discovered: 1
+                    total_discovered: 1,
+                    path_length: 0
                 };
                 this.search_algo = new BFS(this.data);
                 console.log("BFS Created");
@@ -22,14 +23,21 @@ export default class Search {
                 this.data = {
                     graph: graph,
                     total_searched: 0,   // source node is the first one
-                    total_discovered: 1
+                    total_discovered: 1,
+                    path_length: 0
                 };
                 this.search_algo = new DFS(this.data);
                 console.log("DFS Created");
                 break;
             case "A*":
-
+                this.data = {
+                    graph: graph,
+                    path_length: 0,
+                };
+                this.search_algo = new A_Star(this.data);
+                console.log("A* Search Created");
                 break;
+
             default:
 
         }
@@ -89,6 +97,8 @@ class BFS {
             // backtrace the path
             if (this.graph.target.found === true) {
                 if (this.current_cell.parent != null) {
+                    this.data.path_length++;
+                    // console.log("path length: " + this.data.path_length);
                     this.current_cell = this.current_cell.parent;
                 }
                 if (this.current_cell !== this.graph.source) {
@@ -119,15 +129,15 @@ class DFS {
     }
 
     step() {
-        if (! this.graph.target.found) {
+        if (!this.graph.target.found) {
             let next_cell = this.found_nextCell();
-            if(next_cell === undefined){
+            if (next_cell === undefined) {
                 return true;
             }
-            if(next_cell.moves === undefined){
+            if (next_cell.moves === undefined) {
                 next_cell.curMove = 0;
             }
-            console.log(this.current_cell,this.graph.target)
+            console.log(this.current_cell, this.graph.target);
             if (next_cell === this.graph.target) {
                 next_cell.parent = this.current_cell;
                 next_cell.distance = this.current_cell.distance + 1;
@@ -157,6 +167,8 @@ class DFS {
             // backtrace the path
             if (this.graph.target.found === true) {
                 if (this.current_cell.parent != null) {
+                    this.data.path_length++;
+                    console.log("path length: " + this.data.path_length);
                     this.current_cell = this.current_cell.parent;
                 }
                 if (this.current_cell !== this.graph.source) {
@@ -172,15 +184,15 @@ class DFS {
         return false;
     }
 
-    found_nextCell(){
+    found_nextCell() {
         let next_cell = undefined;
-        while(!next_cell){
-            while(this.current_cell.curMove < 4 && next_cell === undefined){
+        while (!next_cell) {
+            while (this.current_cell.curMove < 4 && next_cell === undefined) {
                 console.log(this.current_cell.curMove);
-                next_cell = helper.moveByDir(this.graph,this.current_cell);
+                next_cell = helper.moveByDir(this.graph, this.current_cell);
             }
-            if(this.current_cell.curMove === 4 && next_cell === undefined){
-                if(this.current_cell.parent === undefined){
+            if (this.current_cell.curMove === 4 && next_cell === undefined) {
+                if (this.current_cell.parent === undefined) {
                     return undefined;
                 }
                 this.current_cell = this.current_cell.parent;
@@ -190,6 +202,91 @@ class DFS {
         return next_cell;
         // return helper.getLegalCellsAround(this.graph, this.current_cell)[0];
 
+    }
+}
+
+class A_Star {
+    // only based on heuristic cost
+    constructor(data) {
+        this.data = data;
+        this.graph = data.graph;
+        this.frontier = new data_structure.MinHeap();
+        this.frontier.insert(this.graph.source);
+        this.heuristic = helper.manhattanDistance;
+        this.graph.initializeA_StarCellCost();
+        this.graph.source.g_val = 0;
+        this.graph.source.cost = this.heuristic(this.graph.source, this.graph.target);
+        this.current_cell = this.graph.source;
+        this.discoveredList = [];
+    }
+
+    step() {
+        if (!this.graph.target.found && !this.frontier.isEmpty()) {
+
+            this.current_cell = this.frontier.extractMin();
+            this.colorPath();
+            if (this.current_cell === this.graph.target) {
+                this.graph.target.found = true;
+            } else {
+                const cells_around = helper.getCellsAround(this.graph, this.current_cell);
+                cells_around.forEach((neighbor) => {
+                    // here, cost is just heuristic cost, not real cost taken
+                    if (neighbor.parent !== this.current_cell) {
+                        if (neighbor !== this.graph.source) {}
+                        neighbor.update(constant.DISCOVERED_COLOR);
+                        this.discoveredList.push(neighbor);
+                        let tentative_g_val = this.current_cell.g_val + 1;       // assume cost/distance between two neighboring cells is 1
+                        if (tentative_g_val < neighbor.g_val) {
+                            // cheaper to take this path
+                            neighbor.g_val = tentative_g_val;
+                            neighbor.cost = neighbor.g_val + this.heuristic(neighbor, this.graph.target);
+                            if (!this.frontier.includes(neighbor)) {
+                                this.frontier.insert(neighbor);
+                                neighbor.parent = this.current_cell;
+
+                            }
+                        }
+                        neighbor.cost = this.heuristic(neighbor, this.graph.target) + neighbor.g_val;
+
+                        this.frontier.insert(neighbor);
+                    }
+
+                });
+            }
+
+
+
+        } else {
+            // backtrace the path
+            return true;
+            if (this.graph.target.found === true) {
+                if (this.current_cell.parent != null) {
+                    this.data.path_length++;
+                    console.log("path length: " + this.data.path_length);
+                    this.current_cell = this.current_cell.parent;
+                }
+                if (this.current_cell !== this.graph.source) {
+                    this.current_cell.update(constant.PATH_COLOR);
+                } else {
+                    this.path_complete = true;
+                    return true;
+                }
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    colorPath() {
+        this.discoveredList.forEach((cell) => {
+            cell.update(constant.DISCOVERED_COLOR);
+        });
+        let curr_cell = this.current_cell;
+        while (curr_cell !== this.graph.source) {
+            curr_cell.update(constant.PATH_COLOR);
+            curr_cell = curr_cell.parent;
+        }
     }
 }
 
@@ -219,6 +316,6 @@ export class Cell {
 
 }
 
-Cell.prototype.valueOf = function() {
+Cell.prototype.valueOf = function () {
     return this.cost;
 };

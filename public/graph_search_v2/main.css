@@ -96,11 +96,6 @@ button {
     top: 100px;
 }
 
-#data-container div {
-    width: 75%;
-    padding: 10%;
-}
-
 #data-container p {
     text-align: left;
 }
@@ -147,6 +142,13 @@ p {
     /*text-align: left;*/
     display: inline-block;
     text-align: center;
+}
+
+#data-content {
+    overflow: auto;
+    height: 300px;
+    width: 75%;
+    display: inline-block;
 }
 
 #apply_setting {

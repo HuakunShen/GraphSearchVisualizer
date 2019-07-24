@@ -1,7 +1,7 @@
 import * as constant from "./constants.js";
 import Search, {Cell} from "./search.js";
 import Graph from "./graph.js";
-// import * as helper from './helper_functions.js';
+import * as helper from './helper_functions.js';
 
 let search, graph, mouse_is_down, requestId;
 let game_active = false;
@@ -59,13 +59,7 @@ function draw(timeStamp) {
                 if (!graph.target.found) {
                     alert("Target Cannot Be Reached");
                 }
-                const data_display = $("#data-container p");
-                // data_display.style.display = "inline-block";
-                data_display[0].innerHTML = "Total Searched: " + search.data.total_searched;
-                if (search.data.total_discovered != null) {
-                    console.log("total discovered: " + search.data.total_discovered);
-                    data_display[1].innerHTML = "Total Discovered: " + search.data.total_discovered;
-                }
+                helper.appendStat(search);
             }
             if (!game_animation) {
                 game_active = false;
@@ -74,6 +68,8 @@ function draw(timeStamp) {
         last = timeStamp + interval;
     }
 }
+
+
 
 function setupCellDiv(cell_div) {
     cell_div.onclick = function (event) {
@@ -184,9 +180,10 @@ function initialize() {
             graph.source.distance = 0;
             graph.source.div.innerText = graph.source.distance;
             requestId = requestAnimationFrame(draw);
+            graph.target.found = false;
         }
         // $('#data')[0].style.display = "none";
-        graph.target.found = false;
+
 
     };
 
