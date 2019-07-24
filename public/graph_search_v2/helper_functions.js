@@ -49,6 +49,30 @@ export function getLegalCellsAround(graph, current_cell) {
     return legal_cells;
 }
 
+export function getCellsAround(graph, current_cell) {
+    const tmp = [-1, 1];
+    const board = graph.board;
+    const curr_row = current_cell.row;
+    const curr_col = current_cell.col;
+    let cells = [];
+    // const legal_color = [constant.UNDISCOVERED_COLOR, constant.TARGET_COLOR];
+    // row
+    tmp.forEach((offset) => {
+        const new_row = curr_row + offset;
+        if (new_row >= 0 && new_row < board.length) {
+            cells.push(board[new_row][curr_col]);
+        }
+    });
+    // col
+    tmp.forEach((offset) => {
+        const new_col = curr_col + offset;
+        if (new_col >= 0 && new_col < board[0].length) {
+            cells.push(board[curr_row][new_col]);
+        }
+    });
+    return cells;
+}
+
 export function moveByDir(graph, current_cell) {
     const board = graph.board;
     const curr_row = current_cell.row;
@@ -116,6 +140,10 @@ export function createElement(tag, msg = null) {
 export function scrollToBottom(element_id) {
     let objDiv = document.getElementById(element_id);
     objDiv.scrollTop = objDiv.scrollHeight;
+}
+
+export function manhattanDistance(cell1, cell2) {
+    return Math.abs(cell2.row - cell1.row) + Math.abs(cell2.col - cell1.col);
 }
 
 // export function appendParagraph(message) {

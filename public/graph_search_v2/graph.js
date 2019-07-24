@@ -51,5 +51,12 @@ export default class Graph {
         });
     }
 
-
+    initializeA_StarCellCost(value=Infinity) {
+        this.board.forEach((row) => {
+            row.forEach((cell) => {
+                cell.g_val = value;
+                cell.cost = value;
+            });
+        });
+    }
 }

@@ -163,6 +163,15 @@ export class MinHeap {
         return true;
     }
 
+    includes(element) {
+        this.data.forEach((ele) => {
+            if (ele === element) {
+                return true;
+            }
+        });
+        return false;
+    }
+
     test(sample_size = 100) {
         // let heap = new MinHeap();
         // Test Insert
