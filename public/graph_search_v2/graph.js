@@ -49,6 +49,8 @@ export default class Graph {
                 cell.div.innerText = "";
             });
         });
+        source.div.innerText = "";
+        target.div.innerText = "";
     }
 
     initializeA_StarCellCost(value=Infinity) {
@@ -56,6 +58,8 @@ export default class Graph {
             row.forEach((cell) => {
                 cell.g_val = value;
                 cell.cost = value;
+                cell.parent = null;
+
             });
         });
     }
