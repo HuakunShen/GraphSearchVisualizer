@@ -221,9 +221,12 @@ function initialize() {
     $('#animation')[0].onclick = function (event) {
         if (game_animation) {
             event.target.innerText = "Resume";
+            $("#step")[0].style.display = "inline-block";
+
             game_animation = false;
         } else {
             event.target.innerText = "Pause";
+            $("#step")[0].style.display = "none";
             game_animation = true;
             game_active = true;
         }
