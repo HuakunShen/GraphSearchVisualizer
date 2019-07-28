@@ -117,6 +117,11 @@ p {
 #simulator_speed {
     /*width: 500px;*/
     height: 15px;
+    display: inline-block;
+}
+
+.slide-container p {
+    display: inline-block;
 }
 
 .column {
@@ -139,6 +144,8 @@ p {
 }
 
 .slide-container {
+    text-align: center;
+    display: inline-block;
     width: 50%;
 }
 
