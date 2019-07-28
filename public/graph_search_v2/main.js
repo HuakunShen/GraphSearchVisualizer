@@ -154,7 +154,7 @@ function initialize() {
     };
     document.onmouseup = function (event) {
         mouse_is_down = false;
-        return false;
+        // return false;
     };
 //
 // board.ontouchmove = function (event) {
