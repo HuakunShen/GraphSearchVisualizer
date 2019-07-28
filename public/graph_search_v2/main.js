@@ -48,29 +48,35 @@ function setup() {
 
 
 function draw(timeStamp) {
-    requestId = requestAnimationFrame(draw);
-    if (timeStamp > last) {
-        if (game_active) {
-            let ret = search.step();
-            if (ret) {
-                // search done
-                game_active = false;
-                game_animation = false;
-                $('#step')[0].style.display = 'none';
-                $('#animation')[0].style.display = 'none';
-                $('#animation')[0].innerText = 'Animation';
-                $('#start_search')[0].style.display = 'inline-block';
-                cancelAnimationFrame(requestId);
-                if (!graph.target.found) {
-                    alert("Target Cannot Be Reached");
-                }
-                helper.appendStat(search);
-            }
-            if (!game_animation) {
-                game_active = false;
-            }
+    if (game_animation) {
+        if (fps > 90) {
+            move();
+        } else if (timeStamp > last) {
+            move();
+            last = timeStamp + interval;
         }
-        last = timeStamp + interval;
+    }
+    requestId = requestAnimationFrame(draw);
+
+    function move() {
+        let ret = search.step();
+        if (ret) {
+            // search done
+            game_active = false;
+            game_animation = false;
+            $('#step')[0].style.display = 'none';
+            $('#animation')[0].style.display = 'none';
+            $('#animation')[0].innerText = 'Animation';
+            $('#start_search')[0].style.display = 'inline-block';
+            cancelAnimationFrame(requestId);
+            if (!graph.target.found) {
+                alert("Target Cannot Be Reached");
+            }
+            helper.appendStat(search);
+        }
+        if (!game_animation) {
+            game_active = false;
+        }
     }
 }
 
@@ -260,6 +266,7 @@ function initialize() {
 
     slider.oninput = function () {
         output.innerHTML = this.value;
+        // console.log(fps);
         fps = this.value;
         if (this.value !== "" && this.value !== 0) {
             interval = 1000 / fps;
