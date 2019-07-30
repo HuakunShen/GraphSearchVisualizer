@@ -42,20 +42,23 @@ function setup() {
     }
 
     // for testing, set source and target beforehand
-    // graph.update(graph.board[0][0], constant.SOURCE_COLOR);
-    // graph.update(graph.board[10][10], constant.TARGET_COLOR);
+    graph.update(graph.board[0][0], constant.SOURCE_COLOR);
+    graph.update(graph.board[10][10], constant.TARGET_COLOR);
 }
 
 
 function draw(timeStamp) {
-    if (game_animation) {
-        if (fps > 90) {
+    if (game_active) {
+        if (game_animation && fps > 90) {
             move();
-        } else if (timeStamp > last) {
-            move();
-            last = timeStamp + interval;
+        } else {
+            if (timeStamp > last) {
+                move();
+                last = timeStamp + interval;
+            }
         }
     }
+
     requestId = requestAnimationFrame(draw);
 
     function move() {
