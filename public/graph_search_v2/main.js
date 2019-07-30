@@ -42,8 +42,8 @@ function setup() {
     }
 
     // for testing, set source and target beforehand
-    graph.update(graph.board[0][0], constant.SOURCE_COLOR);
-    graph.update(graph.board[10][10], constant.TARGET_COLOR);
+    // graph.update(graph.board[0][0], constant.SOURCE_COLOR);
+    // graph.update(graph.board[10][10], constant.TARGET_COLOR);
 }
 
 
