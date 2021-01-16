@@ -1,6 +1,6 @@
 # GraphSearchVisualizer_Web
 
-## https://graphsearchvisualizer.herokuapp.com/
+## https://huakunshen.github.io/GraphSearchVisualizer/
 
 A visualizer for BFS, DFS and A* search.
 
