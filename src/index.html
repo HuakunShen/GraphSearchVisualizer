@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Graph Search Visualizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css"
+          integrity="sha256-QVBN0oT74UhpCtEo4Ko+k3sNo+ykJFBBtGduw13V9vw=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+<div class="page-container">
+    <h1>Graph Searching Algorithm Visualizer</h1>
+    <p>Nerds: <a href="https://huakunwebsite.herokuapp.com/">Huakun Shen</a>, <a href="">Yujie Miao</a></p>
+    <div class="column side setting">
+        <div id="board-size-setting">
+            <h4>Board Size Setting</h4>
+            <div style="">
+                <form onsubmit="return false;">
+                    <div class="ui input">
+                        <input type="number" id="width_input" class="dimension-input" type="text" placeholder="Width">
+                    </div>
+                    <div class="ui input">
+                        <input type="number" id="height_input" class="dimension-input" type="text" placeholder="Height">
+                    </div>
+                    <br>
+                    <button id="apply_setting" type="submit" class="ui primary button" style="margin-left: 10px">
+                        Apply
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- slide bar-->
+        <br><br>
+        <h4>Simulator Speed</h4>
+        <div class="slide-container">
+            <input type="range" min="1" max="100" value="50" id="simulator_speed"><br>
+            <p>Frame Rate: <span id="speed_display"></span></p>
+        </div>
+        <br>
+        <div id="data-container">
+            <h2>Statistics</h2>
+            <div id="data-content"></div>
+        </div>
+
+    </div>
+
+
+    <div class="main-container column">
+        <!--Selecting mode-->
+        <div class="radio_btn_group_div">
+            <p style="display: inline-block;margin-right: 10px"><strong>Selecting Mode</strong></p>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="select_mode1" name="select_mode" class="custom-control-input" value="wall"
+                       checked="checked">
+                <label class="custom-control-label" for="select_mode1">Wall</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="select_mode2" name="select_mode" class="custom-control-input" value="clear">
+                <label class="custom-control-label" for="select_mode2">Clear</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="select_mode3" name="select_mode" class="custom-control-input" value="source">
+                <label class="custom-control-label" for="select_mode3">Source</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="select_mode4" name="select_mode" class="custom-control-input" value="target">
+                <label class="custom-control-label" for="select_mode4">Target</label>
+            </div>
+        </div>
+
+        <!--Search Method Selection-->
+        <div class="radio_btn_group_div">
+            <p style="display: inline-block;margin-right: 10px"><strong>Selecting Mode</strong></p>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="search_algo1" name="search_algo" class="custom-control-input" value="BFS"
+                       checked="checked">
+                <label class="custom-control-label" for="search_algo1">BFS</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="search_algo2" name="search_algo" class="custom-control-input" value="DFS">
+                <label class="custom-control-label" for="search_algo2">DFS</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="search_algo3" name="search_algo" class="custom-control-input" value="A*">
+                <label class="custom-control-label" for="search_algo3">A*</label>
+            </div>
+
+        </div>
+
+        <div id="control-button-group">
+            <button id="random_btn" type="submit" class="ui primary button"
+                    style="margin-left: 10px; margin-top: 10px;">
+                Random Walls
+            </button>
+
+            <button id="clear_board" type="submit" class="ui primary button"
+                    style="margin-left: 10px; margin-top: 10px;">
+                Clear Board
+            </button>
+            <!-- start search button -->
+            <button id="start_search" type="submit" class="ui primary button"
+                    style="margin-left: 10px; margin-top: 10px;">
+                Start Search
+            </button>
+            <!-- step -->
+            <button id="step" type="submit" class="ui primary button"
+                    style="margin-left: 10px; margin-top: 10px; display: none;">
+                Step
+            </button>
+            <button id="animation" type="submit" class="ui primary button"
+                    style="margin-left: 10px; margin-top: 10px; display: none;">
+                Animation
+            </button>
+        </div>
+
+        <div id="board-container">
+            <div id="board"></div>
+        </div>
+        <br>
+        <a href="https://github.com/HuakunShen/GraphSearchVisualizer_Web" target="_blank">Source Code</a>
+        <div id="description">
+            <b>BFS: Breadth First Search</b><br>
+            <p><strong>Worst-Case Time Complexity: </strong>$$O(|V|+|E|)=O(b^d)$$</p>
+            <p><strong>Worst-Case Space Complexity: </strong>$$O(|V|)=O(b^d)$$</p>
+
+            <b>DFS: Depth First Search</b><br>
+            <p><strong>Worst-Case Time Complexity: </strong>$$O(|V|+|E|)=O(b^d)$$</p>
+            <p><strong>Worst-Case Space Complexity: </strong>$$O(|V|)=O(bd)$$</p>
+
+            <b>A*: A Star Search</b><br>
+            <p><strong>Worst-Case Time Complexity: </strong>$$O(|E|)=O(b^d)$$</p>
+            <p><strong>Worst-Case Space Complexity: </strong>$$O(|V|)=O(b^d)$$</p>
+        </div>
+    </div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script type="module" src="./main.js"></script>
+
+
+</body>
+</html>
