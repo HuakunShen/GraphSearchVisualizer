@@ -22,6 +22,7 @@ User can
 9. `Clear Board` is used to reset the board.
 10. After a search is done, you could also restart search on the same map by clicking `Start Search`
 
-![1564165155875](./1564165155875.png)
 
-![1564165280897](./1564165280897.png)
+<img src="./README.md.assets/1564165155875.png" width="90%"/>
+<img src="./README.md.assets/1564165280897.png" width="50%"/>
+
